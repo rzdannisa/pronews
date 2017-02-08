@@ -34,9 +34,9 @@
       <div class="content-wrapper">
         <!-- Main content -->
         <section class="content">
-    <blockquote class="master_p">Master Post</blockquote>
+    <blockquote class="master_p">Edit Post</blockquote>
     <div class="master_post_content">
-      <form method="POST"  action="{{ url('manage_post/add_post') }}" enctype="multipart/form-data">
+      <form method="POST"  action="{{ url('manage_post/update_post') }}" enctype="multipart/form-data">
         <label for="exampleInputPassword1">Select a Type</label>
       <select id="selecttype" name="type_news_id" class="form-control">
       @foreach($type as $typee)
@@ -47,16 +47,17 @@
     <br>
         <div class="form-group">
           <label for="exampleInputPassword1">Title</label>
-          <input type="text" name="news_title" class="form-control" id="exampleInputEmail1" placeholder="Title" required/>
+          <input type="text" value="{{$posts->news_title}}" name="news_title" class="form-control" id="exampleInputEmail1" placeholder="Title" required/>
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
         </div>
     <br>
+    <input type="hidden" name="id" value="{{$posts->id}}">
         <div class="form-group">
           <label for="exampleInputPassword1">Content</label>
-          <textarea class="form-control ckeditor" id="editor1" name="news_desc" placeholder="Content" class="materialize-textarea" rows="6" required/></textarea>
+          <textarea class="form-control ckeditor" id="editor1" name="news_desc" placeholder="Content" class="materialize-textarea" rows="6" required/>{{$posts->news_desc}}</textarea>
         </div>
       <br><br>
-        <button type="submit" class="btn btn-default">Save Post</button>
+        <button type="submit" class="btn btn-default">Update Post</button>
       </form>
     </div>
 

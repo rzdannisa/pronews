@@ -76,4 +76,17 @@
         }
       });
       </script>
+
+<script type="text/javascript">
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+//             CKEDITOR.editorConfig = function( config ) {
+//   config.extraPlugins = 'uploadimage,image2';
+//   config.filebrowserImageUploadUrl = "{{route('upload',['_token' => csrf_token() ])}}";
+// }
+  
+</script>
 @endsection

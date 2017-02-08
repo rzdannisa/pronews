@@ -7,7 +7,7 @@
   config.extraPlugins = 'uploadimage,image2';
 
   config.imageUploadUrl = 'http://localhost:8000/uploadimagedrag';
-  config.filebrowserImageUploadUrl = 'http://localhost:8000/uploadimagefilebrowser';
+  config.filebrowserImageUploadUrl = 'http://localhost:8000/uploadimagefilebrowser?_token=IiJudZNCJ71nZQnWWCRBY0ZLTRARNuP32zFwb23f';
 
   config.image2_alignClasses = [ 'image-align-left', 'image-align-center', 'image-align-right' ];
   config.toolbar = [

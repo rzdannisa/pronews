@@ -15,7 +15,7 @@
     @endif
     
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <meta name="csrf_token" content="{{ csrf_token() }}" />
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
         <link rel="stylesheet" href="{{ url('adminlte/bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ url('adminlte/font-awesome/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -52,7 +52,7 @@
         <script src="{{ url('adminlte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
         <script src="{{ url('adminlte/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
         <script src="{{ url('adminlte/plugins/chartjs/Chart.min.js') }}"></script>
-    
+        
     </head>
     
         <body>

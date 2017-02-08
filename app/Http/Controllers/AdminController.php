@@ -25,6 +25,19 @@ class AdminController extends Controller
     	session_start();
     	if(!empty(session('type')))
     	{
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+
+            $name = \App\ms_user::where('name',$name)->count();
+            if(!empty($name)){
+                return redirect(url('manage_user/master_user'))->with('error', 'Name can not be same !');
+            }
+            else{
+            $email = \App\ms_user::where('email',$email)->count();
+            if(!empty($email)){
+                return redirect(url('manage_user/master_user'))->with('error', 'Email can not be same !');
+            }
+            else{
     		$post = new \App\ms_user;
     		$post->email = Input::get("email");
 	        $post->name = Input::get('name');
@@ -36,10 +49,11 @@ class AdminController extends Controller
 	        $post->last_modify_date = date('Y-m-d H:i:s');
 	        $post->save();
 
-        	return redirect(url('manage_user/master_user'))->with('status', 'Successfully added user !');
+        	return redirect(url('manage_user/master_user'))->with('status', 'Successfully add user !');
+            }
     	}
+        }
     }
-
     public function page_edit_user()
     {
     	session_start();
@@ -81,7 +95,7 @@ class AdminController extends Controller
 	        $post->last_modify_date = date('Y-m-d H:i:s');
 	        $post->save();
 
-        	return redirect(url('manage_user/page_edit_user'))->with('status', 'Successfully updated user !');
+        	return redirect(url('manage_user/page_edit_user'))->with('status', 'Successfully update user !');
     	}
     }
 
@@ -94,7 +108,7 @@ class AdminController extends Controller
 	        $post->status = 'D';
 	        $post->save();
 
-        	return redirect(url('manage_user/page_edit_user'))->with('status', 'Successfully deleted user !');
+        	return redirect(url('manage_user/page_edit_user'))->with('status', 'Successfully delete user !');
     	}
     }
 
@@ -124,7 +138,7 @@ class AdminController extends Controller
             $post->last_modify_date = date('Y-m-d H:i:s');
             $post->save();
 
-            return redirect(url('manage_type_news/master_type_news'))->with('status', 'Successfully added type news !');
+            return redirect(url('manage_type_news/master_type_news'))->with('status', 'Successfully add type news !');
         }
     }
 
@@ -154,7 +168,7 @@ class AdminController extends Controller
             $post->last_modify_date = date('Y-m-d H:i:s');
             $post->save();
 
-            return redirect(url('manage_type_news/master_type_news'))->with('status', 'Successfully updated type news !');
+            return redirect(url('manage_type_news/master_type_news'))->with('status', 'Successfully update type news !');
         }
     }
 
@@ -167,7 +181,7 @@ class AdminController extends Controller
             $post->status = 'D';
             $post->save();
 
-            return redirect(url('manage_type_news/master_type_news'))->with('status', 'Successfully deleted type news !');
+            return redirect(url('manage_type_news/master_type_news'))->with('status', 'Successfully delete type news !');
         }
     }
 
@@ -198,7 +212,7 @@ class AdminController extends Controller
             $post->last_modify_date = date('Y-m-d H:i:s');
             $post->save();
 
-            return redirect(url('manage_sub_type_news/master_sub_type_news'))->with('status', 'Successfully added type news !');
+            return redirect(url('manage_sub_type_news/master_sub_type_news'))->with('status', 'Successfully add type news !');
         }
     }
 
@@ -230,7 +244,7 @@ class AdminController extends Controller
             $post->last_modify_date = date('Y-m-d H:i:s');
             $post->save();
 
-            return redirect(url('manage_sub_type_news/master_sub_type_news'))->with('status', 'Successfully updated type news !');
+            return redirect(url('manage_sub_type_news/master_sub_type_news'))->with('status', 'Successfully update type news !');
         }
     }
 
@@ -243,7 +257,7 @@ class AdminController extends Controller
             $post->status = 'D';
             $post->save();
 
-            return redirect(url('manage_sub_type_news/master_sub_type_news'))->with('status', 'Successfully deleted type news !');
+            return redirect(url('manage_sub_type_news/master_sub_type_news'))->with('status', 'Successfully delete type news !');
         }
     }
 
@@ -300,7 +314,7 @@ class AdminController extends Controller
             $post->last_modify_date = date('Y-m-d H:i:s');
             $post->save();
 
-            return redirect(url('manage_post/my_post'))->with('status', 'Successfully added type news !');
+            return redirect(url('manage_post/my_post'))->with('status', 'Successfully add post !');
         }
     }
 
@@ -309,10 +323,9 @@ class AdminController extends Controller
         session_start();
         if(!empty(session('type')))
         {
-            $type_newss  = \App\type_news::where('status', 'A')->get();
-            $sub_typee_news = \App\news::find($id);
-            $posts = \App\sub_type::where('status', 'A')->get();
-            return view('admin.manage_post.edit_post')->with('sub_typee_news', $sub_typee_news)->with('posts', $posts)->with('type_newss',$type_newss);
+            $type  = \App\type_news::where('status', 'A')->get();
+            $posts = \App\news::find($id);
+            return view('admin.manage_post.edit_post')->with('type', $type)->with('posts', $posts)->with('status', 'Successfully update news !');
         }else{
             return redirect('login');
         }
@@ -324,15 +337,15 @@ class AdminController extends Controller
         if(!empty(session('type')))
         {
             $post = \App\news::find(Input::get('id'));
-            $post->name = Input::get('name');
+            $post->news_title = Input::get('news_title');
+            $post->news_desc = Input::get('news_desc');
+            $post->slug = Input::get('news_title');
             $post->type_news_id = Input::get('type_news_id');
-            $post->status = 'A';
             $post->modify_user_id = session('iduser');
-            $post->created_date = date('Y-m-d H:i:s');
             $post->last_modify_date = date('Y-m-d H:i:s');
             $post->save();
 
-            return redirect(url('manage_post/master_post'))->with('status', 'Successfully updated type news !');
+            return redirect(url('manage_post/my_post'))->with('status', 'Successfully update post !');
         }
     }
 
@@ -345,7 +358,36 @@ class AdminController extends Controller
             $post->status = 'D';
             $post->save();
 
-            return redirect(url('manage_post/master_post'))->with('status', 'Successfully deleted type news !');
+            return redirect(url('manage_post/my_post'))->with('status', 'Successfully delete post !');
+        }
+    }
+
+    public function edit_profile()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $users  = \App\ms_user::where('id', session('iduser'))->first();
+            return view('admin.manage_setting.edit_profile')->with('users', $users);
+        }else{
+            return redirect('login');
+        }
+    }
+
+    public function update_profile()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = \App\ms_user::find(Input::get('id'));
+            $post->name = Input::get('name');
+            $post->email = Input::get('email');
+            $post->password = Input::get('password');
+            $post->modify_user_id = session('iduser');
+            $post->last_modify_date = date('Y-m-d H:i:s');
+            $post->save();
+
+            return redirect(url('manage_setting/edit_profile'))->with('status', 'Successfully update profile !');
         }
     }
 

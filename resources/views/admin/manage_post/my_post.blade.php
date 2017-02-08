@@ -28,6 +28,11 @@
     <div class="content-wrapper">
       <section class="content">
         <div class="admin-seacrh"></div>
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
         <div style="width:95%;margin:auto" class="box">
           <div class="box-header">
             <h3 class="box-title">All Post</h3>
@@ -70,11 +75,11 @@
                         <i style="font-size:24px;margin-right:20px;" class="fa fa-pencil-square-o"></i>
                       </a>
                     </label>
-                    <label>
-                      <a href="{{ url('manage_post/delete_post/'.$posts->id) }}">
-                        <i style="font-size:24px;color:rgb(202, 65, 65)" class="fa fa-trash"></i>
-                      </a>
-                    </label>
+                    <form style="display: inline-table;" method="POST" action="{{ url('manage_post/delete_post') }}">
+                          <input type="hidden" name="id" value="{{$posts->id}}">
+                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                          <button style="border:none;color: #3c8dbc; background-color: white;" type="submit"><i style="font-size:20px;margin:0px " class="fa fa-trash"></i></button>
+                        </form>
                   </td>
                 </tr>
                     @endforeach

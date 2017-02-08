@@ -64,8 +64,8 @@ Route::group(['prefix'=>'manage_post'], function(){
 
 Route::group(['prefix'=>'manage_setting'], function(){
     Route::get('edit_profile', 'AdminController@edit_profile');
-    Route::get('update_profile', 'AdminController@update_profile');
+    Route::post('update_profile', 'AdminController@update_profile');
 });
 
 Route::post('uploadimagedrag', 'ImageController@uploadDragAndDropCKEDITOR');
-Route::post('uploadimagefilebrowser', 'ImageController@uploadFileBrowserCKEDITOR');
+Route::post('uploadimagefilebrowser', ['as'=>'upload','uses'=>'ImageController@uploadFileBrowserCKEDITOR']);

@@ -44,6 +44,11 @@
                 {{ session('status') }}
             </div>
         @endif
+            @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
               <div style="width:95%;margin:auto;" class="box box-default collapsed-box box-solid">
                 <div class="box-header with-border">
                   <h3 class="box-title">Master User</h3>
