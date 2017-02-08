@@ -78,7 +78,7 @@
                     <form style="display: inline-table;" method="POST" action="{{ url('manage_post/delete_post') }}">
                           <input type="hidden" name="id" value="{{$posts->id}}">
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                          <button style="border:none;color: #3c8dbc; background-color: white;" type="submit"><i style="font-size:20px;margin:0px " class="fa fa-trash"></i></button>
+                          <button style="border:none;color: #3c8dbc; background-color: white;" type="submit"><i style="font-size:24px;margin:0px " class="fa fa-trash"></i></button>
                         </form>
                   </td>
                 </tr>

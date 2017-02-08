@@ -43,6 +43,11 @@
                 {{ session('status') }}
             </div>
         @endif
+            @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
             <div style="width:85%;margin:auto" class="box box-primary">
                 <div class="box-header with-border">
                   <h3 class="box-title">Edit Profile</h3>
@@ -75,6 +80,17 @@
                     <label for="exampleInputPassword1">Password</label>
                     <input value="{{ $users->password }}" type="password" name="password" class="form-control not-res" maxlength="20" placeholder="Password" required/>
                   </div>
+                  @if(!empty($users->photo))
+                  <img style="max-height: 150px;max-width: 150px;" src="{{ url('photo_profile/'.$users->photo) }}">
+                  @else
+                  <span>Upload your photo profile now!</span>
+                  @endif
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Photo Profile</label>
+                    <input type="file" name="photo" value="{{$users->photo}}" class="form-control not-res"  placeholder="Photo"
+                    required/>
+                  </div>
+              
 
                   <br>
                   </div><!-- /.box-body -->

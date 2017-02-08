@@ -6,14 +6,22 @@
           <div style="height:70px" class="user-panel">
             <div class="pull-left image">
 
-              <img src="{{ url('img/user.png') }}" class="img-circle" alt="User Image">
+               @foreach($auth as $user)
+
+                  @if(!empty($user->photo))
+                  <img src="{{ url('photo_profile/'.$user->photo) }}" class="img-circle" alt="User Image">
+                  @else
+                  <img src="{{ url('img/user.png') }}" class="img-circle" alt="User Image">
+                  @endif
 
             </div>
             <div class="pull-left info">
-            <p>{{ session('name') }}</p>
+            <p>{{ $user->name }}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
+
+              @endforeach
 
           @if(!empty(session('type')))
           @if(session('idtype') == '1')

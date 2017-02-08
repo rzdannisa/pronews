@@ -7,14 +7,28 @@ use Illuminate\Support\Facades\Input;
 
 class AdminController extends Controller
 {
+
+    public function welcome_admin()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
+            return view('admin.admin')->with('auth',$auth);
+        }else{
+            return redirect('login');
+        }
+    }
+
     public function manage_user()
     {
     	session_start();
     	if(!empty(session('type')))
     	{
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
     		$alluser = \App\ms_user::where('status', 'A')->get();
     		$user_type = \App\user_type::where('status', 'A')->get();
-    		return view('admin.manage_user.master_user')->with('alluser', $alluser)->with('user_type', $user_type);
+    		return view('admin.manage_user.master_user')->with('alluser', $alluser)->with('user_type', $user_type)->with('auth',$auth);
     	}else{
     		return redirect('login');
     	}
@@ -59,8 +73,9 @@ class AdminController extends Controller
     	session_start();
     	if(!empty(session('type')))
     	{
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
     		$alluser = \App\ms_user::where('status', 'A')->where('user_type_id', '2')->get();
-    		return view('admin.manage_user.page_edit_user')->with('alluser', $alluser);
+    		return view('admin.manage_user.page_edit_user')->with('alluser', $alluser)->with('auth',$auth);
     	}else{
     		return redirect('login');
     	}
@@ -71,9 +86,10 @@ class AdminController extends Controller
     	session_start();
     	if(!empty(session('type')))
     	{
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
     		$user = \App\ms_user::find($id);
     		$user_type = \App\user_type::where('status', 'A')->get();
-    		return view('admin.manage_user.edit_user')->with('user', $user)->with('user_type', $user_type);
+    		return view('admin.manage_user.edit_user')->with('user', $user)->with('user_type', $user_type)->with('auth',$auth);
     	}else{
     		return redirect('login');
     	}
@@ -104,6 +120,7 @@ class AdminController extends Controller
     	session_start();
     	if(!empty(session('type')))
     	{
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
     		$post = \App\ms_user::find(Input::get('id'));
 	        $post->status = 'D';
 	        $post->save();
@@ -118,8 +135,9 @@ class AdminController extends Controller
         session_start();
         if(!empty(session('type')))
         {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
             $type_newss = \App\type_news::where('status', 'A')->get();
-            return view('admin.manage_type_news.master_type_news')->with('type_newss', $type_newss);
+            return view('admin.manage_type_news.master_type_news')->with('type_newss', $type_newss)->with('auth',$auth);
         }else{
             return redirect('login');
         }
@@ -147,9 +165,10 @@ class AdminController extends Controller
         session_start();
         if(!empty(session('type')))
         {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
             $type_news = \App\type_news::find($id);
             $type_newss = \App\type_news::where('status', 'A')->get();
-            return view('admin.manage_type_news.edit_type_news')->with('type_news', $type_news)->with('type_newss', $type_newss);
+            return view('admin.manage_type_news.edit_type_news')->with('type_news', $type_news)->with('type_newss', $type_newss)->with('auth',$auth);
         }else{
             return redirect('login');
         }
@@ -190,9 +209,10 @@ class AdminController extends Controller
         session_start();
         if(!empty(session('type')))
         {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
             $type_newss  = \App\type_news::where('status', 'A')->get();
             $sub_type_newss = \App\sub_type::where('status', 'A')->get();
-            return view('admin.manage_sub_type_news.master_sub_type_news')->with('sub_type_newss', $sub_type_newss)->with('type_newss',$type_newss);
+            return view('admin.manage_sub_type_news.master_sub_type_news')->with('sub_type_newss', $sub_type_newss)->with('type_newss',$type_newss)->with('auth',$auth);
         }else{
             return redirect('login');
         }
@@ -221,10 +241,11 @@ class AdminController extends Controller
         session_start();
         if(!empty(session('type')))
         {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
             $type_newss  = \App\type_news::where('status', 'A')->get();
             $sub_typee_news = \App\sub_type::find($id);
             $sub_type_newss = \App\sub_type::where('status', 'A')->get();
-            return view('admin.manage_sub_type_news.edit_sub_type_news')->with('sub_typee_news', $sub_typee_news)->with('sub_type_newss', $sub_type_newss)->with('type_newss',$type_newss);
+            return view('admin.manage_sub_type_news.edit_sub_type_news')->with('sub_typee_news', $sub_typee_news)->with('sub_type_newss', $sub_type_newss)->with('type_newss',$type_newss)->with('auth',$auth);
         }else{
             return redirect('login');
         }
@@ -266,8 +287,9 @@ class AdminController extends Controller
         session_start();
         if(!empty(session('type')))
         {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
             $post  = \App\news::where('status', 'A')->get();
-            return view('admin.manage_post.all_post')->with('post', $post);
+            return view('admin.manage_post.all_post')->with('post', $post)->with('auth',$auth);
         }else{
             return redirect('login');
         }
@@ -278,8 +300,9 @@ class AdminController extends Controller
         session_start();
         if(!empty(session('type')))
         {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
             $type  = \App\type_news::where('status', 'A')->get();
-            return view('admin.manage_post.post_news')->with('type', $type);
+            return view('admin.manage_post.post_news')->with('type', $type)->with('auth',$auth);
         }else{
             return redirect('login');
         }
@@ -290,8 +313,9 @@ class AdminController extends Controller
         session_start();
         if(!empty(session('type')))
         {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
             $post  = \App\news::where('status', 'A')->where('modify_user_id', session('iduser'))->get();
-            return view('admin.manage_post.my_post')->with('post', $post);
+            return view('admin.manage_post.my_post')->with('post', $post)->with('auth',$auth);
         }else{
             return redirect('login');
         }
@@ -323,9 +347,10 @@ class AdminController extends Controller
         session_start();
         if(!empty(session('type')))
         {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
             $type  = \App\type_news::where('status', 'A')->get();
             $posts = \App\news::find($id);
-            return view('admin.manage_post.edit_post')->with('type', $type)->with('posts', $posts)->with('status', 'Successfully update news !');
+            return view('admin.manage_post.edit_post')->with('type', $type)->with('posts', $posts)->with('status', 'Successfully update news !')->with('auth',$auth);
         }else{
             return redirect('login');
         }
@@ -367,8 +392,9 @@ class AdminController extends Controller
         session_start();
         if(!empty(session('type')))
         {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
             $users  = \App\ms_user::where('id', session('iduser'))->first();
-            return view('admin.manage_setting.edit_profile')->with('users', $users);
+            return view('admin.manage_setting.edit_profile')->with('users', $users)->with('auth',$auth);
         }else{
             return redirect('login');
         }
@@ -385,9 +411,24 @@ class AdminController extends Controller
             $post->password = Input::get('password');
             $post->modify_user_id = session('iduser');
             $post->last_modify_date = date('Y-m-d H:i:s');
-            $post->save();
+
+            $size = $_FILES['photo']['size'];
+            if(($size<=2048000) && ($size!=0)){
+                if(Input::hasFile('photo')){
+                $photo = date("YmdHis")
+                .uniqid()
+                ."."
+                .Input::file('photo')->getClientOriginalExtension();
+            
+                Input::file('photo')->move(public_path()."/photo_profile",$photo);
+                $post->photo = $photo;
+                }
+                $post->save();
 
             return redirect(url('manage_setting/edit_profile'))->with('status', 'Successfully update profile !');
+        }else {
+        return redirect(url('manage_setting/edit_profile'))->with('error', 'Failed to update profile! Do not upload images that are larger than 2 mb!');
+            }
         }
     }
 

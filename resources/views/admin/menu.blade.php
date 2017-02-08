@@ -9,21 +9,31 @@
               
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  
+                @foreach($auth as $user)
+
+                  @if(!empty($user->photo))
+                  <img src="{{ url('photo_profile/'.$user->photo) }}" class="user-image" alt="User Image">
+                  @else
                   <img src="{{ url('img/user.png') }}" class="user-image" alt="User Image">
+                  @endif
                   
-                  <span class="hidden-xs">{{ session('name') }}</span>
+                  <span class="hidden-xs">{{ $user->name }}</span>
                 </a>
                 <ul class="dropdown-menu">
 
                   <li class="user-header">
                     
+                      @if(!empty($user->photo))
+                      <img src="{{ url('photo_profile/'.$user->photo) }}" class="img-circle" alt="User Image">
+                      @else
                       <img src="{{ url('img/user.png') }}" class="img-circle" alt="User Image">
+                      @endif
                     
                     <p>
-                      {{ session('name') }} - {{ session('type') }}
+                      {{ $user->name }} - {{ session('type') }}
                     </p>
                   </li>
+                  @endforeach
 
                   <li class="user-footer">
                     <div class="pull-left">

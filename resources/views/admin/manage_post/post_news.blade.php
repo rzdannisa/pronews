@@ -78,11 +78,28 @@
       </script>
 
 <script type="text/javascript">
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+  CKEDITOR.editorConfig = function( config ) {
+  config.skin = "office2013";
+  config.extraPlugins = 'uploadimage,image2';
+
+  config.imageUploadUrl = "{{route('drag',['_token' => csrf_token() ])}}";
+  config.filebrowserImageUploadUrl = "{{route('upload',['_token' => csrf_token() ])}}";
+
+  config.image2_alignClasses = [ 'image-align-left', 'image-align-center', 'image-align-right' ];
+  config.toolbar = [
+    { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] },
+
+    { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+    { name: 'editing', items: [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] },
+    { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+    { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },'/',
+    { name: 'paragraph2', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl'] },
+    { name: 'insert', items: [ 'Image', 'Flash', 'Table', 'Smiley', 'SpecialChar'] },
+    { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+    { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
+  ];
+ };
+ 
 //             CKEDITOR.editorConfig = function( config ) {
 //   config.extraPlugins = 'uploadimage,image2';
 //   config.filebrowserImageUploadUrl = "{{route('upload',['_token' => csrf_token() ])}}";

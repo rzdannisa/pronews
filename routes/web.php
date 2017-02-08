@@ -21,10 +21,7 @@ Route::get('login', function() {
 Route::post('login', 'LoginController@login');
 Route::get('logout', 'LoginController@logout');
 
-
-Route::get('admin', function() {
-	return view('admin.admin');
-});
+Route::get('admin', 'AdminController@welcome_admin');
 Route::get('manage_user/all_user', 'AdminController@manage_user');
 
 Route::group(['prefix'=>'manage_user'], function(){
@@ -67,5 +64,5 @@ Route::group(['prefix'=>'manage_setting'], function(){
     Route::post('update_profile', 'AdminController@update_profile');
 });
 
-Route::post('uploadimagedrag', 'ImageController@uploadDragAndDropCKEDITOR');
+Route::post('uploadimagedrag', ['as'=>'drag','uses'=>'ImageController@uploadDragAndDropCKEDITOR']);
 Route::post('uploadimagefilebrowser', ['as'=>'upload','uses'=>'ImageController@uploadFileBrowserCKEDITOR']);
