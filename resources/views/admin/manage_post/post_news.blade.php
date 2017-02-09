@@ -37,6 +37,11 @@
     <blockquote class="master_p">Master Post</blockquote>
     <div class="master_post_content">
       <form method="POST"  action="{{ url('manage_post/add_post') }}" enctype="multipart/form-data">
+      <div class="form-group">
+          <label for="exampleInputPassword1">Headline</label>
+          <input type="file" name="headline_news" class="form-control" id="exampleInputEmail1" placeholder="Photo" required/>
+        </div>
+    <br>
         <label for="exampleInputPassword1">Select a Type</label>
       <select id="selecttype" name="type_news_id" class="form-control">
       @foreach($type as $typee)

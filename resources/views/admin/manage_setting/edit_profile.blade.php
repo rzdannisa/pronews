@@ -87,8 +87,8 @@
                   @endif
                   <div class="form-group">
                     <label for="exampleInputPassword1">Photo Profile</label>
-                    <input type="file" name="photo" value="{{$users->photo}}" class="form-control not-res"  placeholder="Photo"
-                    required/>
+                    <input type="file" name="photo" value="{{ $users->photo }}" class="form-control not-res"  placeholder="Photo"
+                    />
                   </div>
               
 

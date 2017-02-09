@@ -302,7 +302,8 @@ class AdminController extends Controller
         {
             $auth = \App\ms_user::where('id',session('iduser'))->get();
             $type  = \App\type_news::where('status', 'A')->get();
-            return view('admin.manage_post.post_news')->with('type', $type)->with('auth',$auth);
+            $subtype  = \App\sub_type::where('status', 'A')->get();
+            return view('admin.manage_post.post_news')->with('type', $type)->with('auth',$auth)->with('subtype',$subtype);
         }else{
             return redirect('login');
         }
@@ -336,6 +337,15 @@ class AdminController extends Controller
             $post->modify_user_id = session('iduser');
             $post->created_date = date('Y-m-d H:i:s');
             $post->last_modify_date = date('Y-m-d H:i:s');
+             if(Input::hasFile('headline_news')){
+                $headline_news = date("YmdHis")
+                .uniqid()
+                ."."
+                .Input::file('headline_news')->getClientOriginalExtension();
+            
+                Input::file('headline_news')->move(public_path()."/headline_news",$headline_news);
+                $post->headline_news = $headline_news;
+                }
             $post->save();
 
             return redirect(url('manage_post/my_post'))->with('status', 'Successfully add post !');
@@ -349,8 +359,9 @@ class AdminController extends Controller
         {
             $auth = \App\ms_user::where('id',session('iduser'))->get();
             $type  = \App\type_news::where('status', 'A')->get();
+            $subtype  = \App\sub_type::where('status', 'A')->get();
             $posts = \App\news::find($id);
-            return view('admin.manage_post.edit_post')->with('type', $type)->with('posts', $posts)->with('status', 'Successfully update news !')->with('auth',$auth);
+            return view('admin.manage_post.edit_post')->with('type', $type)->with('posts', $posts)->with('status', 'Successfully update news !')->with('auth',$auth)->with('subtype',$subtype);
         }else{
             return redirect('login');
         }
@@ -368,6 +379,16 @@ class AdminController extends Controller
             $post->type_news_id = Input::get('type_news_id');
             $post->modify_user_id = session('iduser');
             $post->last_modify_date = date('Y-m-d H:i:s');
+            $post->last_modify_date = date('Y-m-d H:i:s');
+             if(Input::hasFile('headline_news')){
+                $headline_news = date("YmdHis")
+                .uniqid()
+                ."."
+                .Input::file('headline_news')->getClientOriginalExtension();
+            
+                Input::file('headline_news')->move(public_path()."/headline_news",$headline_news);
+                $post->headline_news = $headline_news;
+                }
             $post->save();
 
             return redirect(url('manage_post/my_post'))->with('status', 'Successfully update post !');
@@ -413,7 +434,7 @@ class AdminController extends Controller
             $post->last_modify_date = date('Y-m-d H:i:s');
 
             $size = $_FILES['photo']['size'];
-            if(($size<=2048000) && ($size!=0)){
+            if(($size<=2048000)){
                 if(Input::hasFile('photo')){
                 $photo = date("YmdHis")
                 .uniqid()

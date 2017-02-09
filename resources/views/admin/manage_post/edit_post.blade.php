@@ -37,6 +37,16 @@
     <blockquote class="master_p">Edit Post</blockquote>
     <div class="master_post_content">
       <form method="POST"  action="{{ url('manage_post/update_post') }}" enctype="multipart/form-data">
+      @if(!empty($posts->headline_news))
+        <img style="max-height: 350px;" src="{{ url('headline_news/'.$posts->headline_news) }}">
+        @else
+        <span>Upload headline now!</span>
+      @endif
+      <div class="form-group">
+          <label for="exampleInputPassword1">Headline</label>
+          <input type="file" value="{{$posts->headline_news}}" name="headline_news" class="form-control" id="exampleInputEmail1" placeholder="Photo" required/>
+        </div>
+      <br>
         <label for="exampleInputPassword1">Select a Type</label>
       <select id="selecttype" name="type_news_id" class="form-control">
       @foreach($type as $typee)
