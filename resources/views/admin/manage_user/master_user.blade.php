@@ -116,9 +116,11 @@
                       <thead>
                         <tr>
                           <th>No.</th>
-                          <th>Type Id</th>
-                          <th>Name</th>
+                          <th>Created Date</th>
+                          <th>Type</th>
+                          <th>Full Name</th>
                           <th>Email</th>
+                          <th>Modify Date</th>
                           <!-- <th style="text-align:center">Action</th> -->
                         </tr>
                       </thead>
@@ -127,9 +129,11 @@
                         @foreach($alluser as $users)
                           <tr>
                             <td>{{$i++}}</td>
+                            <td>{{ $users->created_at }}</td>
                             <td>{{ $users->user_type_id}}</td>
                             <td>{{ $users->name}}</td>
                             <td>{{ $users->email}}</td>
+                            <td>{{ $users->updated_at }}</td>
                             <!-- <td style="text-align:center">
                             <a href="{{ url('manage_user/edit_user/'.$users->id)}}"><i style="font-size:20px;margin-right:50px" class="fa fa-pencil-square-o"></i> </a>
                             <a href="{{ url('manage_user/delete_user/'.$users->id)}}"><i style="font-size:20px;margin:0px " class="fa fa-trash"></i> </a>
@@ -140,9 +144,11 @@
                       <tfoot>
                         <tr>
                           <th>No.</th>
-                          <th>Type Id</th>
-                          <th>Name</th>
+                          <th>Created Date</th>
+                          <th>Type</th>
+                          <th>Full Name</th>
                           <th>Email</th>
+                          <th>Modify Date</th>
                         </tr>
                       </tfoot>
                     </table>
@@ -156,19 +162,6 @@
         </section>
       </div>
 </div>
-
-<!-- copas script ini -->
-
-<!-- DataTables -->
-<link rel="stylesheet" href="{{ url('plugins/datatables/dataTables.bootstrap.css') }}">
-<link rel="stylesheet" href="{{ url('https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css') }}">
-<!-- DataTables -->
-<script src="{{ url('plugins/datatables/jquery.dataTables.min.js') }}"></script>
-<script src="{{ url('plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
-<script src="{{ url('https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js') }}"></script>
-<script src="{{ url('//cdn.datatables.net/buttons/1.2.4/js/buttons.flash.min.js') }}"></script>
-<script src="{{ url('//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js') }}"></script>
-<script src="{{ url('//cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js') }}"></script>
 
 <script>
 

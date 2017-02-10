@@ -44,7 +44,7 @@
       @endif
       <div class="form-group">
           <label for="exampleInputPassword1">Headline</label>
-          <input type="file" value="{{$posts->headline_news}}" name="headline_news" class="form-control" id="exampleInputEmail1" placeholder="Photo" required/>
+          <input type="file" value="{{$posts->headline_news}}" name="headline_news" class="form-control" id="exampleInputEmail1" placeholder="Photo"/>
         </div>
       <br>
         <label for="exampleInputPassword1">Select a Type</label>
@@ -61,13 +61,40 @@
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
         </div>
     <br>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Created Date</label>
+          <div class='input-group date' id='datetimepicker1'>
+            <input type='text' value="{{$posts->created_date}}" name="created_date" class="form-control _date" required/>
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+          </div>
+        </div>
+    <br>
+        <script type="text/javascript">
+        function minmaxname(value, min, max) 
+        {
+            if(parseInt(value) < min || isNaN(value)) 
+                return value; 
+            else if(parseInt(value) > max) 
+                return value; 
+            else return value;
+        }
+        </script>
+        <div class="form-group">
+          <label for="exampleInputPassword1">News Desc</label>
+          <input type="text" name="news_desc" value="{{$posts->news_desc}}" class="form-control not-res" maxlength="100" placeholder="News Desc" onkeyup="this.value = minmaxname(this.value, 0, 100)" required/>
+        </div>
+    <br>
     <input type="hidden" name="id" value="{{$posts->id}}">
         <div class="form-group">
           <label for="exampleInputPassword1">Content</label>
-          <textarea class="form-control ckeditor" id="editor1" name="news_desc" placeholder="Content" class="materialize-textarea" rows="6" required/>{{$posts->news_desc}}</textarea>
+          <textarea class="form-control ckeditor" id="editor1" name="content" placeholder="Content" class="materialize-textarea" rows="6" required/>{{$posts->content}}</textarea>
         </div>
       <br><br>
-        <button type="submit" class="btn btn-default">Update Post</button>
+        <button type="submit" name="choose" value="publish" class="btn btn-primary pull-right" style="margin-left: 10px;">Update Post</button>
+        <button type="submit" name="choose" value="draft" class="btn btn-warning pull-right" style="margin-left: 10px;">Save as Draft</button>
+        <button type="submit" name="choose" value="suspend" class="btn btn-danger pull-right">Suspend Article</button>
       </form>
     </div>
 

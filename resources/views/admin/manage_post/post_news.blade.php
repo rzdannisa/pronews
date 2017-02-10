@@ -57,11 +57,37 @@
         </div>
     <br>
         <div class="form-group">
+          <label for="exampleInputPassword1">Created Date</label>
+          <div class='input-group date' id='datetimepicker1'>
+            <input type='text' name="created_date" class="form-control _date" required/>
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+          </div>
+        </div>
+    <br>
+        <script type="text/javascript">
+        function minmaxname(value, min, max) 
+        {
+            if(parseInt(value) < min || isNaN(value)) 
+                return value; 
+            else if(parseInt(value) > max) 
+                return value; 
+            else return value;
+        }
+        </script>
+        <div class="form-group">
+          <label for="exampleInputPassword1">News Desc</label>
+          <input type="text" name="news_desc" class="form-control not-res" maxlength="100" placeholder="News Desc" onkeyup="this.value = minmaxname(this.value, 0, 100)" required/>
+        </div>
+    <br>
+        <div class="form-group">
           <label for="exampleInputPassword1">Content</label>
-          <textarea class="form-control ckeditor" id="editor1" name="news_desc" placeholder="Content" class="materialize-textarea" rows="6" required/></textarea>
+          <textarea class="form-control ckeditor" id="editor1" name="content" placeholder="Content" class="materialize-textarea" rows="6" required/></textarea>
         </div>
       <br><br>
-        <button type="submit" class="btn btn-default">Save Post</button>
+        <button type="submit" name="choose" value="publish" class="btn btn-primary pull-right" style="margin-left: 10px;">Save and Publish</button>
+        <button type="submit" name="choose" value="draft" class="btn btn-warning pull-right">Save as Draft</button>
       </form>
     </div>
 
@@ -104,11 +130,6 @@
     { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
   ];
  };
- 
-//             CKEDITOR.editorConfig = function( config ) {
-//   config.extraPlugins = 'uploadimage,image2';
-//   config.filebrowserImageUploadUrl = "{{route('upload',['_token' => csrf_token() ])}}";
-// }
-  
+  $('._date').datetimepicker({ format: 'YYYY-MM-DD' });
 </script>
 @endsection

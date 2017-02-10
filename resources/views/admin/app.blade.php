@@ -30,6 +30,17 @@
         <link rel="stylesheet" type="text/css" href="{{ url('adminlte/select2/select2.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url('adminlte/dtpicker/css/bootstrap-datetimepicker.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url('adminlte/plugins/datatables/jquery.dataTables.css') }}">
+
+        <!-- DataTables -->
+        <link rel="stylesheet" href="{{ url('plugins/datatables/dataTables.bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ url('https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css') }}">
+        <script src="{{ url('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ url('plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+        <script src="{{ url('https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js') }}"></script>
+        <script src="{{ url('//cdn.datatables.net/buttons/1.2.4/js/buttons.flash.min.js') }}"></script>
+        <script src="{{ url('//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js') }}"></script>
+        <script src="{{ url('//cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js') }}"></script>
+
         <script src="{{ url('adminlte/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
         <script src="{{ url('adminlte/dtpicker/moment.js')}}"></script>
         <script src="{{ url('adminlte/bootstrap/js/transition.js') }}"></script>

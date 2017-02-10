@@ -329,14 +329,24 @@ class AdminController extends Controller
         {
             $post = new \App\news;
             $post->news_title = Input::get('news_title');
+            $post->content = Input::get('content');
             $post->news_desc = Input::get('news_desc');
             $post->slug = Input::get('news_title');
             $post->is_suspend = 0;
             $post->type_news_id = Input::get('type_news_id');
             $post->status = 'A';
             $post->modify_user_id = session('iduser');
-            $post->created_date = date('Y-m-d H:i:s');
+            $post->created_date = Input::get('created_date');
             $post->last_modify_date = date('Y-m-d H:i:s');
+            
+            $button = Input::get('choose');
+            if($button == "draft"){
+                $post->is_draft = 1;
+            }
+            else if($button == "publish"){
+                $post->is_draft = 0;
+            }
+
              if(Input::hasFile('headline_news')){
                 $headline_news = date("YmdHis")
                 .uniqid()
@@ -374,12 +384,29 @@ class AdminController extends Controller
         {
             $post = \App\news::find(Input::get('id'));
             $post->news_title = Input::get('news_title');
+            $post->content = Input::get('content');
             $post->news_desc = Input::get('news_desc');
             $post->slug = Input::get('news_title');
             $post->type_news_id = Input::get('type_news_id');
+            $post->status = 'A';
             $post->modify_user_id = session('iduser');
+            $post->created_date = Input::get('created_date');
             $post->last_modify_date = date('Y-m-d H:i:s');
-            $post->last_modify_date = date('Y-m-d H:i:s');
+
+            $button = Input::get('choose');
+            if($button == "draft"){
+                $post->is_draft = 1;
+                $post->is_suspend = 0;
+            }
+            else if($button == "publish"){
+                $post->is_draft = 0;
+                $post->is_suspend = 0;
+            }
+            else if($button == "suspend"){
+                $post->is_draft = 0;
+                $post->is_suspend = 1;
+            }
+
              if(Input::hasFile('headline_news')){
                 $headline_news = date("YmdHis")
                 .uniqid()

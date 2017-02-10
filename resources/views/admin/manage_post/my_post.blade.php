@@ -28,23 +28,22 @@
     <div class="content-wrapper">
       <section class="content">
         <div class="admin-seacrh"></div>
-        @if (session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
-            </div>
-        @endif
         <div style="width:95%;margin:auto" class="box">
           <div class="box-header">
-            <h3 class="box-title">All Post</h3>
+            <h3 class="box-title">My Post</h3>
           </div>
-          <div class="box-body">
-            <table class="for_datatable table table-bordered table-hover">
-              <thead>
-                <tr>
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="box">
+                  <div class="box-body table-responsive">
+                    <table id="master-user" class="table table-bordered table-hover">
+                      <thead>
+                        <tr>
                   <th>No.</th>
-                  <th>Type News Id</th>
+                  <th>Created Date</th>
+                  <th>Type News</th>
                   <th>Title</th>
-                  <th>Content</th>
+                  <th>Modify Date</th>
                   <th style="text-align:center">Action</th>
                 </tr>
               </thead>
@@ -53,53 +52,84 @@
                     @foreach($post as $posts)
                 <tr>
                   <td>{{$i++}}</td>
+                  <td>{{$posts->created_at}}</td>
                   <td>{{$posts->type_news_id}}</td>
                   <td>
                     <!-- <a href="{{ url('view/'.$posts->id) }}"> -->{{ $posts->news_title }}<!-- </a> -->
                   </td>
-                  <td>
-                    <?php
-                          $string = strip_tags($posts->news_desc);
-
-                          if (strlen($string) > 40) {
-
-                              $stringCut = substr($string, 0, 40);
-                              $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
-                          }
-                              echo $string;
-                    ?>
-                  </td>
+                  <td>{{$posts->updated_at}}</td>
                   <td style="text-align:center">
-                    <label>
-                      <a href="{{ url('manage_post/edit_post/'.$posts->id) }}">
-                        <i style="font-size:24px;margin-right:20px;" class="fa fa-pencil-square-o"></i>
-                      </a>
-                    </label>
-                    <form style="display: inline-table;" method="POST" action="{{ url('manage_post/delete_post') }}">
-                          <input type="hidden" name="id" value="{{$posts->id}}">
-                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                          <button style="border:none;color: #3c8dbc; background-color: white;" type="submit"><i style="font-size:24px;margin:0px " class="fa fa-trash"></i></button>
-                        </form>
+
+                  <a href="{{ url('manage_post/edit_post/'.$posts->id) }}"><button type="button" class="btn btn-info">Edit</button></a>
+                  <form style="display: inline-table;" method="POST" action="{{ url('manage_post/delete_post') }}">
+                    <input type="hidden" name="id" value="{{$posts->id}}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                  </form>
+
                   </td>
                 </tr>
                     @endforeach
-              </tfoot>
-            </table>
-            
-          </div>
-        </div>
+                </tbody>
+                      <tfoot>
+                        <tr>
+                          <th>No.</th>
+                          <th>Created Date</th>
+                          <th>Type News</th>
+                          <th>Title</th>
+                          <th>Modify Date</th>
+                        <th style="text-align:center">Action</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div><!-- /.box-body -->
+                </div><!-- /.box -->
+              </div><!-- /.col -->
+            </div><!-- /.row -->
+              </div>
+        </section>
       </div>
-    </section>
-  </div>
-</div>undefined</body>undefined<script type="text/javascript">
-            $('.for_datatable').DataTable({
-              "paging": true,
-              "lengthChange": true,
-              "searching": true,
-              "ordering": true,
-              "info": true,
-              "autoWidth": true
-            });
-    $('.birth_date').datetimepicker({ format: 'YYYY-MM-DD' });
-    </script>
+</div>undefined</body>undefined
+
+<script>
+
+$(function () {
+    /*********************** AO ***********************/
+    // Setup - add a text input to each footer cell
+    $('#master-user tfoot th').each( function () {
+          var title = $(this).text();
+          $(this).html( '<input style="width:100%;" type="text" placeholder="Search '+title+'" />' );
+      } );
+
+    var table = $('#master-user').DataTable({
+      responsive: true,
+      stateSave: true,
+      "paging": true,
+      "lengthChange": true,
+      "ordering": true,
+      "info": false,
+      "autoWidth": true,
+      "order": [[ 0, "desc" ]],
+      "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+      dom: 'lrtipB',
+      buttons: [
+              'copy', 'excel'
+      ]
+    });
+
+    // Apply the search
+    table.columns().every( function () {
+      var that = this;
+      $( 'input', this.footer() ).on( 'keyup change', function () {
+          if ( that.search() !== this.value ) {
+            that
+            .search( this.value )
+            .draw();
+          }
+      });
+    });
+  /*********************** End of AO ***********************/
+  });
+</script>
+
 @endsection
