@@ -5,13 +5,13 @@
 <body style="font-family: 'Raleway', sans-serif;" class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
     <header class="main-header">
-      <a href="{{ url('/') }}" class="logo">
+      <a href="#" class="logo">
         <span class="logo-mini">
-          <b>Culture</b>News
+          <b>CL</b>N
 
         </span>
         <span class="logo-lg">
-          <b>CL</b>N
+          <b>Culture</b> News
 
         </span>
       </a>
