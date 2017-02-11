@@ -4,16 +4,16 @@
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
     @if(session('idtype') == "1")
-    
+
         <title>Manage for Admin</title>
     @elseif(session('idtype') == "2")
-    
+
         <title>Manage for Staff</title>
     @elseif(session('idtype') == "")
-    
+
         <title>Manage for Super Admin</title>
     @endif
-    
+
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         <link rel="stylesheet" href="{{ url('adminlte/bootstrap/css/bootstrap.min.css') }}">
@@ -22,24 +22,12 @@
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{{ url('adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.css') }}">
         <link rel="stylesheet" href="{{ url('adminlte/dist/css/AdminLTE.min.css') }}">
-        <script src="{{('css/sweetalert-master/dist/sweetalert.min.js')}}"></script>
-        <link rel="stylesheet" type="text/css" href="{{('css/sweetalert-master/dist/sweetalert.css')}}">
         <link rel="stylesheet" href="{{ url('adminlte/dist/css/skins/_all-skins.min.css') }}">
         <link rel="stylesheet" href="{{ url('adminlte/plugins/iCheck/flat/blue.css') }}">
         <link rel="stylesheet" href="{{ url('adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url('adminlte/select2/select2.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url('adminlte/dtpicker/css/bootstrap-datetimepicker.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url('adminlte/plugins/datatables/jquery.dataTables.css') }}">
-
-        <!-- DataTables -->
-        <link rel="stylesheet" href="{{ url('plugins/datatables/dataTables.bootstrap.css') }}">
-        <link rel="stylesheet" href="{{ url('https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css') }}">
-        <script src="{{ url('plugins/datatables/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ url('plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
-        <script src="{{ url('https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js') }}"></script>
-        <script src="{{ url('//cdn.datatables.net/buttons/1.2.4/js/buttons.flash.min.js') }}"></script>
-        <script src="{{ url('//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js') }}"></script>
-        <script src="{{ url('//cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js') }}"></script>
 
         <script src="{{ url('adminlte/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
         <script src="{{ url('adminlte/dtpicker/moment.js')}}"></script>
@@ -63,9 +51,15 @@
         <script src="{{ url('adminlte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
         <script src="{{ url('adminlte/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
         <script src="{{ url('adminlte/plugins/chartjs/Chart.min.js') }}"></script>
-        
+
+        <!-- DataTables -->
+        <script src="{{ url('//cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js') }}"></script>
+        <script src="{{ url('//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js') }}"></script>
+        <script src="{{ url('https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js') }}"></script>
+        <link rel="stylesheet" href="{{ url('https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css') }}">
+
     </head>
-    
+
         <body>
             @yield('content')
         </body>

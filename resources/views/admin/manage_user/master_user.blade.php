@@ -2,7 +2,6 @@
 
 @section('content')
 
-
   <body style="font-family: 'Raleway', sans-serif;" class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 
@@ -11,7 +10,7 @@
         <!-- Logo -->
         <a href="{{ url('manage') }}" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>CL</b>NE</span>
+          <span class="logo-mini"><b>CL</b>N</span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b>Culture</b> News</span>
         </a>
@@ -179,7 +178,7 @@ $(function () {
       "paging": true,
       "lengthChange": true,
       "ordering": true,
-      "info": false,
+      "info": true,
       "autoWidth": true,
       "order": [[ 0, "desc" ]],
       "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
