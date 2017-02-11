@@ -42,6 +42,7 @@
 
       <!-- adminlte js -->
       <script src="{{ url('adminlte/dist/js/app.min.js') }}"></script>
+      <script src="{{ url('adminlte/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
 
       <!-- jvtorcmap -->
       <link rel="stylesheet" href="{{ url('adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.css') }}">
@@ -56,7 +57,6 @@
       <!-- select2 -->
       <link rel="stylesheet" type="text/css" href="{{ url('adminlte/select2/select2.min.css') }}">
       <script src="{{ url('adminlte/select2/select2.full.js') }}"></script>
-
 
       <!-- ckeditor -->
       <script src="{{ url('adminlte/ckeditor/ckeditor.js') }}"></script>
@@ -73,20 +73,19 @@
       <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
-      <!-- <script src="{{ url('adminlte/plugins/fastclick/fastclick.min.js') }}"></script> -->
+      <!-- <script src="{{ url('adminlte/plugins/fastclick/fastclick.min.js') }}"></script> --> -->
       <!-- <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
-      <!-- <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'> -->
       <!-- <link rel="stylesheet" href="{{ url('adminlte/plugins/iCheck/flat/blue.css') }}"> -->
       <!-- <link rel="stylesheet" href="{{ url('adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}"> -->
-      <!-- <script src="{{ url('adminlte/bootstrap/js/transition.js') }}"></script>
-      <script src="{{ url('adminlte/bootstrap/js/collapse.js') }}"></script> -->
+      <!-- <script src="{{ url('adminlte/bootstrap/js/transition.js') }}"></script> -->
+      <!-- <script src="{{ url('adminlte/bootstrap/js/collapse.js') }}"></script> -->
       <!-- <script src="{{ url('adminlte/dist/js/demo.js') }}"></script> -->
-      <!-- <script src="{{ url('adminlte/plugins/iCheck/icheck.min.js') }}"></script> -->
       <!-- <script src="{{ url('adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script> -->
+      <!-- <script src="{{ url('adminlte/plugins/iCheck/icheck.min.js') }}"></script> -->
       <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" /> -->
-      <!-- <script src="{{ url('adminlte/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
-      <script src="{{ url('adminlte/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
-      <script src="{{ url('adminlte/plugins/chartjs/Chart.min.js') }}"></script> -->
+      <!-- <script src="{{ url('adminlte/plugins/sparkline/jquery.sparkline.min.js') }}"></script> -->
+      <!-- <script src="{{ url('adminlte/plugins/chartjs/Chart.min.js') }}"></script> -->
+
     </head>
 
         <body>
