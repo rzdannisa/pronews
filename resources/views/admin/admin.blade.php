@@ -2,28 +2,26 @@
 
 @section('content')
 
-  
-
 <body style="font-family: 'Raleway', sans-serif;" class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
     <header class="main-header">
-      <a href="{{ url('manage') }}" class="logo">
+      <a href="{{ url('/') }}" class="logo">
         <span class="logo-mini">
-          <b>Pro</b>N
-        
+          <b>Culture</b>News
+
         </span>
         <span class="logo-lg">
-          <b>PRO</b> NEWS
-        
+          <b>CL</b>N
+
         </span>
       </a>
       <nav class="navbar navbar-static-top" role="navigation">
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
           <span class="sr-only">Toggle navigation</span>
         </a>
-          
+
           @include('admin.menu')
-      
+
       </nav>
     </header>
 
@@ -59,8 +57,8 @@
                 });
             }, 500);
         });
-    
-  
+
+
   </script>
 
 @endsection

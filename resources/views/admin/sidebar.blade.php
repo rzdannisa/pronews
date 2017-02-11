@@ -35,14 +35,14 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ url('manage_user/master_user') }}"><i class="fa fa-tag"></i> Master User</a></li>
-                <li><a href="{{ url('manage_user/page_edit_user') }}"><i class="fa fa-tag"></i> Edit User</a></li>
+                <li><a href="{{ url('manage_user/master_user') }}"><i class="fa fa-bookmark-o"></i> Master User</a></li>
+                <li><a href="{{ url('manage_user/page_edit_user') }}"><i class="fa fa-edit"></i> Edit User</a></li>
               </ul>
             </li>
-            
+
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-thumb-tack"></i>
+                <i class="fa fa-list-alt"></i>
                 <span>Manage Type News</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
@@ -64,17 +64,17 @@
 
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-archive"></i>
+                <i class="fa fa-file-text"></i>
                 <span>Manage Post</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ url('manage_post/post_news') }}"><i class="fa fa-edit"></i> Post News</a></li>
+                <li><a href="{{ url('manage_post/post_news') }}"><i class="fa fa-newspaper-o"></i> Post News</a></li>
                 <li><a href="{{ url('manage_post/all_post') }}"><i class="fa fa-columns"></i> All Post</a></li>
                 <li><a href="{{ url('manage_post/my_post') }}"><i class="fa fa-list"></i> My Post</a></li>
               </ul>
             </li>
-    
+
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-cogs"></i>
@@ -102,7 +102,7 @@
                 <li><a href="{{ url('manage_user/page_edit_user') }}"><i class="fa fa-tag"></i> Edit User</a></li>
               </ul>
             </li>
-            
+
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-thumb-tack"></i>
@@ -138,7 +138,7 @@
               </ul>
             </li>
           </ul>
-          
+
           @elseif(session('idtype') == '2')
           <ul class="sidebar-menu">
             <li class="header">NAVIGATION</li>
@@ -154,7 +154,7 @@
                 <li><a href="{{ url('manage_post/my_post') }}"><i class="fa fa-list"></i> My Post</a></li>
               </ul>
             </li>
-    
+
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-cogs"></i>
@@ -169,7 +169,7 @@
 
           @endif
           @endif
-          
+
         </section>
       </div>
         <!-- /.sidebar -->
