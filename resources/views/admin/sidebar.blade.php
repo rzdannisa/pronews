@@ -36,7 +36,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ url('manage_user/master_user') }}"><i class="fa fa-bookmark-o"></i> Master User</a></li>
-                <li><a href="{{ url('manage_user/page_edit_user') }}"><i class="fa fa-edit"></i> Edit User</a></li>
+                <li><a href="{{ url('manage_user/page_edit_user') }}"><i class="fa fa-edit"></i> Data User</a></li>
               </ul>
             </li>
 
@@ -54,11 +54,11 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-puzzle-piece"></i>
-                <span>Manage Sub Type News</span>
+                <span>Manage Sub Type</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ url('manage_sub_type_news/master_sub_type_news') }}"><i class="fa fa-bookmark-o"></i> Master Sub Type News</a></li>
+                <li><a href="{{ url('manage_sub_type_news/master_sub_type_news') }}"><i class="fa fa-bookmark-o"></i> Master Sub Type</a></li>
                 </ul>
             </li>
 

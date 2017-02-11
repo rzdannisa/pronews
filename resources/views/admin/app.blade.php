@@ -17,11 +17,12 @@
       <!-- bootstrap css-->
       <link rel="stylesheet" href="{{ url('adminlte/bootstrap/css/bootstrap.min.css') }}">
 
-      <!-- google font -->
-      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
       <!-- font awesome -->
       <link rel="stylesheet" href="{{ url('adminlte/font-awesome/css/font-awesome.min.css') }}">
+
+      <!-- google font -->
+      <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
       <!-- ionic -->
       <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
