@@ -35,13 +35,13 @@
 
         <form action="{{ url('login') }}" method="post">
           <div class="form-group has-feedback">
-            <input type="email" name="email" class="form-control" placeholder="Email">
+            <input type="email" name="email" class="form-control" placeholder="Email" required>
             {{ csrf_field() }}
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
 
           <div class="form-group has-feedback">
-            <input type="password" name="password" class="form-control" placeholder="Password">
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
 
