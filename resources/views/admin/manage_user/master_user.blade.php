@@ -47,49 +47,47 @@
               </div><!-- /.box-header -->
               <div class="box-body">
                 <form method="POST"  action="{{ url('manage_user/add_user') }}" enctype="multipart/form-data">
-                <div class="row">
+                  <div class="row">
                     <input id="tyco" type="hidden" name="type_code" value="nip">
-                <div class="col-xs-6 col-md-4">
-                    <label for="exampleInputPassword1">Select Type</label>
-                    <select id="selecttype" name="user_type_id" class="form-control not-res">
-                    @foreach($user_type as $type)
-                      <option value="{{$type->id}}">{{$type->name}}</option>
-                    @endforeach
-                    </select>
+                    <div class="col-xs-6 col-md-4">
+                      <label for="exampleInputPassword1">Select Type</label>
+                      <select id="selecttype" name="user_type_id" class="form-control not-res">
+                      @foreach($user_type as $type)
+                        <option value="{{$type->id}}">{{$type->name}}</option>
+                      @endforeach
+                      </select>
+                    </div>
+                    <div  class="col-xs-6 col-md-4">
+                      <label for="exampleInputPassword1">Name</label>
+                      <input type="text" name="name" class="form-control not-res" placeholder="Name" required/>
+                    </div>
                   </div>
-                <div  class="col-xs-6 col-md-4">
-                  <label for="exampleInputPassword1">Name</label>
-                  <input type="text" name="name" class="form-control not-res" placeholder="Name" required/>
-                </div>
-                </div>
-                <br>
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div class="row">
-                <div  class="col-xs-6 col-md-4">
-               <script type="text/javascript">
-                function minmaxname(value, min, max)
-                {
-                    if(parseInt(value) < min || isNaN(value))
-                        return value;
-                    else if(parseInt(value) > max)
-                        return value;
-                    else return value;
-                }
-                </script>
-                  <label for="exampleInputPassword1">Email</label>
-                  <input type="email" name="email" class="form-control not-res" maxlength="50" placeholder="Email" onkeyup="this.value = minmaxname(this.value, 0, 50)" required/>
+                  <br>
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                </div>
-                <div  class="col-xs-6 col-md-4">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input type="password" name="password" class="form-control not-res" maxlength="20" placeholder="Password" onkeyup="this.value = minmaxname(this.value, 0, 20)" required/>
-                </div>
-                </div>
-                <br>
-
-                <br><br>
-                <div id="b-save"></div>
-                  <button type="submit" class="btn btn-primary">Save</button>
+                  <div class="row">
+                    <div  class="col-xs-6 col-md-4">
+                     <script type="text/javascript">
+                      function minmaxname(value, min, max)
+                      {
+                          if(parseInt(value) < min || isNaN(value))
+                              return value;
+                          else if(parseInt(value) > max)
+                              return value;
+                          else return value;
+                      }
+                      </script>
+                      <label for="exampleInputPassword1">Email</label>
+                      <input type="email" name="email" class="form-control not-res" maxlength="50" placeholder="Email" onkeyup="this.value = minmaxname(this.value, 0, 50)" required/>
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    </div>
+                    <div  class="col-xs-6 col-md-4">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" name="password" class="form-control not-res" maxlength="20" placeholder="Password" onkeyup="this.value = minmaxname(this.value, 0, 20)" required/>
+                    </div>
+                  </div>
+                  <br>
+                  <div id="b-save"></div>
+                    <button style="width:90px;" type="submit" class="btn btn-primary">Save</button>
               </form>
               </div>
             </div>
@@ -115,11 +113,21 @@
                         @foreach($alluser as $users)
                           <tr>
                             <td>{{$i++}}</td>
-                            <td>{{ $users->created_at }}</td>
+                            <td>
+                              <?php
+                                $date = strtotime($users->created_date);
+                                echo date("d-m-Y", $date);
+                              ?>
+                            </td>
                             <td>{{ $users->user_type_id}}</td>
                             <td>{{ $users->name}}</td>
                             <td>{{ $users->email}}</td>
-                            <td>{{ $users->updated_at }}</td>
+                            <td>
+                              <?php
+                                $date = strtotime($users->updated_at);
+                                echo date("d-m-Y H:i", $date);
+                              ?>
+                            </td>
                             <!-- <td style="text-align:center">
                             <a href="{{ url('manage_user/edit_user/'.$users->id)}}"><i style="font-size:20px;margin-right:50px" class="fa fa-pencil-square-o"></i> </a>
                             <a href="{{ url('manage_user/delete_user/'.$users->id)}}"><i style="font-size:20px;margin:0px " class="fa fa-trash"></i> </a>
@@ -164,11 +172,11 @@
           "info": true,
           "autoWidth": true,
           "order": [[ 0, "desc" ]],
-          "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-          dom: 'lrtipB',
-          buttons: [
-                  'copy', 'excel'
-          ]
+          "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+          // dom: 'lrtipB',
+          // buttons: [
+          //         'copy', 'excel'
+          // ]
         });
 
         // Apply the search
