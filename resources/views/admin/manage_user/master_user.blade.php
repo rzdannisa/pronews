@@ -6,7 +6,7 @@
     <div class="wrapper">
       <header class="main-header">
         <!-- Logo -->
-        <a href="{{ url('manage') }}" class="logo">
+        <a href="{{ url('/') }}" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>CL</b>N</span>
           <!-- logo for regular state and mobile devices -->
