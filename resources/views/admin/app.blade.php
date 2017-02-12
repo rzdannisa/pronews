@@ -20,10 +20,6 @@
       <!-- font awesome -->
       <link rel="stylesheet" href="{{ url('adminlte/font-awesome/css/font-awesome.min.css') }}">
 
-      <!-- google font -->
-      <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
-      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-
       <!-- ionic -->
       <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
@@ -73,6 +69,9 @@
       <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
       <meta name="csrf-token" content="{{ csrf_token() }}" />
 
+      <!-- google font -->
+      <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
       <!-- <script src="{{ url('adminlte/plugins/fastclick/fastclick.min.js') }}"></script> --> -->
       <!-- <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
