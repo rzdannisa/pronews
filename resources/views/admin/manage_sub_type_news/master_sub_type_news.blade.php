@@ -105,7 +105,7 @@
                             <form style="display: inline-table;" method="POST" action="{{ url('manage_sub_type_news/delete_sub_type_news') }}">
                               <input type="hidden" name="id" value="{{$subtype->id}}">
                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                              <button style="width:90px;" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this Type ?')" type="submit">Delete</button>
+                              <button style="width:90px;" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this Sub Type ?')" type="submit">Delete</button>
                             </form>
                           </td>
                         </tr>

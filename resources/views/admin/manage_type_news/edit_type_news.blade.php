@@ -52,7 +52,7 @@
               </div>
               <br>
               <div id="b-save"></div>
-                <button style="width:90px;" type="submit" class="btn btn-primary">Save</button>
+                <button style="width:90px;" type="submit" class="btn btn-primary">Update</button>
             </form>
             </div>
         </div>
