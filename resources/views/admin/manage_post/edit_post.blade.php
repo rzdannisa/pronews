@@ -54,6 +54,7 @@
                       <div class="col-sm-10">
                         <input type="text" name="news_title" class="form-control" id="exampleInputEmail1" value="{{$posts->news_title}}" placeholder="Title" required/>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="id" value="{{ $typee->id }}">
                       </div>
                     </div>
 
@@ -70,7 +71,7 @@
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Headline News</label>
                       <div class="col-sm-10">
-                        <input type="file" name="headline_news" class="form-control" id="exampleInputEmail1" value="{{$posts->headline_news}}" placeholder="Photo" required/>
+                        <input type="file" name="headline_news" class="form-control" id="exampleInputEmail1" value="{{$posts->headline_news}}" placeholder="Photo"/>
                       </div>
                     </div>
 

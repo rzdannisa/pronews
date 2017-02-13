@@ -209,10 +209,11 @@ class AdminController extends Controller
         session_start();
         if(!empty(session('type')))
         {
+            $menu = \App\master_subtype::with('subtypeee')->get();
             $auth = \App\ms_user::where('id',session('iduser'))->get();
             $type_newss  = \App\type_news::where('status', 'A')->get();
             $sub_type_newss = \App\sub_type::where('status', 'A')->get();
-            return view('admin.manage_sub_type_news.master_sub_type_news')->with('sub_type_newss', $sub_type_newss)->with('type_newss',$type_newss)->with('auth',$auth);
+            return view('admin.manage_sub_type_news.master_sub_type_news')->with('sub_type_newss', $sub_type_newss)->with('type_newss',$type_newss)->with('auth',$auth)->with('menu',$menu);
         }else{
             return redirect('login');
         }
@@ -402,7 +403,7 @@ class AdminController extends Controller
                 $post->is_draft = 0;
                 $post->is_suspend = 0;
             }
-            else if($button == "suspend"){
+            else{
                 $post->is_draft = 0;
                 $post->is_suspend = 1;
             }
@@ -475,8 +476,203 @@ class AdminController extends Controller
 
             return redirect(url('manage_setting/edit_profile'))->with('status', 'Successfully update profile !');
         }else {
-        return redirect(url('manage_setting/edit_profile'))->with('error', 'Failed to update profile! Do not upload images that are larger than 2 mb!');
+            return redirect(url('manage_setting/edit_profile'))->with('error', 'Failed to update profile! Do not upload images that are larger than 2 mb!');
             }
+        }
+    }
+
+    public function feature_about()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
+            $fabout  = \App\tr_about::where('status', 'A')->get();
+            $aa  = \App\tr_about::where('status', 'A')->count();
+            return view('admin.manage_feature.feature_about.feature_about')->with('fabout', $fabout)->with('auth',$auth)->with('aa',$aa);
+        }else{
+            return redirect('login');
+        }
+    }
+
+
+    public function feature_about_save()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = new \App\tr_about;
+            $post->text_about = Input::get('text_about');
+            $post->status = 'A';
+            $post->modify_user_id = session('iduser');
+            $post->created_date = Input::get('created_date');
+            $post->last_modify_date = date('Y-m-d H:i:s');
+            
+             if(Input::hasFile('header_about')){
+                $header_about = date("YmdHis")
+                .uniqid()
+                ."."
+                .Input::file('header_about')->getClientOriginalExtension();
+            
+                Input::file('header_about')->move(public_path()."/header_about",$header_about);
+                $post->header_about = $header_about;
+                }
+            $post->save();
+
+            return redirect(url('manage_feature/feature_about'))->with('status', 'Successfully add feature about !');
+        }
+    }
+
+    public function feature_about_edit($id)
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
+            $fabout  = \App\tr_about::where('status', 'A')->get();
+            $edit = \App\tr_about::find($id);
+            $aa  = \App\tr_about::where('status', 'A')->count();
+            return view('admin.manage_feature.feature_about.edit_feature_about')->with('fabout', $fabout)->with('auth',$auth)->with('edit',$edit)->with('aa',$aa);
+        }else{
+            return redirect('login');
+        }
+    }
+
+    public function feature_about_update()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = \App\tr_about::find(Input::get('id'));
+            $post->text_about = Input::get('text_about');
+            $post->status = 'A';
+            $post->modify_user_id = session('iduser');
+            $post->created_date = Input::get('created_date');
+            $post->last_modify_date = date('Y-m-d H:i:s');
+
+             if(Input::hasFile('header_about')){
+                $header_about = date("YmdHis")
+                .uniqid()
+                ."."
+                .Input::file('header_about')->getClientOriginalExtension();
+            
+                Input::file('header_about')->move(public_path()."/header_about",$header_about);
+                $post->header_about = $header_about;
+                }
+            $post->save();
+
+            return redirect(url('manage_feature/feature_about'))->with('status', 'Successfully update feature about !');
+        }
+    }
+
+    public function feature_about_delete()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = \App\tr_about::find(Input::get('id'));
+            $post->status = 'D';
+            $post->save();
+
+            return redirect(url('manage_feature/feature_about'))->with('status', 'Successfully delete feature about !');
+        }
+    }
+
+    public function feature_contact()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
+            $fitur = \App\lt_contact_fitur::where('status', 'A')->get();
+            $fcontact  = \App\ms_contact::where('status', 'A')->get();
+            $aa  = \App\ms_contact::where('status', 'A')->count();
+            return view('admin.manage_feature.feature_contact.feature_contact')->with('fcontact', $fcontact)->with('auth',$auth)->with('aa',$aa)->with('fitur',$fitur);
+        }else{
+            return redirect('login');
+        }
+    }
+
+
+    public function feature_contact_save()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = new \App\ms_contact;
+            $post->text_contact = Input::get('text_contact');
+            $post->status = 'A';
+            $post->modify_user_id = session('iduser');
+            $post->created_date = Input::get('created_date');
+            $post->last_modify_date = date('Y-m-d H:i:s');
+            
+             if(Input::hasFile('header_contact')){
+                $header_contact = date("YmdHis")
+                .uniqid()
+                ."."
+                .Input::file('header_contact')->getClientOriginalExtension();
+            
+                Input::file('header_contact')->move(public_path()."/header_contact",$header_contact);
+                $post->header_contact = $header_contact;
+                }
+            $post->save();
+
+            return redirect(url('manage_feature/feature_contact'))->with('status', 'Successfully add feature contact !');
+        }
+    }
+
+    public function feature_contact_edit($id)
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
+            $fcontact  = \App\ms_contact::where('status', 'A')->get();
+            $edit = \App\ms_contact::find($id);
+            $aa  = \App\ms_contact::where('status', 'A')->count();
+            return view('admin.manage_feature.feature_contact.edit_feature_contact')->with('fcontact', $fcontact)->with('auth',$auth)->with('edit',$edit)->with('aa',$aa);
+        }else{
+            return redirect('login');
+        }
+    }
+
+    public function feature_contact_update()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = \App\ms_contact::find(Input::get('id'));
+            $post->text_contact = Input::get('text_contact');
+            $post->status = 'A';
+            $post->modify_user_id = session('iduser');
+            $post->created_date = Input::get('created_date');
+            $post->last_modify_date = date('Y-m-d H:i:s');
+
+             if(Input::hasFile('header_contact')){
+                $header_contact = date("YmdHis")
+                .uniqid()
+                ."."
+                .Input::file('header_contact')->getClientOriginalExtension();
+            
+                Input::file('header_contact')->move(public_path()."/header_contact",$header_contact);
+                $post->header_contact = $header_contact;
+                }
+            $post->save();
+
+            return redirect(url('manage_feature/feature_contact'))->with('status', 'Successfully update feature contact !');
+        }
+    }
+
+    public function feature_contact_delete()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = \App\ms_contact::find(Input::get('id'));
+            $post->status = 'D';
+            $post->save();
+
+            return redirect(url('manage_feature/feature_contact'))->with('status', 'Successfully delete feature contact !');
         }
     }
 

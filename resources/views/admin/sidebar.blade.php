@@ -77,6 +77,31 @@
 
             <li class="treeview">
               <a href="#">
+                <i class="fa fa-file-text"></i>
+                <span>Manage Feature</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url('manage_feature/feature_about') }}"><i class="fa fa-newspaper-o"></i> Feature About</a></li>
+                <li><a href="{{ url('manage_feature/feature_contact') }}"><i class="fa fa-columns"></i> Feature Contact</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-file-text"></i>
+                <span>Manage Advertisement</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url('manage_advertisement/feature_adv') }}"><i class="fa fa-newspaper-o"></i> Feature Advertisement</a></li>
+                <li><a href="{{ url('manage_advertisement/data_customer') }}"><i class="fa fa-columns"></i> Data Customer</a></li>
+                <li><a href="{{ url('manage_advertisement/master_adv') }}"><i class="fa fa-columns"></i> Master Advertisement</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#">
                 <i class="fa fa-cogs"></i>
                 <span>Manage Setting</span>
                 <i class="fa fa-angle-left pull-right"></i>
@@ -85,6 +110,7 @@
                 <li><a href="{{ url('manage_setting/edit_profile') }}"><i class="fa fa-cog"></i> Edit Profile</a></li>
               </ul>
             </li>
+
           </ul>
 
           @elseif(session('idtype') == '')

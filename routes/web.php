@@ -65,5 +65,41 @@ Route::group(['prefix'=>'manage_setting'], function(){
     Route::post('update_profile', 'AdminController@update_profile');
 });
 
+Route::group(['prefix'=>'manage_feature'], function(){
+    Route::get('feature_about', 'AdminController@feature_about');
+    Route::post('feature_about/save', 'AdminController@feature_about_save');
+    Route::get('feature_about/edit/{id}', 'AdminController@feature_about_edit');
+    Route::post('feature_about/update', 'AdminController@feature_about_update');
+    Route::post('feature_about/delete', 'AdminController@feature_about_delete');
+
+
+    Route::get('feature_contact', 'AdminController@feature_contact');
+    Route::post('feature_contact/save', 'AdminController@feature_contact_save');
+    Route::get('feature_contact/edit/{id}', 'AdminController@feature_contact_edit');
+    Route::post('feature_contact/update', 'AdminController@feature_contact_update');
+    Route::post('feature_contact/delete', 'AdminController@feature_contact_delete');
+});
+
+Route::group(['prefix'=>'manage_advertisement'], function(){
+    Route::get('feature_adv', 'AdminController@feature_adv');
+    Route::post('feature_adv/save', 'AdminController@feature_adv_save');
+    Route::get('feature_adv/edit/{id}', 'AdminController@feature_adv_edit');
+    Route::post('feature_adv/update', 'AdminController@feature_adv_update');
+    Route::post('feature_adv/delete', 'AdminController@feature_adv_delete');
+
+    Route::get('data_customer', 'AdminController@data_customer');
+    Route::post('data_customer/save', 'AdminController@data_customer_save');
+    Route::get('data_customer/edit/{id}', 'AdminController@data_customer_edit');
+    Route::post('data_customer/update', 'AdminController@data_customer_update');
+    Route::post('data_customer/delete', 'AdminController@data_customer_delete');
+
+    Route::get('master_adv', 'AdminController@master_adv');
+    Route::post('master_adv/save', 'AdminController@master_adv_save');
+    Route::get('master_adv/edit/{id}', 'AdminController@master_adv_edit');
+    Route::post('master_adv/update', 'AdminController@master_adv_update');
+    Route::post('master_adv/delete', 'AdminController@master_adv_delete');
+
+});
+
 Route::post('uploadimagedrag', ['as'=>'drag','uses'=>'ImageController@uploadDragAndDropCKEDITOR']);
 Route::post('uploadimagefilebrowser', ['as'=>'upload','uses'=>'ImageController@uploadFileBrowserCKEDITOR']);
