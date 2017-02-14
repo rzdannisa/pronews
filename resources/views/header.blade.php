@@ -99,38 +99,19 @@
                   <li><a href="{{url('/')}}"> Home <i></i></a></li>
                 </ul>
               </li>
+              @foreach($menu as $menuu)
               <li>
                 <ul class="news-category-dropdown">
-                  <li><a href="javascript:void(0);">Culture <i class="fa fa-angle-down"></i></a>
-                    <!-- <ul>
-                      <li><a href="news-single1.html">News Detail 1</a></li>
-                      <li><a href="news-single2.html">News Detail 2</a></li>
-                      <li><a href="news-single3.html">News Detail 3</a></li>
-                    </ul> -->
+                  <li><a href="javascript:void(0);">{{$menuu->name}}<i class="fa fa-angle-down"></i></a>
+                    <ul>
+                    @foreach($menuu->subtypeee as $sub)
+                      <li><a href="news-single1.html">{{$sub->name}}</a></li>
+                    @endforeach
+                    </ul>
                   </li>
                 </ul>
               </li>
-              <li>
-                <ul class="news-category-dropdown">
-                  <li><a href="javascript:void(0);">Lifestyle <i class="fa fa-angle-down"></i></a>
-                    <!-- <ul>
-                      <li><a href="news-single1.html">News Detail 1</a></li>
-                      <li><a href="news-single2.html">News Detail 2</a></li>
-                      <li><a href="news-single3.html">News Detail 3</a></li>
-                    </ul> -->
-                  </li>
-                </ul>
-              </li><li>
-                <ul class="news-category-dropdown">
-                  <li><a href="javascript:void(0);">Sport <i class="fa fa-angle-down"></i></a>
-                    <!-- <ul>
-                      <li><a href="news-single1.html">News Detail 1</a></li>
-                      <li><a href="news-single2.html">News Detail 2</a></li>
-                      <li><a href="news-single3.html">News Detail 3</a></li>
-                    </ul> -->
-                  </li>
-                </ul>
-              </li>
+              @endforeach
               <li>
                 <ul class="news-category-dropdown">
                   <li><a href="{{url('about')}}"> About <i></i></a></li>
@@ -153,34 +134,22 @@
           <li class="dropdown-menu">
               <ul class="collapsible" data-collapsible="expandable">
                   <li class="">
-                      <div class="collapsible-header waves-effect waves"><i class="fa fa-file"></i> <a href="{{url('/')}}"> Home </a></div>
+                      <div class="collapsible-header waves-effect waves active"><i class="fa fa-file"></i> Home </div>
                   </li>
+                  @foreach($menu as $menuu)
                   <li class="">
-                      <div class="collapsible-header waves-effect waves"><i class="fa fa-file-text"></i> Culture <i class="fa fa-angle-right"></i></div>
-                      <!-- <div style="display: none;" class="collapsible-body">
+                      <div class="collapsible-header waves-effect waves"><i class="fa fa-file-text"></i> {{$menuu->name}}<i class="fa fa-angle-right"></i></div>
+                      <div style="display: none;" class="collapsible-body">
                           <ul>
-                              <li class="waves-effect"><a href="news-single1.html"><i class="fa fa-angle-right"></i> News Detail 1</a></li>
+                              @foreach($menuu->subtypeee as $sub)
+                              <li class="waves-effect"><a href="news-single1.html"><i class="fa fa-angle-right"></i> {{$sub->name}}</a></li>
+                              @endforeach
                           </ul>
-                      </div> -->
+                      </div>
                   </li>
-                  <li class="">
-                      <div class="collapsible-header waves-effect waves"><i class="fa fa-file-text"></i> Lifestyle <i class="fa fa-angle-right"></i></div>
-                      <!-- <div style="display: none;" class="collapsible-body">
-                          <ul>
-                              <li class="waves-effect"><a href="index-sport.html"><i class="fa fa-angle-right"></i> Sport </a></li>
-                          </ul>
-                      </div> -->
-                  </li>
-                  <li class="">
-                      <div class="collapsible-header waves-effect waves"><i class="fa fa-file-text"></i> Sport <i class="fa fa-angle-right"></i></div>
-                      <!-- <div style="display: none;" class="collapsible-body">
-                          <ul>
-                              <li class="waves-effect"><a href="index-sport.html"><i class="fa fa-angle-right"></i> Sport </a></li>
-                          </ul>
-                      </div> -->
-                  </li>
+                  @endforeach
               </ul>
           </li>
-          <li class="waves-effect"><a href="{{url('about')}}"><i class="fa fa-tag"></i>About</a></li>
-          <li class="waves-effect"><a href="{{url('contact')}}"><i class="fa fa-briefcase"></i>Contact</a></li>
+          <li class="waves-effect"><a href="shop.html"><i class="fa fa-tag"></i>About</a></li>
+          <li class="waves-effect"><a href="catalog.html"><i class="fa fa-briefcase"></i>Contact</a></li>
       </ul>

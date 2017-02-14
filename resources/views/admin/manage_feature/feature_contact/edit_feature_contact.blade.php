@@ -37,14 +37,14 @@
 
               <div style="width:95%;margin:auto;" class="box box-default collapsed-box box-solid">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Master Feature Contact</h3>
+                  <h3 class="box-title">Edit Feature Contact</h3>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
                   </div><!-- /.box-tools -->
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   
-                <form method="POST"  action="{{ url('manage_feature/feature_contact/save') }}" enctype="multipart/form-data">
+                <form method="POST"  action="{{ url('manage_feature/feature_contact/update') }}" enctype="multipart/form-data">
                   <div style="margin-bottom: 10px;" class="row">  
                     <label for="exampleInputPassword1" class="col-sm-2 control-label">Select Type</label>
                   <div class="col-xs-6 col-md-8">
@@ -58,12 +58,12 @@
                     </div>
                   </div>
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+                  <input type="hidden" name="id" value="{{ $edit->id }}">
                   <div style="margin-bottom: 10px;" id="title" class="row">
                     <label for="exampleInputPassword1" class="col-sm-2 control-label">Title</label>                  
                   <div class="col-xs-6 col-md-8">
                       
-                      <input class="form-control not-res" type="text" name="title" placeholder="Title" id="title" />
+                      <input class="form-control not-res" value="{{$edit->title}}" type="text" name="title" placeholder="Title" id="title" />
                     </div>
                   </div>
                   
@@ -71,7 +71,7 @@
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Posting Date</label>
                       <div class="col-xs-6 col-md-8">
                         <div class='input-group date' id='datetimepicker1'>
-                          <input type='text' name="created_date" class="form-control _date" required/>
+                          <input value="{{$edit->created_date}}" type='text' name="created_date" class="form-control _date" required/>
                             <span class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -83,7 +83,7 @@
                   <label for="exampleInputPassword1" class="col-sm-2 control-label">Address</label>                 
                   <div class="col-xs-6 col-md-8">
                       
-                      <input class="form-control not-res" type="text" name="address" placeholder="Address" id="address" />
+                      <input value="{{$edit->address}}" class="form-control not-res" type="text" name="address" placeholder="Address" id="address" />
                     </div>
                   </div>
                   
@@ -91,7 +91,7 @@
                   <div style="margin-bottom: 10px;" id="desc" class="row">  
                   <label for="exampleInputPassword1" class="col-sm-2 control-label">Description</label>                
                   <div class="col-xs-6 col-md-8">
-                      <input class="form-control not-res" type="text" name="desc" placeholder="Description" id="desc" />
+                      <input value="{{$edit->desc}}" class="form-control not-res" type="text" name="desc" placeholder="Description" id="desc" />
                     </div>
                   </div>
                   
@@ -100,7 +100,7 @@
                   <label for="exampleInputPassword1" class="col-sm-2 control-label">Contact 1</label>                 
                   <div class="col-xs-6 col-md-8">
                       
-                      <input class="form-control not-res" type="text" name="contact-1" placeholder="Contact 1" id="contact-1" />
+                      <input value="{{$edit->contact_1}}" class="form-control not-res" type="text" name="contact-1" placeholder="Contact 1" id="contact-1" />
                     </div>
                   </div>
                   
@@ -109,7 +109,7 @@
                   <label for="exampleInputPassword1" class="col-sm-2 control-label">Contact 2</label>            
                   <div class="col-xs-6 col-md-8">
                       
-                      <input class="form-control not-res" type="text" name="contact-2" placeholder="Contact 2" id="contact-2" />
+                      <input value="{{$edit->contact_2}}" class="form-control not-res" type="text" name="contact-2" placeholder="Contact 2" id="contact-2" />
                     </div>
                   </div>
                   
@@ -118,7 +118,7 @@
                   <label for="exampleInputPassword1" class="col-sm-2 control-label">Name Link</label>                
                   <div class="col-xs-6 col-md-8">
                       
-                      <input class="form-control not-res" type="text" name="link-name" placeholder="Name Link" id="link-name" />
+                      <input value="{{$edit->link_name}}" class="form-control not-res" type="text" name="link-name" placeholder="Name Link" id="link-name" />
                     </div>
                   </div>
                   
@@ -127,14 +127,14 @@
                   <label for="exampleInputPassword1" class="col-sm-2 control-label">URL</label>                 
                   <div class="col-xs-6 col-md-8">
                       
-                      <input class="form-control not-res" type="text" name="link-url" placeholder="URL" id="link-url" />
+                      <input value="{{$edit->link_url}}" class="form-control not-res" type="text" name="link-url" placeholder="URL" id="link-url" />
                     </div>
                   </div>
                   <br>
 
                   <br><br>
                     <div style="padding:20px 15px 0 0;" class="pull-right">
-                      <button style="width:150px;" type="submit" name="choose" value="publish" class="btn btn-primary">Save and Publish</button>
+                      <button style="width:150px;" type="submit" name="choose" value="publish" class="btn btn-primary">Update and Publish</button>
                     </div>
                 </form>
                 </div><!-- /.box-body -->
@@ -238,7 +238,7 @@
           $('#contact-1').hide();
           $('#contact-2').hide();
           $('#address').hide();
-          $('#link-url').hide();
+          $('link-url').hide();
           $('#link-name').hide();
         }
         else if($(this).val() == "2"){
@@ -247,7 +247,7 @@
           $('#contact-1').css("display","block");
           $('#contact-2').css("display","block");
           $('#address').hide();
-          $('#link-url').css("display","block");
+          $('link-url').css("display","block");
           $('#link-name').css("display","block");
         }
         else if($(this).val() == "3"){
@@ -256,7 +256,7 @@
           $('#contact-1').hide();
           $('#contact-2').hide();
           $('#address').css("display","block");
-          $('#link-url').css("display","block");
+          $('link-url').css("display","block");
           $('#link-name').css("display","block");
         }
         else{
@@ -265,7 +265,7 @@
           $('#contact-1').hide();
           $('#contact-2').hide();
           $('#address').hide();
-          $('#link-url').css("display","block");
+          $('link-url').css("display","block");
           $('#link-name').css("display","block");
         }
       });

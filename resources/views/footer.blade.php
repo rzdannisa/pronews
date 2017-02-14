@@ -8,55 +8,20 @@
                           <span class="mdi-action-history"></span>
                       </div> -->
                   </div>
+
+
                   <div class="col l6 col m12 col s12" style="padding-top : 30px;">
                       <!-- Footer Column 1 -->
+                      @foreach($menu as $menuu)
                       <ul class="col l4 col m4 col s4">
-                          <li class="footer-title">Culture</li>
+                          <li class="footer-title">{{$menuu->name}}</li>
+                          @foreach($menuu->subtypeee as $sub)
                           <li>
-                              <a href="javascript:void(0);">Nation</a>
+                              <a href="javascript:void(0);">{{$sub->name}}</a>
                           </li>
-                          <li>
-                              <a href="javascript:void(0);">World</a>
-                          </li>
-                          <li>
-                              <a href="javascript:void(0);">Washington</a>
-                          </li>
-                          <li>
-                              <a href="javascript:void(0);">Elections</a>
-                          </li>
+                          @endforeach
                       </ul>
-
-                      <ul class="col l4 col m4 col s4">
-                          <li class="footer-title">Lifestyle</li>
-                          <li>
-                              <a href="javascript:void(0);">Nation</a>
-                          </li>
-                          <li>
-                              <a href="javascript:void(0);">World</a>
-                          </li>
-                          <li>
-                              <a href="javascript:void(0);">Washington</a>
-                          </li>
-                          <li>
-                              <a href="javascript:void(0);">Elections</a>
-                          </li>
-                      </ul>
-
-                      <ul class="col l4 col m4 col s4">
-                          <li class="footer-title">Sport</li>
-                          <li>
-                              <a href="javascript:void(0);">Nation</a>
-                          </li>
-                          <li>
-                              <a href="javascript:void(0);">World</a>
-                          </li>
-                          <li>
-                              <a href="javascript:void(0);">Washington</a>
-                          </li>
-                          <li>
-                              <a href="javascript:void(0);">Elections</a>
-                          </li>
-                      </ul>
+                      @endforeach
                   </div>
                   <div class="col l6 col m12 col s12" style="padding-top : 30px;">
                     <div class="z-depth-1">

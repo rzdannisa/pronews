@@ -16,20 +16,31 @@ class Controller extends BaseController
 
     public function welcome()
     {
-            
-            return view('home');
+            $viewtypenews = \App\type_news::where('status', 'A')->get();
+            $menu = \App\master_subtype::with('subtypeee')->get();
+            $viewnews = \App\news::where('status', 'A')->get();
+            $culture1 = \App\news::where('status', 'A')->where('type_news_id',1)->orderBy('id', 'desc')->paginate(4);
+            $culture2 = \App\news::where('status', 'A')->where('type_news_id',1)->orderBy('id', 'desc')->paginate(4);
+            $lifestyle= \App\news::where('status', 'A')->where('type_news_id',2)->get();
+            $sport = \App\news::where('status', 'A')->where('type_news_id',3)->get();
+            return view('home')->with('viewnews',$viewnews)->with('viewtypenews',$viewtypenews)->with('menu',$menu)->with('culture1',$culture1)->with('culture2',$culture2)->with('lifestyle',$lifestyle)->with('sport',$sport);
     }
 
     public function contact()
     {
-            
-            return view('contact');
+            $menu = \App\master_subtype::with('subtypeee')->get();
+            $cabout = \App\ms_contact::where('id_type', 1)->where('status','A')->orderBy('id','desc')->limit(1)->get();
+            $contact = \App\ms_contact::where('id_type', 2)->where('status','A')->orderBy('id','desc')->limit(1)->get();
+            $cloc = \App\ms_contact::where('id_type', 3)->where('status','A')->orderBy('id','desc')->limit(1)->get();
+            $career = \App\ms_contact::where('id_type', 4)->where('status','A')->orderBy('id','desc')->limit(1)->get();
+            return view('contact')->with('menu',$menu)->with('cabout',$cabout)->with('cloc',$cloc)->with('contact',$contact)->with('career',$career);
     }
 
     public function about()
     {
-            
-            return view('about');
+            $menu = \App\master_subtype::with('subtypeee')->get();
+            $about = \App\tr_about::where('status', 'A')->get();
+            return view('about')->with('menu',$menu)->with('about',$about);
     }
 
     public function detail_news()

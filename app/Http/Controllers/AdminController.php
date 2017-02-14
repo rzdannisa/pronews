@@ -583,7 +583,7 @@ class AdminController extends Controller
         session_start();
         if(!empty(session('type')))
         {
-            $auth = \App\ms_user::where('id',session('iduser'))->get();
+            $auth = \App\ms_user::where('id',session('iduser'))->get(); 
             $fitur = \App\lt_contact_fitur::where('status', 'A')->get();
             $fcontact  = \App\ms_contact::where('status', 'A')->get();
             $aa  = \App\ms_contact::where('status', 'A')->count();
@@ -600,21 +600,19 @@ class AdminController extends Controller
         if(!empty(session('type')))
         {
             $post = new \App\ms_contact;
-            $post->text_contact = Input::get('text_contact');
+            $post->id_type = Input::get('id_type');
+            $post->title = Input::get('title');
+            $post->desc = Input::get('desc');
+            $post->contact_1 = Input::get('contact-1');
+            $post->contact_2 = Input::get('contact-2');
+            $post->address = Input::get('address');
+            $post->link_name = Input::get('link-name');
+            $post->link_url = Input::get('link-url');
             $post->status = 'A';
             $post->modify_user_id = session('iduser');
             $post->created_date = Input::get('created_date');
             $post->last_modify_date = date('Y-m-d H:i:s');
             
-             if(Input::hasFile('header_contact')){
-                $header_contact = date("YmdHis")
-                .uniqid()
-                ."."
-                .Input::file('header_contact')->getClientOriginalExtension();
-            
-                Input::file('header_contact')->move(public_path()."/header_contact",$header_contact);
-                $post->header_contact = $header_contact;
-                }
             $post->save();
 
             return redirect(url('manage_feature/feature_contact'))->with('status', 'Successfully add feature contact !');
@@ -627,10 +625,10 @@ class AdminController extends Controller
         if(!empty(session('type')))
         {
             $auth = \App\ms_user::where('id',session('iduser'))->get();
+            $fitur = \App\lt_contact_fitur::where('status', 'A')->get();
             $fcontact  = \App\ms_contact::where('status', 'A')->get();
             $edit = \App\ms_contact::find($id);
-            $aa  = \App\ms_contact::where('status', 'A')->count();
-            return view('admin.manage_feature.feature_contact.edit_feature_contact')->with('fcontact', $fcontact)->with('auth',$auth)->with('edit',$edit)->with('aa',$aa);
+            return view('admin.manage_feature.feature_contact.edit_feature_contact')->with('fcontact', $fcontact)->with('auth',$auth)->with('edit',$edit)->with('fitur',$fitur);
         }else{
             return redirect('login');
         }
@@ -642,21 +640,18 @@ class AdminController extends Controller
         if(!empty(session('type')))
         {
             $post = \App\ms_contact::find(Input::get('id'));
-            $post->text_contact = Input::get('text_contact');
+            $post->id_type = Input::get('id_type');
+            $post->title = Input::get('title');
+            $post->desc = Input::get('desc');
+            $post->contact_1 = Input::get('contact-1');
+            $post->contact_2 = Input::get('contact-2');
+            $post->address = Input::get('address');
+            $post->link_name = Input::get('link-name');
+            $post->link_url = Input::get('link-url');
             $post->status = 'A';
             $post->modify_user_id = session('iduser');
             $post->created_date = Input::get('created_date');
             $post->last_modify_date = date('Y-m-d H:i:s');
-
-             if(Input::hasFile('header_contact')){
-                $header_contact = date("YmdHis")
-                .uniqid()
-                ."."
-                .Input::file('header_contact')->getClientOriginalExtension();
-            
-                Input::file('header_contact')->move(public_path()."/header_contact",$header_contact);
-                $post->header_contact = $header_contact;
-                }
             $post->save();
 
             return redirect(url('manage_feature/feature_contact'))->with('status', 'Successfully update feature contact !');
@@ -673,6 +668,311 @@ class AdminController extends Controller
             $post->save();
 
             return redirect(url('manage_feature/feature_contact'))->with('status', 'Successfully delete feature contact !');
+        }
+    }
+
+    public function feature_adv()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
+            $fadv  = \App\lt_adv::where('status', 'A')->get();
+            return view('admin.manage_advertisement.feature_adv.feature_adv')->with('fadv', $fadv)->with('auth',$auth);
+        }else{
+            return redirect('login');
+        }
+    }
+
+
+    public function feature_adv_save()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = new \App\lt_adv;
+            $post->name = Input::get('name');
+            $post->price = Input::get('price');
+            $post->status = 'A';
+            $post->modify_user_id = session('iduser');
+            $post->created_date = Input::get('created_date');
+            $post->last_modify_date = date('Y-m-d H:i:s');
+            
+            $post->save();
+
+            return redirect(url('manage_advertisement/feature_adv'))->with('status', 'Successfully add feature advertisement !');
+        }
+    }
+
+    public function feature_adv_edit($id)
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
+            $fadv  = \App\lt_adv::where('status', 'A')->get();
+            $edit = \App\lt_adv::find($id);
+            return view('admin.manage_advertisement.feature_adv.edit_feature_adv')->with('fadv', $fadv)->with('auth',$auth)->with('edit',$edit);
+        }else{
+            return redirect('login');
+        }
+    }
+
+    public function feature_adv_update()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = \App\lt_adv::find(Input::get('id'));
+            $post->name = Input::get('name');
+            $post->price = Input::get('price');
+            $post->status = 'A';
+            $post->modify_user_id = session('iduser');
+            $post->created_date = Input::get('created_date');
+            $post->last_modify_date = date('Y-m-d H:i:s');
+
+            $post->save();
+
+            return redirect(url('manage_advertisement/feature_adv'))->with('status', 'Successfully update feature advertisement !');
+        }
+    }
+
+    public function feature_adv_delete()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = \App\lt_adv::find(Input::get('id'));
+            $post->status = 'D';
+            $post->save();
+
+            return redirect(url('manage_advertisement/feature_adv'))->with('status', 'Successfully delete feature advertisement !');
+        }
+    }
+
+    public function data_customer()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
+            $fdc  = \App\ms_user_adv::where('status', 'A')->get();
+            $adv = \App\lt_adv::all();
+            return view('admin.manage_advertisement.data_customer.data_customer')->with('fdc', $fdc)->with('auth',$auth)->with('adv',$adv);
+        }else{
+            return redirect('login');
+        }
+    }
+
+
+    public function data_customer_save()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = new \App\ms_user_adv;
+            $post->nama = Input::get('nama');
+            $post->email = Input::get('email');
+            $post->lt_id_adv = Input::get('lt_id_adv');
+            $post->contact = Input::get('contact');
+            $post->detail = Input::get('detail');
+            $post->status = 'A';
+            $post->modify_user_id = session('iduser');
+            $post->created_date = Input::get('created_date');
+            $post->last_modify_date = date('Y-m-d H:i:s');
+            
+            $post->save();
+
+            return redirect(url('manage_advertisement/data_customer'))->with('status', 'Successfully add data customer !');
+        }
+    }
+
+    public function data_customer_edit($id)
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
+            $fdc  = \App\ms_user_adv::where('status', 'A')->get();
+            $edit = \App\ms_user_adv::find($id);
+            $adv = \App\lt_adv::all();
+            return view('admin.manage_advertisement.data_customer.edit_data_customer')->with('fdc', $fdc)->with('auth',$auth)->with('edit',$edit)->with('adv',$adv);
+        }else{
+            return redirect('login');
+        }
+    }
+
+    public function data_customer_update()  
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = \App\ms_user_adv::find(Input::get('id'));
+            $post->nama = Input::get('nama');
+            $post->email = Input::get('email');
+            $post->lt_id_adv = Input::get('lt_id_adv');
+            $post->contact = Input::get('contact');
+            $post->detail = Input::get('detail');
+            $post->status = 'A';
+            $post->modify_user_id = session('iduser');
+            $post->created_date = Input::get('created_date');
+            $post->last_modify_date = date('Y-m-d H:i:s');
+
+            $post->save();
+
+            return redirect(url('manage_advertisement/data_customer'))->with('status', 'Successfully update data customer !');
+        }
+    }
+
+    public function data_customer_delete()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = \App\ms_user_adv::find(Input::get('id'));
+            $post->status = 'D';
+            $post->save();
+
+            return redirect(url('manage_advertisement/data_customer'))->with('status', 'Successfully delete data customer !');
+        }
+    }
+
+    public function master_adv()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $auth = \App\ms_user::where('id',session('iduser'))->get(); 
+            $idadv = \App\lt_adv::where('status', 'A')->get();
+            $fmadv  = \App\tr_adv::where('status', 'A')->get();
+            $useradv = \App\ms_user_adv::all();
+            return view('admin.manage_advertisement.master_adv.master_adv')->with('fmadv', $fmadv)->with('auth',$auth)->with('idadv',$idadv)->with('useradv',$useradv);
+        }else{
+            return redirect('login');
+        }
+    }
+
+
+    public function master_adv_save()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = new \App\tr_adv;
+            $post->lt_id_adv = Input::get('lt_id_adv');
+            $post->ms_id_user_adv = Input::get('ms_id_user_adv');
+            $post->title = Input::get('title');
+            $post->for_text = Input::get('for_text');
+            $post->for_detail_text = Input::get('for_detail_text');
+            $post->expiry = Input::get('expiry_date');
+            
+            $button = Input::get('choose');
+            if($button == "hold"){
+                $post->is_hold = 1;
+                $post->is_suspend = 0;
+            }
+            else if($button == "publish"){
+                $post->is_hold = 0;
+                $post->is_suspend = 0;
+            }else{
+                $post->is_hold = 0;
+                $post->is_suspend = 1;
+            }
+
+             if(Input::hasFile('for_image')){
+                $for_image = date("YmdHis")
+                .uniqid()
+                ."."
+                .Input::file('for_image')->getClientOriginalExtension();
+            
+                Input::file('for_image')->move(public_path()."/for_image",$for_image);
+                $post->for_image = $for_image;
+                }
+
+            $post->status = 'A';
+            $post->modify_user_id = session('iduser');
+            $post->created_date = Input::get('created_date');
+            $post->last_modify_date = date('Y-m-d H:i:s');
+            
+            $post->save();
+
+            return redirect(url('manage_advertisement/master_adv'))->with('status', 'Successfully add feature contact !');
+        }
+    }
+
+    public function master_adv_edit($id)
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
+            $idadv = \App\lt_adv::where('status', 'A')->get();
+            $fmadv  = \App\tr_adv::where('status', 'A')->get();
+            $useradv = \App\ms_user_adv::all();
+            $edit = \App\tr_adv::find($id);
+            return view('admin.manage_advertisement.master_adv.edit_master_adv')->with('fmadv', $fmadv)->with('auth',$auth)->with('edit',$edit)->with('idadv',$idadv)->with('useradv',$useradv);
+        }else{
+            return redirect('login');
+        }
+    }
+
+    public function master_adv_update()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = \App\tr_adv::find(Input::get('id'));
+            $post->lt_id_adv = Input::get('lt_id_adv');
+            $post->ms_id_user_adv = Input::get('ms_id_user_adv');
+            $post->title = Input::get('title');
+            $post->for_text = Input::get('for_text');
+            $post->for_detail_text = Input::get('for_detail_text');
+            $post->expiry = Input::get('expiry_date');
+            
+            $button = Input::get('choose');
+            if($button == "hold"){
+                $post->is_hold = 1;
+                $post->is_suspend = 0;
+            }
+            else if($button == "publish"){
+                $post->is_hold = 0;
+                $post->is_suspend = 0;
+            }else{
+                $post->is_hold = 0;
+                $post->is_suspend = 1;
+            }
+
+             if(Input::hasFile('for_image')){
+                $for_image = date("YmdHis")
+                .uniqid()
+                ."."
+                .Input::file('for_image')->getClientOriginalExtension();
+            
+                Input::file('for_image')->move(public_path()."/for_image",$for_image);
+                $post->for_image = $for_image;
+                }
+
+            $post->status = 'A';
+            $post->modify_user_id = session('iduser');
+            $post->created_date = Input::get('created_date');
+            $post->last_modify_date = date('Y-m-d H:i:s');
+            
+            $post->save();
+
+            return redirect(url('manage_advertisement/master_adv'))->with('status', 'Successfully update feature contact !');
+        }
+    }
+
+    public function master_adv_delete()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = \App\tr_adv::find(Input::get('id'));
+            $post->status = 'D';
+            $post->save();
+
+            return redirect(url('manage_advertisement/master_adv'))->with('status', 'Successfully delete feature contact !');
         }
     }
 
