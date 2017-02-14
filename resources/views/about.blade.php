@@ -11,7 +11,7 @@
                   <div class="col l12 col m12 col s12 center-align">
                       <!-- Breadcrumb -->
                       <div class="breadcrumb">
-                          <a href="#">Blogs</a> <i class="fa fa-angle-right"></i> About
+                          <a href="#">Home</a> <i class="fa fa-angle-right"></i> About
                           <div class="page-title"> About </div>
                       </div>
                   </div>

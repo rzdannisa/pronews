@@ -46,7 +46,7 @@
                 <div style="margin-bottom: 10px;" class="row">
                   <label for="exampleInputPassword1" class="col-sm-2 control-label">Select Type</label>
                   <div class="col-md-10">
-                    <select id="selecttype" name="id_type" class="form-control not-res">
+                    <select id="selecttype" name="id_type" class="form-control not-res" required>
                       <option value="">Select Type</option>
                       @foreach($fitur as $ft)
                       <option value="{{$ft->id}}">{{$ft->name}}</option>
