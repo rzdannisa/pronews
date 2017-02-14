@@ -28,7 +28,7 @@
                         @endforeach
                           <div class="map">
                               <div class="map-overlay" onclick="style.pointerEvents='none'"></div>
-                              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9206.470266256896!2d-2.24382800000001!3d54.769110450000014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487c4cb4ad874c0f%3A0xb297a2570358b172!2sLanehead%2C+Bishop+Auckland%2C+County+Durham+DL13%2C+UK!5e0!3m2!1sen!2sin!4v1436158557311" allowfullscreen></iframe>
+                              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253840.48865806547!2d106.68943009781505!3d-6.229726425708153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x100c5e82dd4b820!2sDKI+Jakarta!5e0!3m2!1sid!2sid!4v1487094556704"></iframe>
                           </div>
                       </div>
                   </div>
@@ -46,7 +46,9 @@
                               <div class="border"></div>
                               <p style="max-width: 260px">Telephone : {{$cc->contact_1}}<br>
                               Fax : {{$cc->contact_2}}</p>
-                              <a href="javascript:void(0);">{{$cc->link_url}}</a>
+                              <?php
+                                echo '<a href="'.$cc->link_url.'" target="_blank">'.$cc->link_name.'</a>';
+                              ?>
                           </div>
                           @endforeach
                       </div>
@@ -61,7 +63,9 @@
                               <div class="title">{{$loc->title}}</div>
                               <div class="border"></div>
                               <p style="max-width: 260px">{{ $loc->address }}</p>
-                              <a href="javascript:void(0);">{{$loc->link_url}}</a>
+                              <?php
+                                echo '<a href="'.$loc->link_url.'" target="_blank">'.$loc->link_name.'</a>';
+                              ?>
                           </div>
                           @endforeach
                       </div>
@@ -76,7 +80,9 @@
                               <div class="title">{{$car->title}}</div>
                               <div class="border"></div>
                               <p style="max-width: 260px">{{$car->desc}}</p>
-                              <a href="javascript:void(0);">{{$car->link_url}}</a>
+                              <?php
+                                echo '<a href="'.$car->link_url.'" target="_blank">'.$car->link_name.'</a>';
+                              ?>
                           </div>
                           @endforeach
                       </div>

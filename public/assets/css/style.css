@@ -1,7 +1,7 @@
 /***********************************************************************************************************************************
- 
+
   Table of Content
-  
+
       [1] General Style
       [2] Header
           [2.1] Sidebar Navigation
@@ -25,7 +25,7 @@
           [8.2] News Style 2
           [8.3] Comment
           [8.4] Discussion
-      [9] News Single Page 3 
+      [9] News Single Page 3
           [9.1] Sidebar Testimonial
           [9.2] Sidbar Advertise Box
           [9.3] News style 4
@@ -41,12 +41,12 @@
       [13] Shopping Cart
           [13.1] Order Quates
       [14] Profile Page
-          [14.1] Profile Box 
+          [14.1] Profile Box
       [15] Brand Page 1
       [16] Brand Page 2
       [17] About Page
       [18] Contact Style 1
-      [19] Contact Style 2 	
+      [19] Contact Style 2
       [20] Login Page
       [21] Responsive Style
 
@@ -168,7 +168,7 @@ nav .button-collapse i{ font-size: 2.1rem; }
   background-color: #fff;
   z-index: 999;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 3px; 
+  border-radius: 3px;
 }
 .news-category-dropdown .active > a { color: #000 !important; background: #ededed; }
 .news-category-dropdown li ul:after
@@ -183,10 +183,10 @@ nav .button-collapse i{ font-size: 2.1rem; }
   border-width: 10px;
   bottom: 100%;
   content: "";
-  left: 30%;  
+  left: 30%;
   position: absolute;
 }
-.news-category-dropdown li ul li { 
+.news-category-dropdown li ul li {
   display: list-item;
   overflow: hidden;
   line-height: normal;
@@ -205,7 +205,7 @@ nav .button-collapse i{ font-size: 2.1rem; }
   visibility: visible;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
-.header-fix .news-category-dropdown li:hover ul { top: 55px; } 
+.header-fix .news-category-dropdown li:hover ul { top: 55px; }
 .logo {
   line-height: normal;
   overflow: hidden;
@@ -298,7 +298,7 @@ nav .button-collapse i{ font-size: 2.1rem; }
   background:transparent;
   transition-duration: 0.3s;
 }
-.searchbox-icon:hover{background: rgba(0, 0, 0, 0.14) none repeat scroll 0 0; transition-duration: 0.3s } 
+.searchbox-icon:hover{background: rgba(0, 0, 0, 0.14) none repeat scroll 0 0; transition-duration: 0.3s }
 .searchbox-icon .mdi-action-search {
   font-size: 26px;
   font-weight: bold;
@@ -422,7 +422,7 @@ li.logo-title {
   -o-transform-origin: center top;
   -o-transition-duration: 0.5s;
 }
-.cart-menu li ul li { 
+.cart-menu li ul li {
   border-bottom: 1px solid #eee;
   display: list-item;
   overflow: hidden;
@@ -513,7 +513,7 @@ footer.page-footer .footer-copyright{
 .page-footer ul:nth-child(8){ border-top: 4px solid #fdc510}
 .page-footer li a { color: #95a2e7; display: inline-block; padding: 5px 0;}
 .page-footer li a:hover{ color: #fff;  }
-.footer-title { color: #fff; font-size: 17px; margin:0 0 15px 0; line-height: normal; }
+.footer-title { padding-top:10px; color: #fff; font-size: 17px; margin:0 0 15px 0; line-height: normal; }
 .page-footer .brand-logo{ display: inline-block; padding-bottom: 5px; margin-top: 25px;}
 .social-icon .fa {
   color: #fb7ea8;
@@ -1044,7 +1044,7 @@ ul.pgwSlider > li span, .pgwSlider > .ps-list > li span
 
 .product { background-color: #fff;  text-align: center; }
 .product:hover  .product-hover{ bottom: 15px;}
-.product .image{position: relative; overflow: hidden;} 
+.product .image{position: relative; overflow: hidden;}
 .product .content{ padding: 20px; min-height: 125px;}
 .product-name > a { color: #000; font-size: 17px; }
 .product-name > a:hover{ color: #fe4080;}
@@ -1322,7 +1322,7 @@ ul.pgwSlider > li span, .pgwSlider > .ps-list > li span
 .brand.style-2{ text-align: left;}
 .brand-box .brand-category { font-size: 32px; font-weight: 500; text-transform: uppercase; margin-bottom: 10px; }
 .brand-box .brands > a { color: #000; display: inherit; font-weight: 300; }
-.brand-box .brands > a:hover{ color: #ff4181;} 
+.brand-box .brands > a:hover{ color: #ff4181;}
 .brand.style-2 .brand-box { margin: 21px 0; overflow: hidden; }
 .brand.style-2 .border { border-bottom: 1px solid #f1f1f1; margin: 0 -40px; }
 
@@ -1335,7 +1335,7 @@ ul.pgwSlider > li span, .pgwSlider > .ps-list > li span
 
 .contact{ background-color: #fff; overflow: hidden; }
 .contact-detail{ padding: 40px 40px 65px ; overflow: hidden;}
-.contact-detail p { color: #69777f; font-size: 14px; } 
+.contact-detail p { color: #69777f; font-size: 14px; }
 .contact-detail .title {
   color: #444;
   font-size: 30px;
@@ -1362,7 +1362,7 @@ ul.pgwSlider > li span, .pgwSlider > .ps-list > li span
   padding: 10px;
   border-radius: 3px;
 }
-.materialize-textarea ~  label{ margin-left: 3rem; } 
+.materialize-textarea ~  label{ margin-left: 3rem; }
 .input-field label.active{ transform: translateY(-180%); }
 input[type="text"]:focus:not([readonly]) + label,
 input[type="email"]:focus:not([readonly]) + label,
@@ -1409,8 +1409,8 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .map{ position: relative; }
 .map-overlay
 {
-  background:transparent; 
-  position:absolute; 
+  background:transparent;
+  position:absolute;
   height:500px;
   width: 100%;
 }
@@ -1674,7 +1674,7 @@ header,
 header.header-fix,
 nav,
 .nav-wrapper{
-  height: auto; 
+  height: auto;
 }
 .logo{ padding: 20px 0; }
 .logo img{ width: 100%;}

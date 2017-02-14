@@ -2,7 +2,6 @@
 
 @section('content')
 
-
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
       <header class="main-header">
@@ -35,114 +34,107 @@
         </div>
       @endif
 
-              <div style="width:95%;margin:auto;" class="box box-default collapsed-box box-solid">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Master Feature Contact</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
-                  </div><!-- /.box-tools -->
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  
+          <div class="box box-default collapsed-box box-solid">
+            <div class="box-header with-border">
+                <h3 class="box-title">Master Feature Contact</h3>
+                <div class="box-tools pull-right">
+                  <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+                </div><!-- /.box-tools -->
+              </div><!-- /.box-header -->
+              <div class="box-body">
                 <form method="POST"  action="{{ url('manage_feature/feature_contact/save') }}" enctype="multipart/form-data">
-                  <div style="margin-bottom: 10px;" class="row">  
-                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Select Type</label>
-                  <div class="col-xs-6 col-md-8">
-                      
-                      <select id="selecttype" name="id_type" class="form-control not-res">
-                        <option value="">----Select Type----</option>
-                        @foreach($fitur as $ft)
-                        <option value="{{$ft->id}}">{{$ft->name}}</option>
-                        @endforeach
-                      </select>
-                    </div>
+                <div style="margin-bottom: 10px;" class="row">
+                  <label for="exampleInputPassword1" class="col-sm-2 control-label">Select Type</label>
+                  <div class="col-md-10">
+                    <select id="selecttype" name="id_type" class="form-control not-res">
+                      <option value="">Select Type</option>
+                      @foreach($fitur as $ft)
+                      <option value="{{$ft->id}}">{{$ft->name}}</option>
+                      @endforeach
+                    </select>
                   </div>
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                </div>
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                  <div style="margin-bottom: 10px;" id="title" class="row">
-                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Title</label>                  
-                  <div class="col-xs-6 col-md-8">
-                      
-                      <input class="form-control not-res" type="text" name="title" placeholder="Title" id="title" />
-                    </div>
+                <div style="margin-bottom: 10px;" id="title" class="row">
+                  <label for="exampleInputPassword1" class="col-sm-2 control-label">Title</label>
+                <div class="col-md-10">
+                    <input class="form-control not-res" type="text" name="title" placeholder="Title" id="title" />
                   </div>
-                  
-                  <div style="margin-bottom: 10px;" class="row">
-                      <label for="exampleInputPassword1" class="col-sm-2 control-label">Posting Date</label>
-                      <div class="col-xs-6 col-md-8">
-                        <div class='input-group date' id='datetimepicker1'>
-                          <input type='text' name="created_date" class="form-control _date" required/>
-                            <span class="input-group-addon">
-                              <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
+                </div>
+
+                <div style="margin-bottom: 10px;" class="row">
+                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Posting Date</label>
+                    <div class="col-md-10">
+                      <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' name="created_date" class="form-control _date" required/>
+                          <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                          </span>
                       </div>
                     </div>
-
-                  <div style="margin-bottom: 10px;" id="address" class="row"> 
-                  <label for="exampleInputPassword1" class="col-sm-2 control-label">Address</label>                 
-                  <div class="col-xs-6 col-md-8">
-                      
-                      <input class="form-control not-res" type="text" name="address" placeholder="Address" id="address" />
-                    </div>
                   </div>
-                  
 
-                  <div style="margin-bottom: 10px;" id="desc" class="row">  
-                  <label for="exampleInputPassword1" class="col-sm-2 control-label">Description</label>                
-                  <div class="col-xs-6 col-md-8">
-                      <input class="form-control not-res" type="text" name="desc" placeholder="Description" id="desc" />
-                    </div>
+                <div style="margin-bottom: 10px;" id="address" class="row">
+                <label for="exampleInputPassword1" class="col-sm-2 control-label">Address</label>
+                <div class="col-md-10">
+
+                    <input class="form-control not-res" type="text" name="address" placeholder="Address" id="address" />
                   </div>
-                  
+                </div>
 
-                  <div style="margin-bottom: 10px;" id="contact-1" class="row"> 
-                  <label for="exampleInputPassword1" class="col-sm-2 control-label">Contact 1</label>                 
-                  <div class="col-xs-6 col-md-8">
-                      
-                      <input class="form-control not-res" type="text" name="contact-1" placeholder="Contact 1" id="contact-1" />
-                    </div>
+
+                <div style="margin-bottom: 10px;" id="desc" class="row">
+                <label for="exampleInputPassword1" class="col-sm-2 control-label">Description</label>
+                <div class="col-md-10">
+                    <input class="form-control not-res" type="text" name="desc" placeholder="Description" id="desc" />
                   </div>
-                  
+                </div>
 
-                  <div style="margin-bottom: 10px;" id="contact-2" class="row">      
-                  <label for="exampleInputPassword1" class="col-sm-2 control-label">Contact 2</label>            
-                  <div class="col-xs-6 col-md-8">
-                      
-                      <input class="form-control not-res" type="text" name="contact-2" placeholder="Contact 2" id="contact-2" />
-                    </div>
+
+                <div style="margin-bottom: 10px;" id="contact-1" class="row">
+                <label for="exampleInputPassword1" class="col-sm-2 control-label">Contact 1</label>
+                <div class="col-md-10">
+
+                    <input class="form-control not-res" type="text" name="contact-1" placeholder="Contact 1" id="contact-1" />
                   </div>
-                  
+                </div>
 
-                  <div style="margin-bottom: 10px;" id="link-name" class="row">  
-                  <label for="exampleInputPassword1" class="col-sm-2 control-label">Name Link</label>                
-                  <div class="col-xs-6 col-md-8">
-                      
-                      <input class="form-control not-res" type="text" name="link-name" placeholder="Name Link" id="link-name" />
-                    </div>
+
+                <div style="margin-bottom: 10px;" id="contact-2" class="row">
+                <label for="exampleInputPassword1" class="col-sm-2 control-label">Contact 2</label>
+                <div class="col-md-10">
+
+                    <input class="form-control not-res" type="text" name="contact-2" placeholder="Contact 2" id="contact-2" />
                   </div>
-                  
+                </div>
 
-                  <div style="margin-bottom: 10px;" id="link-url" class="row"> 
-                  <label for="exampleInputPassword1" class="col-sm-2 control-label">URL</label>                 
-                  <div class="col-xs-6 col-md-8">
-                      
-                      <input class="form-control not-res" type="text" name="link-url" placeholder="URL" id="link-url" />
-                    </div>
+
+                <div style="margin-bottom: 10px;" id="link-name" class="row">
+                <label for="exampleInputPassword1" class="col-sm-2 control-label">Name Link</label>
+                <div class="col-md-10">
+
+                    <input class="form-control not-res" type="text" name="link-name" placeholder="Name Link" id="link-name" />
                   </div>
-                  <br>
+                </div>
 
-                  <br><br>
-                    <div style="padding:20px 15px 0 0;" class="pull-right">
-                      <button style="width:150px;" type="submit" name="choose" value="publish" class="btn btn-primary">Save and Publish</button>
-                    </div>
-                </form>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-              
-              <br><br>
+
+                <div style="margin-bottom: 10px;" id="link-url" class="row">
+                <label for="exampleInputPassword1" class="col-sm-2 control-label">URL</label>
+                <div class="col-md-10">
+
+                    <input class="form-control not-res" type="text" name="link-url" placeholder="URL" id="link-url" />
+                  </div>
+                </div>
+                <br>
+                  <div class="pull-right">
+                    <button style="width:150px;" type="submit" name="choose" value="publish" class="btn btn-primary">Save and Publish</button>
+                  </div>
+              </form>
+              </div><!-- /.box-body -->
+            </div><!-- /.box -->
           <div class="row">
-          <div class="col-xs-12">
+            <div class="col-xs-12">
             <div class="box">
               <div class="box-body table-responsive">
                 <table id="master-user" class="table table-bordered table-hover">
@@ -176,7 +168,12 @@
                         </td>
                         <td>{{$contact->id_type}}</td>
                         <td>{{$contact->title}}</td>
-                        <td>{{$contact->desc}}</td>
+                        <td>
+                          <?php
+                            $desc = substr($contact->desc, 0, 50);
+                            echo $desc.'...';
+                          ?>
+                        </td>
                         <td>{{$contact->contact_1}}</td>
                         <td>{{$contact->contact_2}}</td>
                         <td>{{$contact->address}}</td>
@@ -223,11 +220,11 @@
               </div><!-- /.box-body -->
             </div><!-- /.box -->
           </div><!-- /.col -->
-        </div><!-- /.row -->
+          </div><!-- /.row -->
       </div>
         </section>
     </div>
-      
+
 </div>
 </body>
 <script type="text/javascript">
