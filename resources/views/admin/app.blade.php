@@ -71,7 +71,8 @@
 
       <!-- google font -->
       <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
-      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+      <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> -->
+      <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> -->
 
       <!-- <script src="{{ url('adminlte/plugins/fastclick/fastclick.min.js') }}"></script> --> -->
       <!-- <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
