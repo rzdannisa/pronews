@@ -40,8 +40,10 @@
                 <thead>
                   <tr>
                     <th>No.</th>
+                    <th>ID News</th>
                     <th>Created Date</th>
                     <th>Type News</th>
+                    <th>Sub News</th>
                     <th>Title</th>
                     <th>News Description</th>
                     <th>Status</th>
@@ -55,6 +57,7 @@
                   @foreach($post as $posts)
                     <tr>
                       <td>{{$i++}}</td>
+                      <td>{{$posts->id}}</td>
                       <td>
                         <?php
                           $date = strtotime($posts->created_date);
@@ -62,6 +65,7 @@
                         ?>
                       </td>
                       <td>{{$posts->type_news_id}}</td>
+                      <td>{{$posts->type_sub_news_id}}</td>
                       <td>
                         <!-- <a href="{{ url('view/'.$posts->id) }}"> -->{{ $posts->news_title }}<!-- </a> -->
                       </td>
@@ -101,8 +105,10 @@
                 <tfoot>
                   <tr>
                     <th>No.</th>
+                    <th>ID News</th>
                     <th>Created Date</th>
                     <th>Type News</th>
+                    <th>Sub News</th>
                     <th>Title</th>
                     <th>News Description</th>
                     <th>Status</th>
