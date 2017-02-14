@@ -77,26 +77,26 @@
 
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-file-text"></i>
+                <i class="fa fa-cubes"></i>
                 <span>Manage Feature</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ url('manage_feature/feature_about') }}"><i class="fa fa-newspaper-o"></i> Feature About</a></li>
-                <li><a href="{{ url('manage_feature/feature_contact') }}"><i class="fa fa-columns"></i> Feature Contact</a></li>
+                <li><a href="{{ url('manage_feature/feature_about') }}"><i class="fa fa-quote-left"></i> Feature About</a></li>
+                <li><a href="{{ url('manage_feature/feature_contact') }}"><i class="fa fa-phone-square"></i> Feature Contact</a></li>
               </ul>
             </li>
 
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-file-text"></i>
+                <i class="fa fa-buysellads"></i>
                 <span>Manage Advertisement</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ url('manage_advertisement/feature_adv') }}"><i class="fa fa-newspaper-o"></i> Feature Advertisement</a></li>
-                <li><a href="{{ url('manage_advertisement/data_customer') }}"><i class="fa fa-columns"></i> Data Customer</a></li>
-                <li><a href="{{ url('manage_advertisement/master_adv') }}"><i class="fa fa-columns"></i> Master Advertisement</a></li>
+                <li><a href="{{ url('manage_advertisement/feature_adv') }}"><i class="fa fa-list-ol"></i> Feature Advertisement</a></li>
+                <li><a href="{{ url('manage_advertisement/data_customer') }}"><i class="fa fa-users"></i> Data Customer</a></li>
+                <li><a href="{{ url('manage_advertisement/master_adv') }}"><i class="fa fa-diamond"></i> Master Advertisement</a></li>
               </ul>
             </li>
 

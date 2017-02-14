@@ -47,27 +47,33 @@
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Name</label>
                       <div class="col-sm-10">
-                        <input style="margin-bottom: 10px;" type="text" name="nama" class="form-control" id="exampleInputEmail1" placeholder="Name" required/>
+                        <input type="text" name="nama" class="form-control" id="exampleInputEmail1" placeholder="Name" required/>
                       </div>
                     </div>
 
-                    <div class="form-group">  
-                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Select Type</label>
-                  <div class="col-sm-10">
-                      <select style="margin-bottom: 10px;" name="lt_id_adv" class="form-control not-res">
-                        <option value="">----Select Type----</option>
-                        @foreach($adv as $adve)
-                        <option value="{{$adve->id}}">{{$adve->name}}</option>
-                        @endforeach
-                      </select>
-                    </div>
-                  </div>
+                    <br>
+                    <br>
 
-                  <div class="form-group">
+                    <div class="form-group">
+                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Select Type</label>
+                      <div class="col-sm-10">
+                        <select name="lt_id_adv" class="form-control not-res" required>
+                          <option value="">Select Type</option>
+                          @foreach($adv as $adve)
+                          <option value="{{$adve->id}}">{{$adve->name}}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+
+                    <br>
+                    <br>
+
+                    <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Posting Date</label>
                       <div class="col-sm-10">
                         <div class='input-group date' id='datetimepicker1'>
-                          <input style="margin-bottom: 10px;" type='text' name="created_date" class="form-control _date" required/>
+                          <input type='text' name="created_date" class="form-control _date" required/>
                             <span class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -75,35 +81,42 @@
                       </div>
                     </div>
 
+                    <br>
+                    <br>
+
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Email</label>
                       <div class="col-sm-10">
-                        <input style="margin-bottom: 10px;" type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email" required/>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email" required/>
                       </div>
                     </div>
+
+                    <br>
+                    <br>
+
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Contact</label>
                       <div class="col-sm-10">
-                        <input style="margin-bottom: 10px;" type="text" name="contact" class="form-control" id="exampleInputEmail1" placeholder="Contact" required/>
+                        <input type="number" name="contact" maxlength="15" class="form-control" id="exampleInputEmail1" placeholder="Contact" required/>
                       </div>
                     </div>
+
+                    <br>
+                    <br>
 
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Detail</label>
                       <div class="col-sm-10">
-                        <input style="margin-bottom: 10px;" type="text" name="detail" class="form-control" id="exampleInputEmail1" placeholder="Detail" required/>
+                        <input type="text" name="detail" class="form-control" id="exampleInputEmail1" placeholder="Detail" required/>
                       </div>
                     </div>
-                    
-                    <br>
+
                     <br>
 
                     <div style="padding:20px 15px 0 0;" class="pull-right">
-                      
                       <button style="width:150px;" type="submit" name="choose" value="publish" class="btn btn-primary">Save and Publish</button>
                     </div>
-
               </div>
               <br>
             </form>
@@ -123,6 +136,7 @@
                       <th>Email</th>
                       <th>Contact</th>
                       <th>Detail</th>
+                      <th>Type Advertisement</th>
                       <th>Modify Date</th>
                       <th>Action</th>
                       <th>Action</th>
@@ -143,6 +157,7 @@
                         <td>{{$dc->email}}</td>
                         <td>{{$dc->contact}}</td>
                         <td>{{$dc->detail}}</td>
+                        <td>{{$dc->lt_id_adv}}</td>
                         <td>
                           <?php
                             $date = strtotime($dc->updated_at);
@@ -171,6 +186,7 @@
                       <th>Email</th>
                       <th>Contact</th>
                       <th>Detail</th>
+                      <th>Type Advertisement</th>
                       <th>Modify Date</th>
                       <th>Action</th>
                       <th>Action</th>
