@@ -47,21 +47,28 @@
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Name</label>
                       <div class="col-sm-10">
-                        <input style="margin-bottom: 10px;" type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Name" required/>
+                        <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Name" required/>
                       </div>
                     </div>
+
+                    <br>
+                    <br>
 
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Posting Date</label>
                       <div class="col-sm-10">
                         <div class='input-group date' id='datetimepicker1'>
-                          <input style="margin-bottom: 10px;" type='text' name="created_date" class="form-control _date" required/>
+                          <input type='text' name="created_date" class="form-control _date" required/>
                             <span class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar"></span>
                             </span>
                         </div>
                       </div>
                     </div>
+
+                    <br>
+                    <br>
+
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Price</label>
@@ -69,13 +76,8 @@
                         <input style="margin-bottom: 10px;" type="number" name="price" class="form-control" id="exampleInputEmail1" placeholder="Price" required/>
                       </div>
                     </div>
-
-                    
                     <br>
-                    <br>
-
                     <div style="padding:20px 15px 0 0;" class="pull-right">
-                      
                       <button style="width:150px;" type="submit" name="choose" value="publish" class="btn btn-primary">Save and Publish</button>
                     </div>
 
@@ -98,7 +100,7 @@
                       <th>Price</th>
                       <th>Modify Date</th>
                       <th>Action</th>
-                      <!-- <th>Action</th> -->
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -113,7 +115,11 @@
                           ?>
                         </td>
                         <td>{{$adv->name}}</td>
-                        <td>{{$adv->price}}</td>
+                        <td>
+                          <?php
+                            echo 'Rp '.number_format("$adv->price",0,",",".");
+                          ?>
+                        </td>
                         <td>
                           <?php
                             $date = strtotime($adv->updated_at);
@@ -124,13 +130,13 @@
                         <td>
                           <a href="{{ url('manage_advertisement/feature_adv/edit/'.$adv->id)}}"><button style="width:90px;" type="button" class="btn btn-info">Edit</button></a>
                         </td>
-                        <!-- <td>
+                        <td>
                           <form style="display: inline-table;" method="POST" action="{{ url('manage_advertisement/feature_adv/delete') }}">
                             <input type="hidden" name="id" value="{{$adv->id}}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <button style="width:90px;" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this feature advertisement?')" type="submit">Delete</button>
                           </form>
-                        </td> -->
+                        </td>
                       </tr>
                     @endforeach
                    </tbody>
@@ -142,7 +148,7 @@
                       <th>Price</th>
                       <th>Modify Date</th>
                       <th>Action</th>
-                      <!-- <th>Action</th> -->
+                      <th>Action</th>
                     </tr>
                   </tfoot>
                 </table>

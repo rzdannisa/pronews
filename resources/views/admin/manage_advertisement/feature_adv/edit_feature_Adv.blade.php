@@ -47,36 +47,35 @@
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Name</label>
                       <div class="col-sm-10">
-                        <input style="margin-bottom: 10px;" value="{{$edit->name}}" type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Name" required/>
+                        <input value="{{$edit->name}}" type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Name" required/>
                       </div>
                     </div>
-
+                    <br>
+                    <br>
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Posting Date</label>
                       <div class="col-sm-10">
                         <div class='input-group date' id='datetimepicker1'>
-                          <input style="margin-bottom: 10px;" type='text' value="{{$edit->created_date}}" name="created_date" class="form-control _date" required/>
-                            <span style="margin-bottom: 10px;" class="input-group-addon">
+                          <input type='text' value="{{$edit->created_date}}" name="created_date" class="form-control _date" required/>
+                            <span class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar"></span>
                             </span>
                         </div>
                       </div>
                     </div>
+                    <br>
+                    <br>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="id" value="{{ $edit->id }}">
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Price</label>
                       <div class="col-sm-10">
-                        <input style="margin-bottom: 10px;" type="number" value="{{$edit->price}}" name="price" class="form-control" id="exampleInputEmail1" placeholder="Price" required/>
+                        <input type="number" value="{{$edit->price}}" name="price" class="form-control" id="exampleInputEmail1" placeholder="Price" required/>
                       </div>
                     </div>
-
-                    
                     <br>
-                    <br>
-
                     <div style="padding:20px 15px 0 0;" class="pull-right">
-                      
+
                       <button style="width:150px;" type="submit" name="choose" value="publish" class="btn btn-primary">Update and Publish</button>
                     </div>
 
@@ -114,7 +113,11 @@
                           ?>
                         </td>
                         <td>{{$adv->name}}</td>
-                        <td>{{$adv->price}}</td>
+                        <td>
+                          <?php
+                            echo 'Rp '.number_format("$adv->price",0,",",".");
+                          ?>
+                        </td>
                         <td>
                           <?php
                             $date = strtotime($adv->updated_at);
