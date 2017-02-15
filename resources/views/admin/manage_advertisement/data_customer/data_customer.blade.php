@@ -55,7 +55,7 @@
                     <br>
 
                     <div class="form-group">
-                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Select Type</label>
+                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Choose Type</label>
                       <div class="col-sm-10">
                         <select name="lt_id_adv" class="form-control not-res" required>
                           <option value="">Select Type</option>

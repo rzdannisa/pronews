@@ -43,13 +43,13 @@
                   </div><!-- /.box-tools -->
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  
+
                 <form method="POST"  action="{{ url('manage_advertisement/master_adv/update') }}" enctype="multipart/form-data">
-                  <div style="margin-bottom: 10px;" class="row">  
+                  <div style="margin-bottom: 10px;" class="row">
                     <label for="exampleInputPassword1" class="col-sm-2 control-label">Select Type Advertisement</label>
                     <div class="col-xs-10">
                       <select id="selecttype" name="lt_id_adv" class="form-control not-res">
-                        <option value="">----Select Type----</option>
+                        <option value="">Choose Type</option>
                         @foreach($idadv as $adv)
                         <option value="{{$adv->id}}">{{$adv->name}}</option>
                         @endforeach
@@ -57,11 +57,11 @@
                     </div>
                   </div>
 
-                  <div style="margin-bottom: 10px;" class="row">  
+                  <div style="margin-bottom: 10px;" class="row">
                     <label for="exampleInputPassword1" class="col-sm-2 control-label">Select User</label>
                     <div class="col-xs-10">
                       <select name="ms_id_user_adv" class="form-control not-res">
-                        <option value="">----Select Type----</option>
+                        <option value="">Choose Type</option>
                         @foreach($useradv as $usr)
                         <option value="{{$usr->id}}">{{$usr->nama}}</option>
                         @endforeach
@@ -69,8 +69,8 @@
                     </div>
                   </div>
 
-                  <div style="margin-bottom: 10px;" class="row"> 
-                  <label for="exampleInputPassword1" class="col-sm-2 control-label">Title</label>                 
+                  <div style="margin-bottom: 10px;" class="row">
+                  <label for="exampleInputPassword1" class="col-sm-2 control-label">Title</label>
                   <div class="col-xs-10">
                       <input class="form-control not-res" value="{{$edit->title}}" type="text" name="title" placeholder="Title" id="address" />
                     </div>
@@ -83,12 +83,12 @@
                     @else
                   @endif
                   <div style="margin-bottom: 10px;" id="img" class="row">
-                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Image Advertisement</label>                  
+                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Image Advertisement</label>
                     <div class="col-xs-10">
                       <input value="{{$edit->for_image}}" class="form-control not-res" type="file" name="for_image" placeholder="Title" id="img" />
                     </div>
                   </div>
-                  
+
                   <div style="margin-bottom: 10px;" class="row">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Posting Date</label>
                       <div class="col-xs-10">
@@ -113,13 +113,13 @@
                       </div>
                     </div>
 
-                  <div style="margin-bottom: 10px;" id="desc" class="row"> 
-                  <label for="exampleInputPassword1" class="col-sm-2 control-label">Description</label>                 
+                  <div style="margin-bottom: 10px;" id="desc" class="row">
+                  <label for="exampleInputPassword1" class="col-sm-2 control-label">Description</label>
                   <div class="col-xs-10">
                       <input value="{{$edit->for_text}}" class="form-control not-res" type="text" name="for_text" placeholder="Description" id="address" />
                     </div>
                   </div>
-                  
+
                   <div class="row">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Detail</label>
                       <div class="col-sm-10">
@@ -136,7 +136,7 @@
                 </form>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
-              
+
               <br><br>
           <div class="row">
           <div class="col-xs-12">
@@ -212,7 +212,7 @@
       </div>
         </section>
     </div>
-      
+
 </div>
 </body>
 <script type="text/javascript">
@@ -234,9 +234,9 @@
           $('#exp').css("display","block");
           $('#desc').css("display","block");
           $('#detail').css("display","block");
-          
+
         }
-        
+
       });
 $('._date').datetimepicker({ format: 'YYYY-MM-DD' });
 
