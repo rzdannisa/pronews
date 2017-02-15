@@ -55,6 +55,8 @@
                 <tbody>
                   <?php $i=1; ?>
                   @foreach($post as $posts)
+                  @foreach($posts->typenews as $type)
+                  @foreach($posts->subtypenews as $sub)
                     <tr>
                       <td>{{$i++}}</td>
                       <td>{{$posts->id}}</td>
@@ -64,8 +66,10 @@
                           echo date("d-m-Y", $date);
                         ?>
                       </td>
-                      <td>{{$posts->type_news_id}}</td>
-                      <td>{{$posts->type_sub_news_id}}</td>
+                      
+                      <td>{{$type->name}}</td>
+                      
+                      <td>{{$sub->name}}</td>
                       <td>
                         <!-- <a href="{{ url('view/'.$posts->id) }}"> -->{{ $posts->news_title }}<!-- </a> -->
                       </td>
@@ -100,6 +104,8 @@
                         </form>
                       </td>
                     </tr>
+                  @endforeach
+                  @endforeach
                   @endforeach
                 </tbody>
                 <tfoot>

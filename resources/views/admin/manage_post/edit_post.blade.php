@@ -38,7 +38,8 @@
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Type News</label>
                       <div class="col-sm-10">
-                        <select id="selecttype" name="type_news_id" class="form-control">
+                        <select style="margin-bottom: 10px;" id="selecttype" name="type_news_id" class="form-control" required/>
+                          <option value="">----Select Type----</option>
                           @foreach($type as $typee)
                           <option value="{{ $typee->id }}">{{ $typee->name }}</option>
                           @endforeach
@@ -46,20 +47,47 @@
                       </div>
                     </div>
 
-                    <br>
-                    <br>
+                    <div id="C" class="form-group">
+                      <label for="exampleInputPassword1" class="col-sm-2 control-label">Sub Type</label>
+                      <div class="col-sm-10">
+                        <select style="margin-bottom: 10px;" name="tr_sub_news_id" class="form-control">
+                          @foreach($subC as $C)
+                          <option value="{{ $C->id }}">{{ $C->name }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+
+                    <div id="L" class="form-group">
+                      <label for="exampleInputPassword1" class="col-sm-2 control-label">Sub Type</label>
+                      <div class="col-sm-10">
+                        <select style="margin-bottom: 10px;" name="tr_sub_news_id" class="form-control">
+                          @foreach($subL as $L)
+                          <option value="{{ $L->id }}">{{ $L->name }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+
+                    <div id="S" class="form-group">
+                      <label for="exampleInputPassword1" class="col-sm-2 control-label">Sub Type</label>
+                      <div class="col-sm-10">
+                        <select style="margin-bottom: 10px;" name="tr_sub_news_id" class="form-control">
+                          @foreach($subS as $S)
+                          <option value="{{ $S->id }}">{{ $S->name }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
 
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Title</label>
                       <div class="col-sm-10">
-                        <input type="text" name="news_title" class="form-control" id="exampleInputEmail1" value="{{$posts->news_title}}" placeholder="Title" required/>
+                        <input style="margin-bottom: 10px;" type="text" name="news_title" class="form-control" id="exampleInputEmail1" value="{{$posts->news_title}}" placeholder="Title" required/>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="id" value="{{ $typee->id }}">
                       </div>
                     </div>
-
-                    <br>
-                    <br>
 
                     @if(!empty($posts->headline_news))
                     <div class="form-group">
@@ -71,27 +99,21 @@
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Headline News</label>
                       <div class="col-sm-10">
-                        <input type="file" name="headline_news" class="form-control" id="exampleInputEmail1" value="{{$posts->headline_news}}" placeholder="Photo"/>
+                        <input style="margin-bottom: 10px;" type="file" name="headline_news" class="form-control" id="exampleInputEmail1" value="{{$posts->headline_news}}" placeholder="Photo"/>
                       </div>
                     </div>
-
-                    <br>
-                    <br>
 
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Posting Date</label>
                       <div class="col-sm-10">
                         <div class='input-group date' id='datetimepicker1'>
-                          <input type='text' name="created_date" class="form-control _date" value="{{$posts->created_date}}" required/>
+                          <input style="margin-bottom: 10px;" type='text' name="created_date" class="form-control _date" value="{{$posts->created_date}}" required/>
                             <span class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar"></span>
                             </span>
                         </div>
                       </div>
                     </div>
-
-                    <br>
-                    <br>
 
                     <script type="text/javascript">
                       function minmaxname(value, min, max)
@@ -107,20 +129,16 @@
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">News Description</label>
                       <div class="col-sm-10">
-                        <input type="text" name="news_desc" class="form-control not-res" maxlength="100" placeholder="News Description" onkeyup="this.value = minmaxname(this.value, 0, 100)" value="{{$posts->news_desc}}" required/>
+                        <input style="margin-bottom: 10px;" type="text" name="news_desc" class="form-control not-res" maxlength="100" placeholder="News Description" onkeyup="this.value = minmaxname(this.value, 0, 100)" value="{{$posts->news_desc}}" required/>
                       </div>
                     </div>
-
-                    <br>
-                    <br>
 
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Content</label>
                       <div class="col-sm-10">
-                        <textarea class="form-control ckeditor" id="editor1" name="content" placeholder="Content" class="materialize-textarea" rows="6" required/>{{$posts->content}}</textarea>
+                        <textarea style="margin-bottom: 10px;" class="form-control ckeditor" id="editor1" name="content" placeholder="Content" class="materialize-textarea" rows="6" required/>{{$posts->content}}</textarea>
                       </div>
                     </div>
-
                     <br>
                     <br>
 
@@ -176,4 +194,24 @@
     </script>
 
   </body>
+
+  <script type="text/javascript">
+        $('#selecttype').change(function(){
+        if($(this).val() == "1"){
+          $("#C").css("display","block");
+          $('#L').hide();
+          $('#S').hide();
+        }
+        else if($(this).val() == "2"){
+          $("#C").hide();
+          $('#L').css("display","block");
+          $('#S').hide();
+        }
+        else{
+          $("#C").hide();
+          $('#L').hide();
+          $('#S').css("display","block");
+        }
+      });
+</script>
 @endsection

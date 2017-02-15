@@ -289,7 +289,7 @@ class AdminController extends Controller
         if(!empty(session('type')))
         {
             $auth = \App\ms_user::where('id',session('iduser'))->get();
-            $post  = \App\news::where('status', 'A')->get();
+            $post = \App\news::with('typenews')->with('subtypenews')->get();
             return view('admin.manage_post.all_post')->with('post', $post)->with('auth',$auth);
         }else{
             return redirect('login');
@@ -303,8 +303,11 @@ class AdminController extends Controller
         {
             $auth = \App\ms_user::where('id',session('iduser'))->get();
             $type  = \App\type_news::where('status', 'A')->get();
-            $subtype  = \App\sub_type::where('status', 'A')->get();
-            return view('admin.manage_post.post_news')->with('type', $type)->with('auth',$auth)->with('subtype',$subtype);
+            $subC  = \App\sub_type::where('status', 'A')->where('type_news_id','1')->get();
+            $subL  = \App\sub_type::where('status', 'A')->where('type_news_id','2')->get();
+            $subS  = \App\sub_type::where('status', 'A')->where('type_news_id','3')->get();
+
+            return view('admin.manage_post.post_news')->with('type', $type)->with('auth',$auth)->with('subC',$subC)->with('subL',$subL)->with('subS',$subS);
         }else{
             return redirect('login');
         }
@@ -315,8 +318,8 @@ class AdminController extends Controller
         session_start();
         if(!empty(session('type')))
         {
+            $post = \App\news::with('typenews')->with('subtypenews')->where('modify_user_id', session('iduser'))->get();
             $auth = \App\ms_user::where('id',session('iduser'))->get();
-            $post  = \App\news::where('status', 'A')->where('modify_user_id', session('iduser'))->get();
             return view('admin.manage_post.my_post')->with('post', $post)->with('auth',$auth);
         }else{
             return redirect('login');
@@ -333,6 +336,7 @@ class AdminController extends Controller
             $post->content = Input::get('content');
             $post->news_desc = Input::get('news_desc');
             $post->slug = Input::get('news_title');
+            $post->tr_sub_news_id = Input::get('tr_sub_news_id');
             $post->is_suspend = 0;
             $post->type_news_id = Input::get('type_news_id');
             $post->status = 'A';
@@ -370,9 +374,11 @@ class AdminController extends Controller
         {
             $auth = \App\ms_user::where('id',session('iduser'))->get();
             $type  = \App\type_news::where('status', 'A')->get();
-            $subtype  = \App\sub_type::where('status', 'A')->get();
+            $subC  = \App\sub_type::where('status', 'A')->where('type_news_id','1')->get();
+            $subL  = \App\sub_type::where('status', 'A')->where('type_news_id','2')->get();
+            $subS  = \App\sub_type::where('status', 'A')->where('type_news_id','3')->get();
             $posts = \App\news::find($id);
-            return view('admin.manage_post.edit_post')->with('type', $type)->with('posts', $posts)->with('status', 'Successfully update news !')->with('auth',$auth)->with('subtype',$subtype);
+            return view('admin.manage_post.edit_post')->with('type', $type)->with('posts', $posts)->with('status', 'Successfully update news !')->with('auth',$auth)->with('subC',$subC)->with('subL',$subL)->with('subS',$subS);
         }else{
             return redirect('login');
         }
@@ -388,6 +394,7 @@ class AdminController extends Controller
             $post->content = Input::get('content');
             $post->news_desc = Input::get('news_desc');
             $post->slug = Input::get('news_title');
+            $post->tr_sub_news_id = Input::get('tr_sub_news_id');
             $post->type_news_id = Input::get('type_news_id');
             $post->status = 'A';
             $post->modify_user_id = session('iduser');
@@ -756,7 +763,7 @@ class AdminController extends Controller
         if(!empty(session('type')))
         {
             $auth = \App\ms_user::where('id',session('iduser'))->get();
-            $fdc  = \App\ms_user_adv::where('status', 'A')->get();
+            $fdc  = \App\ms_user_adv::with('adve')->get();
             $adv = \App\lt_adv::all();
             return view('admin.manage_advertisement.data_customer.data_customer')->with('fdc', $fdc)->with('auth',$auth)->with('adv',$adv);
         }else{

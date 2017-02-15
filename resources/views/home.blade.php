@@ -11,55 +11,29 @@
             <div class="col l12 col m12 col s12">
                 <!-- Tab Slider -->
                 <div id="main-slider" class="liquid-slider">
+                    @foreach($viewnews as $news)
                     <div>
                         <!-- Tab Slider Image -->
-                        <img src="assets/images/big-news5.jpg" alt="Slider1">
+                        <img src="{{url('headline_news/'.$news->headline_news)}}" alt="">
                         <!-- Tab Slider Tab -->
                         <div class="slider-tab">
-                            <div class="news-time"> World | 21 min ago</div>
-                            <div class="news-title">Ligula, Portititor eu, consequat vitae, eleifend ac</div>
-                        </div>
-                    </div>
-                    <div>
-                        <!-- Tab Slider Image -->
-                        <img src="assets/images/big-news7.jpg" alt="Slider2">
-                        <!-- Tab Slider Tab -->
-                        <div class="slider-tab">
-                            <div class="news-time"> Life | 21 min ago</div>
-                            <div class="news-title">No end in signt for california drought</div>
+                            <div class="news-time">{{$news->created_at}}</div>
+                            <div class="news-title">
+                               <?php
+                                    $string = strip_tags($news->news_title);
+
+                                    if (strlen($string) > 25) {
+
+                                        $stringCut = substr($string, 0, 25);
+                                        $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
+                                    }
+                                        echo $string;
+                              ?>
+                            </div>
                             <div class="border-separator"></div>
                         </div>
                     </div>
-                    <div>
-                        <!-- Tab Slider Image -->
-                        <img src="assets/images/big-news14.jpg" alt="Slider3">
-                        <!-- Tab Slider Tab -->
-                        <div class="slider-tab">
-                            <div class="news-time"> Tech | 21 min ago</div>
-                            <div class="news-title">Auti-austeriry protest turns violent in Germany</div>
-                            <div class="border-separator"></div>
-                       </div>
-                    </div>
-                    <div>
-                        <!-- Tab Slider Image -->
-                        <img src="assets/images/big-news8.jpg" alt="Slider4">
-                        <!-- Tab Slider Tab -->
-                        <div class="slider-tab">
-                            <div class="news-time"> World | 21 min ago</div>
-                            <div class="news-title">5 things you need to know Wednesday</div>
-                            <div class="border-separator"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <!-- Tab Slider Image -->
-                        <img src="assets/images/big-news12.jpg" alt="Slider5">
-                        <!-- Tab Slider Tab -->
-                        <div class="slider-tab">
-                            <div class="news-time"> Travel | 21 min ago</div>
-                            <div class="news-title">Market reaction to fed rate talk: 3 scenarious</div>
-                            <div class="border-separator"></div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
           </div>

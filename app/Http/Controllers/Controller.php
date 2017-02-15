@@ -18,17 +18,17 @@ class Controller extends BaseController
     {
             $viewtypenews = \App\type_news::where('status', 'A')->get();
             $menu = \App\master_subtype::with('subtypeee')->get();
-            $viewnews = \App\news::where('status', 'A')->get();
+            $viewnews = \App\news::where('status', 'A')->orderBy('id', 'desc')->get();
             $culture1 = \App\news::where('status', 'A')->where('type_news_id',1)->orderBy('id', 'desc')->paginate(4);
             $culture2 = \App\news::where('status', 'A')->where('type_news_id',1)->orderBy('id', 'desc')->paginate(4);
-            $lifestyle= \App\news::where('status', 'A')->where('type_news_id',2)->get();
-            $sport = \App\news::where('status', 'A')->where('type_news_id',3)->get();
+            $lifestyle= \App\news::where('status', 'A')->where('type_news_id',2)->orderBy('id', 'desc')->get();
+            $sport = \App\news::where('status', 'A')->where('type_news_id',3)->orderBy('id', 'desc')->get();
             return view('home')->with('viewnews',$viewnews)->with('viewtypenews',$viewtypenews)->with('menu',$menu)->with('culture1',$culture1)->with('culture2',$culture2)->with('lifestyle',$lifestyle)->with('sport',$sport);
     }
 
     public function contact()
     {
-            $menu = \App\master_subtype::with('subtypeee')->get();
+            $menu = \App\master_subtype::with('subtypeee')->orderBy('id', 'desc')->get();
             $cabout = \App\ms_contact::where('id_type', 1)->where('status','A')->orderBy('id','desc')->limit(1)->get();
             $contact = \App\ms_contact::where('id_type', 2)->where('status','A')->orderBy('id','desc')->limit(1)->get();
             $cloc = \App\ms_contact::where('id_type', 3)->where('status','A')->orderBy('id','desc')->limit(1)->get();

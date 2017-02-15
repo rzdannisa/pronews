@@ -145,6 +145,7 @@
                   <tbody>
                     <?php $i=1; ?>
                     @foreach($fdc as $dc)
+                    @foreach($dc->adve as $typeadv)
                       <tr>
                         <td>{{$i++}}</td>
                         <td>
@@ -157,7 +158,7 @@
                         <td>{{$dc->email}}</td>
                         <td>{{$dc->contact}}</td>
                         <td>{{$dc->detail}}</td>
-                        <td>{{$dc->lt_id_adv}}</td>
+                        <td>{{$typeadv->name}}</td>
                         <td>
                           <?php
                             $date = strtotime($dc->updated_at);
@@ -176,6 +177,7 @@
                           </form>
                         </td>
                       </tr>
+                    @endforeach
                     @endforeach
                    </tbody>
                    <tfoot>

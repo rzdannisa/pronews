@@ -31,46 +31,79 @@
           @include('admin/sidebar')
 
       <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
-        <!-- Main content -->
-        <section class="content">
-    <blockquote class="master_p">Edit Post</blockquote>
-    <div class="master_post_content">
-      <form method="POST"  action="{{ url('manage_post/update_post') }}" enctype="multipart/form-data">
-      @if(!empty($posts->headline_news))
-        <img style="max-height: 350px;" src="{{ url('headline_news/'.$posts->headline_news) }}">
-        @else
-        <span>Upload headline now!</span>
-      @endif
-      <div class="form-group">
-          <label for="exampleInputPassword1">Headline</label>
-          <input type="file" value="{{$posts->headline_news}}" name="headline_news" class="form-control" id="exampleInputEmail1" placeholder="Photo"/>
-        </div>
-      <br>
-        <label for="exampleInputPassword1">Select a Type</label>
-      <select id="selecttype" name="type_news_id" class="form-control">
-      @foreach($type as $typee)
-        <option value="{{ $typee->id }}">{{ $typee->name }}</option>
-      @endforeach
-      </select>
-    <br>
-    <br>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Title</label>
-          <input type="text" value="{{$posts->news_title}}" name="news_title" class="form-control" id="exampleInputEmail1" placeholder="Title" required/>
-          <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        </div>
-    <br>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Created Date</label>
-          <div class='input-group date' id='datetimepicker1'>
-            <input type='text' value="{{$posts->created_date}}" name="created_date" class="form-control _date" required/>
-              <span class="input-group-addon">
-              <span class="glyphicon glyphicon-calendar"></span>
-              </span>
-          </div>
-        </div>
-    <br>
+                    <div class="content-wrapper">
+                      <!-- Main content -->
+                      <section class="content">
+                  <blockquote class="master_p">Edit Post</blockquote>
+                  <div class="master_post_content">
+                    <form method="POST"  action="{{ url('manage_post/update_post') }}" enctype="multipart/form-data">
+                    @if(!empty($posts->headline_news))
+                      <img style="max-height: 350px;" src="{{ url('headline_news/'.$posts->headline_news) }}">
+                      @else
+                      <span>Upload headline now!</span>
+                    @endif
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Headline</label>
+                        <input type="file" value="{{$posts->headline_news}}" name="headline_news" class="form-control" id="exampleInputEmail1" placeholder="Photo"/>
+                      </div>
+                    <br>
+                      <label for="exampleInputPassword1">Select a Type</label>
+                    <select id="selecttype" name="type_news_id" class="form-control">
+                    @foreach($type as $typee)
+                      <option value="{{ $typee->id }}">{{ $typee->name }}</option>
+                    @endforeach
+                    </select>
+                  <br>
+
+                  <div id="C" class="form-group">
+                      <label for="exampleInputPassword1" class="col-sm-2 control-label">Sub Type</label>
+                      <div class="col-sm-10">
+                        <select name="tr_sub_news_id" class="form-control">
+                          @foreach($subC as $C)
+                          <option value="{{ $C->id }}">{{ $C->name }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+
+                    <div id="L" class="form-group">
+                      <label for="exampleInputPassword1" class="col-sm-2 control-label">Sub Type</label>
+                      <div class="col-sm-10">
+                        <select name="tr_sub_news_id" class="form-control">
+                          @foreach($subL as $L)
+                          <option value="{{ $L->id }}">{{ $L->name }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+
+                    <div id="S" class="form-group">
+                      <label for="exampleInputPassword1" class="col-sm-2 control-label">Sub Type</label>
+                      <div class="col-sm-10">
+                        <select name="tr_sub_news_id" class="form-control">
+                          @foreach($subS as $S)
+                          <option value="{{ $S->id }}">{{ $S->name }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Title</label>
+                      <input type="text" value="{{$posts->news_title}}" name="news_title" class="form-control" id="exampleInputEmail1" placeholder="Title" required/>
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    </div>
+                <br>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Created Date</label>
+                      <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' value="{{$posts->created_date}}" name="created_date" class="form-control _date" required/>
+                          <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                          </span>
+                      </div>
+                    </div>
+                <br>
         <script type="text/javascript">
         function minmaxname(value, min, max) 
         {
@@ -136,5 +169,26 @@
     { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
   ];
  };
+</script>
+
+
+  <script type="text/javascript">
+        $('#selecttype').change(function(){
+        if($(this).val() == "1"){
+          $("#C").css("display","block");
+          $('#L').hide();
+          $('#S').hide();
+        }
+        else if($(this).val() == "2"){
+          $("#C").hide();
+          $('#L').css("display","block");
+          $('#S').hide();
+        }
+        else{
+          $("#C").hide();
+          $('#L').hide();
+          $('#S').css("display","block");
+        }
+      });
 </script>
 @endsection
