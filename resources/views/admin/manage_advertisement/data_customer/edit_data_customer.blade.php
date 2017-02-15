@@ -150,6 +150,7 @@
                     @foreach($fdc as $dc)
                       <tr>
                         <td>{{$i++}}</td>
+                        <td>{{$dc->id}}</td>
                         <td>
                           <?php
                             $date = strtotime($dc->created_date);

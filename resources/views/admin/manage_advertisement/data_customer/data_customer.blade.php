@@ -131,6 +131,7 @@
                   <thead>
                     <tr>
                       <th>No.</th>
+                      <th>ID Cust</th>
                       <th>Created Date</th>
                       <th>Name</th>
                       <th>Email</th>
@@ -148,6 +149,7 @@
                     @foreach($dc->adve as $typeadv)
                       <tr>
                         <td>{{$i++}}</td>
+                        <td>{{$dc->id}}</td>
                         <td>
                           <?php
                             $date = strtotime($dc->created_date);
@@ -183,6 +185,7 @@
                    <tfoot>
                     <tr>
                       <th>No.</th>
+                      <th>ID Cust</th>
                       <th>Created Date</th>
                       <th>Name</th>
                       <th>Email</th>

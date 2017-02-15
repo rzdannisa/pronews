@@ -40,7 +40,7 @@
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Type News</label>
                       <div class="col-sm-10">
                         <select style="margin-bottom: 10px;" id="selecttype" name="type_news_id" class="form-control" required>
-                          <option value="">----Select Type----</option>
+                          <option value="">Choose Type</option>
                           @foreach($type as $typee)
                           <option value="{{ $typee->id }}">{{ $typee->name }}</option>
                           @endforeach
@@ -205,6 +205,10 @@
 
 
   <script type="text/javascript">
+        $("#C").hide();
+        $('#L').hide();
+        $('#S').hide();
+
         $('#selecttype').change(function(){
         if($(this).val() == "1"){
           $("#C").css("display","block");
@@ -216,7 +220,7 @@
           $('#L').css("display","block");
           $('#S').hide();
         }
-        else{
+        else if($(this).val() == "3"){
           $("#C").hide();
           $('#L').hide();
           $('#S').css("display","block");
