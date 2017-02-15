@@ -32,7 +32,7 @@
       {{ session('status') }}
         </div>
       @endif
-        
+
         <div class="box box-default collapsed-box box-solid">
           <div class="box-header with-border">
             <h3 class="box-title">Edit Feature About</h3>
@@ -89,10 +89,11 @@
             </form>
           </div>
         </div>
-        
+
         <div class="row">
           <div class="col-xs-12">
             <div class="box">
+              <div class="box-header"><h4>Data About</h4></div>
               <div class="box-body table-responsive">
                 <table id="master-user" class="table table-bordered table-hover">
                   <thead>

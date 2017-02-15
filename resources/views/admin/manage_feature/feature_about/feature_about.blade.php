@@ -80,7 +80,7 @@
                     <br>
 
                     <div style="padding:20px 15px 0 0;" class="pull-right">
-                      
+
                       <button style="width:150px;" type="submit" name="choose" value="publish" class="btn btn-primary">Save and Publish</button>
                     </div>
 
@@ -93,6 +93,7 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="box">
+              <div class="box-header"><h4>Data About</h4></div>
               <div class="box-body table-responsive">
                 <table id="master-user" class="table table-bordered table-hover">
                   <thead>

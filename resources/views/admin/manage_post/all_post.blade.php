@@ -35,6 +35,7 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="box">
+              <div class="box-header"><h4>Data All Post</h4></div>
               <div class="box-body table-responsive">
                 <table id="master-user" class="table table-bordered table-hover">
                 <thead>
@@ -66,9 +67,9 @@
                           echo date("d-m-Y", $date);
                         ?>
                       </td>
-                      
+
                       <td>{{$type->name}}</td>
-                      
+
                       <td>{{$sub->name}}</td>
                       <td>
                         <!-- <a href="{{ url('view/'.$posts->id) }}"> -->{{ $posts->news_title }}<!-- </a> -->
