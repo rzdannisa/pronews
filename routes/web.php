@@ -58,6 +58,8 @@ Route::group(['prefix'=>'manage_post'], function(){
     Route::post('update_post', 'AdminController@update_post');
     Route::post('delete_post', 'AdminController@delete_post');
     Route::get('my_post', 'AdminController@my_post');
+    Route::get('handling_comment', 'AdminController@handling_comment');
+    Route::post('handling_comment/delete', 'AdminController@delete_comment');
 });
 
 Route::group(['prefix'=>'manage_setting'], function(){
@@ -100,6 +102,14 @@ Route::group(['prefix'=>'manage_advertisement'], function(){
     Route::post('master_adv/delete', 'AdminController@master_adv_delete');
 
 });
+
+Route::group(['prefix'=>'manage_recycle_data'], function(){
+    Route::get('data_recycle_post', 'AdminController@data_recycle_post');
+    Route::get('clear_post/{id}', 'AdminController@clear_post');
+    Route::post('restore_post', 'AdminController@restore_post');
+});
+
+Route::get('search', 'Controller@search');
 
 Route::post('uploadimagedrag', ['as'=>'drag','uses'=>'ImageController@uploadDragAndDropCKEDITOR']);
 Route::post('uploadimagefilebrowser', ['as'=>'upload','uses'=>'ImageController@uploadFileBrowserCKEDITOR']);

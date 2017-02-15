@@ -234,158 +234,94 @@
             <div class="row">
               <div class="col l6 col m12 col s12">
                 <div class="z-depth-1">
+                @foreach($sp1 as $p1)
                   <div class="news horizontal">
                       <div class="col l4 col m4 col s12 no-padding">
                           <!-- Horizontal News Image -->
                           <div class="news-image">
-                              <img class="responsive-img" src="assets/images/hor-news1.jpg" alt="news Image">
+                              <img class="responsive-img" src="{{('headline_news/'.$p1->headline_news)}}" alt="news Image">
                           </div>
                       </div>
                       <div class="col l8 col m8 col s12 no-padding">
                           <!-- Horizontal News Description -->
                           <div class="news-description">
                             <div class="news-time">
-                                <i class="fa fa-clock-o"></i> 9 min ago
+                                <i class="fa fa-clock-o"></i> {{$p1->created_date}}
                             </div>
-                            <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna. </a></div>
-                            <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus. Mauris bibendum semper quam.</p></div>
+                            <div class="news-title"><a href="javascript:void(0);"> {{$p1->news_title}} </a></div>
+                            <div class="news-content"><p>{{$p1->news_desc}}</p></div>
                           </div>
                       </div>
                   </div>
-                  <!-- Horizontal News Box -->
-                  <div class="news horizontal no-border">
-                      <div class="col l4 col m4 col s12 no-padding">
-                          <!-- Horizontal News Image -->
-                          <div class="news-image">
-                              <img class="responsive-img" src="assets/images/hor-news2.jpg" alt="news Image">
-                          </div>
-                      </div>
-                      <div class="col l8 col m8 col s12 no-padding">
-                          <!-- Horizontal News Description -->
-                          <div class="news-description">
-                              <div class="news-time">
-                                  <i class="fa fa-clock-o"></i> 9 min ago
-                              </div>
-                              <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna.</a></div>
-                              <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus. Mauris bibendum semper quam.</p></div>
-                          </div>
-                      </div>
-                  </div>
+                  @endforeach
                 </div>
               </div>
+              @foreach($sp2 as $p2)
               <div class="col l3 col m6 col s12">
                   <!-- Horizontal News Box -->
                   <div class="news vertical z-depth-1">
                       <!-- Horizontal News Image -->
                       <div class="news-image">
-                          <img class="responsive-img" src="assets/images/small-news1.jpg" alt="news Image">
+                          <img class="responsive-img" src="{{('headline_news/'.$p2->headline_news)}}" alt="news Image">
                       </div>
                       <!-- Horizontal News Description -->
                       <div class="news-description">
                           <div class="news-time">
-                              <i class="fa fa-clock-o"></i> 9 min ago
+                              <i class="fa fa-clock-o"></i> {{$p2->created_date}}
                           </div>
-                          <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur. </a></div>
-                          <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum Integer. ut nisi risus.</p></div>
+                          <div class="news-title"><a href="javascript:void(0);"> {{$p2->news_title}} </a></div>
+                          <div class="news-content"><p>{{$p2->news_desc}}</p></div>
                       </div>
                   </div>
               </div>
-              <div class="col l3 col m6 col s12">
-                  <!-- vertical News Box -->
-                  <div class="news vertical z-depth-1">
-                      <!-- vertical News Image -->
-                      <div class="news-image">
-                          <img class="responsive-img" src="assets/images/small-news2.jpg" alt="news Image">
-                      </div>
-                      <!-- vertical News Description -->
-                      <div class="news-description">
-                          <div class="news-time">
-                              <i class="fa fa-clock-o"></i> 9 min ago
-                          </div>
-                          <div class="news-title"> <a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna. </a></div>
-                          <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus In dapibus ac tellus non rutrum</p></div>
-                      </div>
-                  </div>
-              </div>
+              @endforeach
             </div>
           </section>
 
           <!-- section 2 -->
           <section class="section">
             <div class="row">
+            @foreach($sp3 as $p3)
               <div class="col l3 col m6 col s12">
                   <!-- Horizontal News Box -->
                   <div class="news vertical z-depth-1">
                       <!-- Horizontal News Image -->
                       <div class="news-image">
-                          <img class="responsive-img" src="assets/images/small-news1.jpg" alt="news Image">
+                          <img class="responsive-img" src="{{('headline_news/'.$p3->headline_news)}}" alt="news Image">
                       </div>
                       <!-- Horizontal News Description -->
                       <div class="news-description">
                           <div class="news-time">
-                              <i class="fa fa-clock-o"></i> 9 min ago
+                              <i class="fa fa-clock-o"></i> {{$p3->created_date}}
                           </div>
-                          <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur. </a></div>
-                          <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum Integer. ut nisi risus.</p></div>
+                          <div class="news-title"><a href="javascript:void(0);"> {{$p3->news_title}} </a></div>
+                          <div class="news-content"><p>{{$p3->news_desc}}</p></div>
                       </div>
                   </div>
               </div>
-              <div class="col l3 col m6 col s12">
-                  <!-- vertical News Box -->
-                  <div class="news vertical z-depth-1">
-                      <!-- vertical News Image -->
-                      <div class="news-image">
-                          <img class="responsive-img" src="assets/images/small-news2.jpg" alt="news Image">
-                      </div>
-                      <!-- vertical News Description -->
-                      <div class="news-description">
-                          <div class="news-time">
-                              <i class="fa fa-clock-o"></i> 9 min ago
-                          </div>
-                          <div class="news-title"> <a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna. </a></div>
-                          <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus In dapibus ac tellus non rutrum</p></div>
-                      </div>
-                  </div>
-              </div>
+            @endforeach
               <div class="col l6 col m12 col s12">
                 <div class="z-depth-1">
+                @foreach($sp4 as $p4)
                   <div class="news horizontal">
                       <div class="col l4 col m4 col s12 no-padding">
                           <!-- Horizontal News Image -->
                           <div class="news-image">
-                              <img class="responsive-img" src="assets/images/hor-news1.jpg" alt="news Image">
+                              <img class="responsive-img" src="{{('headline_news/'.$p4->headline_news)}}" alt="news Image">
                           </div>
                       </div>
                       <div class="col l8 col m8 col s12 no-padding">
                           <!-- Horizontal News Description -->
                           <div class="news-description">
                             <div class="news-time">
-                                <i class="fa fa-clock-o"></i> 9 min ago
+                                <i class="fa fa-clock-o"></i> {{$p4->created_date}}
                             </div>
-                            <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna. </a></div>
-                            <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus. Mauris bibendum semper quam.</p></div>
+                            <div class="news-title"><a href="javascript:void(0);"> {{$p4->news_title}} </a></div>
+                            <div class="news-content"><p>{{$p4->news_desc}}</p></div>
                           </div>
                       </div>
                   </div>
-                  <!-- Horizontal News Box -->
-                  <div class="news horizontal no-border">
-                      <div class="col l4 col m4 col s12 no-padding">
-                          <!-- Horizontal News Image -->
-                          <div class="news-image">
-                              <img class="responsive-img" src="assets/images/hor-news2.jpg" alt="news Image">
-                          </div>
-                      </div>
-                      <div class="col l8 col m8 col s12 no-padding">
-                          <!-- Horizontal News Description -->
-                          <div class="news-description">
-                              <div class="news-time">
-                                  <i class="fa fa-clock-o"></i> 9 min ago
-                              </div>
-                              <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna.</a></div>
-                              <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus. Mauris bibendum semper quam.</p></div>
-                          </div>
-                      </div>
-                  </div>
+                  @endforeach
                 </div>
               </div>
             </div>

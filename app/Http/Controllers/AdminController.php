@@ -283,13 +283,51 @@ class AdminController extends Controller
         }
     }
 
+    public function data_recycle_post()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
+            $post = \App\news::where('status','D')->with('typenews_r')->with('subtypenews_r')->get();
+            return view('admin.manage_recycle_data.data_recycle_post')->with('post', $post)->with('auth',$auth);
+        }else{
+            return redirect('login');
+        }
+    }
+
+    public function clear_post($id)
+    {
+       session_start();
+        if(isset($_SESSION['logged_in'])){
+            \App\news::find($id)->delete();
+            return redirect()->back()->with('status', 'Successfully clear news !');
+        }
+        else{
+            return redirect(url('manage_recycle_data/data_recycle_post'));
+        }
+    }
+
+    public function restore_post()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = \App\news::find(Input::get('id'));
+            $post->status = 'A';
+            $post->save();
+
+            return redirect(url('manage_post/all_post'))->with('status', 'Successfully restore news !');
+        }
+    }
+
     public function manage_post()
     {
         session_start();
         if(!empty(session('type')))
         {
             $auth = \App\ms_user::where('id',session('iduser'))->get();
-            $post = \App\news::with('typenews')->with('subtypenews')->get();
+            $post = \App\news::where('status','A')->with('typenews')->with('subtypenews')->get();
             return view('admin.manage_post.all_post')->with('post', $post)->with('auth',$auth);
         }else{
             return redirect('login');
@@ -318,7 +356,7 @@ class AdminController extends Controller
         session_start();
         if(!empty(session('type')))
         {
-            $post = \App\news::with('typenews')->with('subtypenews')->where('modify_user_id', session('iduser'))->get();
+            $post = \App\news::where('status','A')->with('typenews')->with('subtypenews')->where('modify_user_id', session('iduser'))->get();
             $auth = \App\ms_user::where('id',session('iduser'))->get();
             return view('admin.manage_post.my_post')->with('post', $post)->with('auth',$auth);
         }else{
@@ -363,7 +401,7 @@ class AdminController extends Controller
                 }
             $post->save();
 
-            return redirect(url('manage_post/my_post'))->with('status', 'Successfully add post !');
+            return redirect(url('manage_post/all_post'))->with('status', 'Successfully add post !');
         }
     }
 
@@ -426,7 +464,7 @@ class AdminController extends Controller
                 }
             $post->save();
 
-            return redirect(url('manage_post/my_post'))->with('status', 'Successfully update post !');
+            return redirect(url('manage_post/all_post'))->with('status', 'Successfully update post !');
         }
     }
 
@@ -439,7 +477,33 @@ class AdminController extends Controller
             $post->status = 'D';
             $post->save();
 
-            return redirect(url('manage_post/my_post'))->with('status', 'Successfully delete post !');
+            return redirect(url('manage_post/all_post'))->with('status', 'Successfully delete post !');
+        }
+    }
+
+    public function handling_comment()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $auth = \App\ms_user::where('id',session('iduser'))->get();
+            $comment = \App\comment::where('status','A')->with('idnews')->get();
+            return view('admin.manage_post.handling_comment')->with('comment', $comment)->with('auth',$auth);
+        }else{
+            return redirect('login');
+        }
+    }
+
+    public function delete_comment()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = \App\comment::find(Input::get('id'));
+            $post->status = 'D';
+            $post->save();
+
+            return redirect(url('manage_post/handling_comment'))->with('status', 'Successfully delete comment !');
         }
     }
 
@@ -764,7 +828,7 @@ class AdminController extends Controller
         {
             $auth = \App\ms_user::where('id',session('iduser'))->get();
             $fdc  = \App\ms_user_adv::with('adve')->get();
-            $adv = \App\lt_adv::all();
+            $adv = \App\lt_adv::where('status','A')->get();
             return view('admin.manage_advertisement.data_customer.data_customer')->with('fdc', $fdc)->with('auth',$auth)->with('adv',$adv);
         }else{
             return redirect('login');
@@ -802,7 +866,7 @@ class AdminController extends Controller
             $auth = \App\ms_user::where('id',session('iduser'))->get();
             $fdc  = \App\ms_user_adv::where('status', 'A')->get();
             $edit = \App\ms_user_adv::find($id);
-            $adv = \App\lt_adv::all();
+            $adv = \App\lt_adv::where('status','A')->get();
             return view('admin.manage_advertisement.data_customer.edit_data_customer')->with('fdc', $fdc)->with('auth',$auth)->with('edit',$edit)->with('adv',$adv);
         }else{
             return redirect('login');
@@ -852,7 +916,7 @@ class AdminController extends Controller
             $auth = \App\ms_user::where('id',session('iduser'))->get(); 
             $idadv = \App\lt_adv::where('status', 'A')->get();
             $fmadv  = \App\tr_adv::where('status', 'A')->get();
-            $useradv = \App\ms_user_adv::all();
+            $useradv = \App\ms_user_adv::where('status','A')->get();
             return view('admin.manage_advertisement.master_adv.master_adv')->with('fmadv', $fmadv)->with('auth',$auth)->with('idadv',$idadv)->with('useradv',$useradv);
         }else{
             return redirect('login');
@@ -915,7 +979,7 @@ class AdminController extends Controller
             $auth = \App\ms_user::where('id',session('iduser'))->get();
             $idadv = \App\lt_adv::where('status', 'A')->get();
             $fmadv  = \App\tr_adv::where('status', 'A')->get();
-            $useradv = \App\ms_user_adv::all();
+            $useradv = \App\ms_user_adv::where('status','A')->get();
             $edit = \App\tr_adv::find($id);
             return view('admin.manage_advertisement.master_adv.edit_master_adv')->with('fmadv', $fmadv)->with('auth',$auth)->with('edit',$edit)->with('idadv',$idadv)->with('useradv',$useradv);
         }else{

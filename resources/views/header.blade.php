@@ -27,8 +27,8 @@
                     </div>
                     <div class="col l4 col m4 col s12 pull-right">
                         <!-- Search Button -->
-                        <form class="searchbox">
-                            <input type="text" placeholder="Type and Press Enter" name="search" class="searchbox-input" required>
+                        <form method="GET" action="{{url('search')}}" class="searchbox">
+                            <input name="q" type="text" placeholder="Type and Press Enter" name="search" class="searchbox-input" required>
                             <input type="submit" class="searchbox-submit">
                             <span class="searchbox-icon"><i class="mdi-action-search"></i></span>
                         </form>
@@ -134,7 +134,7 @@
           <li class="dropdown-menu">
               <ul class="collapsible" data-collapsible="expandable">
                   <li class="">
-                      <div class="collapsible-header waves-effect waves active"><i class="fa fa-file"></i> Home </div>
+                      <div class="collapsible-header waves-effect waves active"><i class="fa fa-file"></i><a href="{{url('/')}}"> Home </a></div>
                   </li>
                   @foreach($menu as $menuu)
                   <li class="">
@@ -150,6 +150,6 @@
                   @endforeach
               </ul>
           </li>
-          <li class="waves-effect"><a href="shop.html"><i class="fa fa-tag"></i>About</a></li>
-          <li class="waves-effect"><a href="catalog.html"><i class="fa fa-briefcase"></i>Contact</a></li>
+          <li class="waves-effect"><a href="{{url('about')}}"><i class="fa fa-tag"></i>About</a></li>
+          <li class="waves-effect"><a href="{{url('contact')}}"><i class="fa fa-briefcase"></i>Contact</a></li>
       </ul>
