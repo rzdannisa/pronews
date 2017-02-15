@@ -38,7 +38,11 @@
                           <!-- Horizontal News Description -->
                           <div class="news-description">
                             <div class="news-time">
-                              <i class="fa fa-clock-o"></i> {{$data->created_date}}
+                              <i class="fa fa-clock-o"></i>
+                              <?php
+                                $date = strtotime($data->created_date);
+                                echo date("l , d-m-Y", $date);
+                              ?>
                             </div>
                             <div class="news-title"><a href="javascript:void(0);"> {{$data->news_title}} </a></div>
                             <div class="news-content"><p>{{$data->news_desc}}</p></div>
