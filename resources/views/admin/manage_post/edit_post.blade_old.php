@@ -94,6 +94,7 @@
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     </div>
                 <br>
+                <input type="text" name="id" value="{{$posts->id}}">
                     <div class="form-group">
                       <label for="exampleInputPassword1">Created Date</label>
                       <div class='input-group date' id='datetimepicker1'>
@@ -119,7 +120,7 @@
           <input type="text" name="news_desc" value="{{$posts->news_desc}}" class="form-control not-res" maxlength="100" placeholder="News Desc" onkeyup="this.value = minmaxname(this.value, 0, 100)" required/>
         </div>
     <br>
-    <input type="hidden" name="id" value="{{$posts->id}}">
+    
         <div class="form-group">
           <label for="exampleInputPassword1">Content</label>
           <textarea class="form-control ckeditor" id="editor1" name="content" placeholder="Content" class="materialize-textarea" rows="6" required/>{{$posts->content}}</textarea>

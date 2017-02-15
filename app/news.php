@@ -15,6 +15,6 @@ class news extends Model
 
     public function subtypenews()
     {
-    	return $this->hasMany('\App\sub_type','id','tr_sub_news_id')->where('status','A');
+    	return $this->hasMany('\App\sub_type','id','type_sub_news_id')->where('status','A');
     }
 }

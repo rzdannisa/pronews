@@ -336,7 +336,7 @@ class AdminController extends Controller
             $post->content = Input::get('content');
             $post->news_desc = Input::get('news_desc');
             $post->slug = Input::get('news_title');
-            $post->tr_sub_news_id = Input::get('tr_sub_news_id');
+            $post->type_sub_news_id = Input::get('tr_sub_news_id');
             $post->is_suspend = 0;
             $post->type_news_id = Input::get('type_news_id');
             $post->status = 'A';
@@ -394,7 +394,7 @@ class AdminController extends Controller
             $post->content = Input::get('content');
             $post->news_desc = Input::get('news_desc');
             $post->slug = Input::get('news_title');
-            $post->tr_sub_news_id = Input::get('tr_sub_news_id');
+            $post->type_sub_news_id = Input::get('tr_sub_news_id');
             $post->type_news_id = Input::get('type_news_id');
             $post->status = 'A';
             $post->modify_user_id = session('iduser');

@@ -85,10 +85,9 @@
                       <div class="col-sm-10">
                         <input style="margin-bottom: 10px;" type="text" name="news_title" class="form-control" id="exampleInputEmail1" value="{{$posts->news_title}}" placeholder="Title" required/>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="hidden" name="id" value="{{ $typee->id }}">
+                        <input type="hidden" name="id" value="{{ $posts->id }}">
                       </div>
                     </div>
-
                     @if(!empty($posts->headline_news))
                     <div class="form-group">
                       <img style="padding: 0 0 10px 200px; max-height: 350px;" src="{{ url('headline_news/'.$posts->headline_news) }}">

@@ -47,161 +47,51 @@
               <div class="col l6 col m12 col s12">
                 <div class="z-depth-1">
                   <!-- Horizontal News Box -->
+                  @foreach($culture1 as $c1)
                   <div class="news horizontal">
                       <div class="col l4 col m4 col s12 no-padding">
                           <!-- Horizontal News Image -->
                           <div class="news-image">
-                              <img class="responsive-img" src="assets/images/hor-news1.jpg" alt="news Image">
+                              <img class="responsive-img" src="{{url('headline_news/'.$c1->headline_news)}}" alt="news Image">
                           </div>
                       </div>
                       <div class="col l8 col m8 col s12 no-padding">
                           <!-- Horizontal News Description -->
                           <div class="news-description">
                             <div class="news-time">
-                                <i class="fa fa-clock-o"></i> 9 min ago
+                                <i class="fa fa-clock-o"></i> {{$c1->created_date}}
                             </div>
-                            <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna. </a></div>
-                            <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus. Mauris bibendum semper quam.</p></div>
+                            <div class="news-title"><a href="javascript:void(0);"> {{$c1->news_title}} </a></div>
+                            <div class="news-content"><p>{{$c1->news_desc}}</p></div>
                           </div>
                       </div>
                   </div>
-                  <!-- Horizontal News Box -->
-                  <div class="news horizontal">
-                      <div class="col l4 col m4 col s12 no-padding">
-                          <!-- Horizontal News Image -->
-                          <div class="news-image">
-                              <img class="responsive-img" src="assets/images/hor-news2.jpg" alt="news Image">
-                          </div>
-                      </div>
-                      <div class="col l8 col m8 col s12 no-padding">
-                          <!-- Horizontal News Description -->
-                          <div class="news-description">
-                              <div class="news-time">
-                                  <i class="fa fa-clock-o"></i> 9 min ago
-                              </div>
-                              <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna.</a></div>
-                              <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus. Mauris bibendum semper quam.</p></div>
-                          </div>
-                      </div>
-                  </div>
-                  <!-- Horizontal News Box -->
-                  <div class="news horizontal">
-                      <div class="col l4 col m4 col s12 no-padding">
-                          <!-- Horizontal News Image -->
-                          <div class="news-image">
-                              <img class="responsive-img" src="assets/images/hor-news2.jpg" alt="news Image">
-                          </div>
-                      </div>
-                      <div class="col l8 col m8 col s12 no-padding">
-                          <!-- Horizontal News Description -->
-                          <div class="news-description">
-                              <div class="news-time">
-                                  <i class="fa fa-clock-o"></i> 9 min ago
-                              </div>
-                              <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna.</a></div>
-                              <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus. Mauris bibendum semper quam.</p></div>
-                          </div>
-                      </div>
-                  </div>
-                  <!-- Horizontal News Box -->
-                  <div class="news horizontal">
-                      <div class="col l4 col m4 col s12 no-padding">
-                          <!-- Horizontal News Image -->
-                          <div class="news-image">
-                              <img class="responsive-img" src="assets/images/hor-news2.jpg" alt="news Image">
-                          </div>
-                      </div>
-                      <div class="col l8 col m8 col s12 no-padding">
-                          <!-- Horizontal News Description -->
-                          <div class="news-description">
-                              <div class="news-time">
-                                  <i class="fa fa-clock-o"></i> 9 min ago
-                              </div>
-                              <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna.</a></div>
-                              <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus. Mauris bibendum semper quam.</p></div>
-                          </div>
-                      </div>
-                  </div>
+                  @endforeach
                 </div>
               </div>
               <div class="col l6 col m12 col s12">
                 <div class="z-depth-1">
                   <!-- Horizontal News Box -->
+                  @foreach($culture2 as $c2)
                   <div class="news horizontal">
                       <div class="col l4 col m4 col s12 no-padding">
                           <!-- Horizontal News Image -->
                           <div class="news-image">
-                              <img class="responsive-img" src="assets/images/hor-news1.jpg" alt="news Image">
+                              <img class="responsive-img" src="{{url('headline_news/'.$c2->headline_news)}}" alt="news Image">
                           </div>
                       </div>
                       <div class="col l8 col m8 col s12 no-padding">
                           <!-- Horizontal News Description -->
                           <div class="news-description">
                             <div class="news-time">
-                                <i class="fa fa-clock-o"></i> 9 min ago
+                                <i class="fa fa-clock-o"></i> {{$c2->created_date}}
                             </div>
-                            <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna. </a></div>
-                            <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus. Mauris bibendum semper quam.</p></div>
+                            <div class="news-title"><a href="javascript:void(0);"> {{$c2->news_title}} </a></div>
+                            <div class="news-content"><p>{{$c2->news_desc}}</p></div>
                           </div>
                       </div>
                   </div>
-                  <!-- Horizontal News Box -->
-                  <div class="news horizontal">
-                      <div class="col l4 col m4 col s12 no-padding">
-                          <!-- Horizontal News Image -->
-                          <div class="news-image">
-                              <img class="responsive-img" src="assets/images/hor-news2.jpg" alt="news Image">
-                          </div>
-                      </div>
-                      <div class="col l8 col m8 col s12 no-padding">
-                          <!-- Horizontal News Description -->
-                          <div class="news-description">
-                              <div class="news-time">
-                                  <i class="fa fa-clock-o"></i> 9 min ago
-                              </div>
-                              <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna.</a></div>
-                              <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus. Mauris bibendum semper quam.</p></div>
-                          </div>
-                      </div>
-                  </div>
-                  <!-- Horizontal News Box -->
-                  <div class="news horizontal">
-                      <div class="col l4 col m4 col s12 no-padding">
-                          <!-- Horizontal News Image -->
-                          <div class="news-image">
-                              <img class="responsive-img" src="assets/images/hor-news2.jpg" alt="news Image">
-                          </div>
-                      </div>
-                      <div class="col l8 col m8 col s12 no-padding">
-                          <!-- Horizontal News Description -->
-                          <div class="news-description">
-                              <div class="news-time">
-                                  <i class="fa fa-clock-o"></i> 9 min ago
-                              </div>
-                              <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna.</a></div>
-                              <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus. Mauris bibendum semper quam.</p></div>
-                          </div>
-                      </div>
-                  </div>
-                  <!-- Horizontal News Box -->
-                  <div class="news horizontal">
-                      <div class="col l4 col m4 col s12 no-padding">
-                          <!-- Horizontal News Image -->
-                          <div class="news-image">
-                              <img class="responsive-img" src="assets/images/hor-news2.jpg" alt="news Image">
-                          </div>
-                      </div>
-                      <div class="col l8 col m8 col s12 no-padding">
-                          <!-- Horizontal News Description -->
-                          <div class="news-description">
-                              <div class="news-time">
-                                  <i class="fa fa-clock-o"></i> 9 min ago
-                              </div>
-                              <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna.</a></div>
-                              <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus. Mauris bibendum semper quam.</p></div>
-                          </div>
-                      </div>
-                  </div>
+                  @endforeach
                 </div>
               </div>
             </div>
@@ -276,147 +166,49 @@
 
           <section class="section">
             <div class="row">
+            @foreach($ls1 as $s1)
               <div class="col l3 col m6 col s12">
                   <!-- vertical News Box -->
                   <div class="news vertical z-depth-1">
                       <!-- vertical News Image -->
                       <div class="news-image">
-                          <img class="responsive-img" src="assets/images/small-news3.jpg" alt="news Image">
+                          <img class="responsive-img" src="{{url('headline_news/'.$s1->headline_news)}}" alt="news Image">
                       </div>
                       <!-- vertical News Description -->
                       <div class="news-description">
                           <div class="news-time">
-                              <i class="fa fa-clock-o"></i> 9 min ago
+                              <i class="fa fa-clock-o"></i> {{$s1->created_date}}
                           </div>
-                          <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna leo metus vel magna. </a></div>
-                          <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum Integer.</p></div>
+                          <div class="news-title"><a href="javascript:void(0);"> {{$s1->news_title}} </a></div>
+                          <div class="news-content"><p>{{$s1->news_desc}}</p></div>
                       </div>
                   </div>
               </div>
-              <div class="col l3 col m6 col s12">
-                  <!-- vertical News Box -->
-                  <div class="news vertical z-depth-1">
-                      <!-- vertical News Image -->
-                      <div class="news-image">
-                          <img class="responsive-img" src="assets/images/life4.jpg" alt="news Image">
-                      </div>
-                      <!-- vertical News Description -->
-                      <div class="news-description">
-                          <div class="news-time">
-                              <i class="fa fa-clock-o"></i> 9 min ago
-                          </div>
-                          <div class="news-title"> <a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna. </a></div>
-                          <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus In dapibus ac tellus non rutrum</p></div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col l3 col m6 col s12">
-                  <!-- vertical News Box -->
-                  <div class="news vertical z-depth-1">
-                      <!-- vertical News Image -->
-                      <div class="news-image">
-                          <img class="responsive-img" src="assets/images/money1.jpg" alt="news Image">
-                      </div>
-                      <!-- vertical News Description -->
-                      <div class="news-description">
-                          <div class="news-time">
-                              <i class="fa fa-clock-o"></i> 9 min ago
-                          </div>
-                          <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur.</a></div>
-                          <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus.</p></div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col l3 col m6 col s12">
-                  <!-- vertical News Box -->
-                  <div class="news vertical z-depth-1">
-                      <!-- vertical News Image -->
-                      <div class="news-image">
-                          <img class="responsive-img" src="assets/images/profile2.jpg" alt="news Image">
-                      </div>
-                      <!-- vertical News Description -->
-                      <div class="news-description">
-                          <div class="news-time">
-                              <i class="fa fa-clock-o"></i> 9 min ago
-                          </div>
-                          <div class="news-title"> <a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna. </a></div>
-                          <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus In dapibus ac tellus non rutrum</p></div>
-                      </div>
-                  </div>
-              </div>
+              @endforeach
             </div>
           </section>
 
           <!-- looping 4 article -->
             <div class="row">
+            @foreach($ls2 as $s2)
               <div class="col l3 col m6 col s12">
                   <!-- vertical News Box -->
                   <div class="news vertical z-depth-1">
                       <!-- vertical News Image -->
                       <div class="news-image">
-                          <img class="responsive-img" src="assets/images/small-news3.jpg" alt="news Image">
+                          <img class="responsive-img" src="{{url('headline_news/'.$s2->headline_news)}}" alt="news Image">
                       </div>
                       <!-- vertical News Description -->
                       <div class="news-description">
                           <div class="news-time">
-                              <i class="fa fa-clock-o"></i> 9 min ago
+                              <i class="fa fa-clock-o"></i> {{$s2->created_date}}
                           </div>
-                          <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna leo metus vel magna. </a></div>
-                          <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum Integer.</p></div>
+                          <div class="news-title"><a href="javascript:void(0);"> {{$s2->news_title}} </a></div>
+                          <div class="news-content"><p>{{$s2->news_desc}}</p></div>
                       </div>
                   </div>
               </div>
-            <div class="col l3 col m6 col s12">
-                <!-- vertical News Box -->
-                <div class="news vertical z-depth-1">
-                    <!-- vertical News Image -->
-                    <div class="news-image">
-                        <img class="responsive-img" src="assets/images/life4.jpg" alt="news Image">
-                    </div>
-                    <!-- vertical News Description -->
-                    <div class="news-description">
-                        <div class="news-time">
-                            <i class="fa fa-clock-o"></i> 9 min ago
-                        </div>
-                        <div class="news-title"> <a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna. </a></div>
-                        <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus In dapibus ac tellus non rutrum</p></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col l3 col m6 col s12">
-                <!-- vertical News Box -->
-                <div class="news vertical z-depth-1">
-                    <!-- vertical News Image -->
-                    <div class="news-image">
-                        <img class="responsive-img" src="assets/images/money1.jpg" alt="news Image">
-                    </div>
-                    <!-- vertical News Description -->
-                    <div class="news-description">
-                        <div class="news-time">
-                            <i class="fa fa-clock-o"></i> 9 min ago
-                        </div>
-                        <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur.</a></div>
-                        <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus.</p></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col l3 col m6 col s12">
-                <!-- vertical News Box -->
-                <div class="news vertical z-depth-1">
-                    <!-- vertical News Image -->
-                    <div class="news-image">
-                        <img class="responsive-img" src="assets/images/profile2.jpg" alt="news Image">
-                    </div>
-                    <!-- vertical News Description -->
-                    <div class="news-description">
-                        <div class="news-time">
-                            <i class="fa fa-clock-o"></i> 9 min ago
-                        </div>
-                        <div class="news-title"> <a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna. </a></div>
-                        <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus ac tellus non rutrum. Integer ut nisi risus In dapibus ac tellus non rutrum</p></div>
-                    </div>
-                </div>
-            </div>
+              @endforeach
           </div>
 
           <!-- End Lifestyle section _____________________________________________________________________ -->
