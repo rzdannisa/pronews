@@ -17,7 +17,12 @@
                         <img src="{{url('headline_news/'.$news->headline_news)}}" alt="">
                         <!-- Tab Slider Tab -->
                         <div class="slider-tab">
-                            <div class="news-time">{{$news->created_at}}</div>
+                            <div class="news-time">
+                              <?php
+                                $date = strtotime($news->created_date);
+                                echo date("l , d-m-Y", $date);
+                              ?>
+                            </div>
                             <div class="news-title">
                                <?php
                                     $string = strip_tags($news->news_title);
@@ -59,7 +64,11 @@
                           <!-- Horizontal News Description -->
                           <div class="news-description">
                             <div class="news-time">
-                                <i class="fa fa-clock-o"></i> {{$c1->created_date}}
+                                <i class="fa fa-clock-o"></i>
+                                <?php
+                                  $date = strtotime($c1->created_date);
+                                  echo date("l , d-m-Y", $date);
+                                ?>
                             </div>
                             <div class="news-title"><a href="javascript:void(0);"> {{$c1->news_title}} </a></div>
                             <div class="news-content"><p>{{$c1->news_desc}}</p></div>
@@ -84,7 +93,11 @@
                           <!-- Horizontal News Description -->
                           <div class="news-description">
                             <div class="news-time">
-                                <i class="fa fa-clock-o"></i> {{$c2->created_date}}
+                                <i class="fa fa-clock-o"></i>
+                                <?php
+                                  $date = strtotime($c2->created_date);
+                                  echo date("l , d-m-Y", $date);
+                                ?>
                             </div>
                             <div class="news-title"><a href="javascript:void(0);"> {{$c2->news_title}} </a></div>
                             <div class="news-content"><p>{{$c2->news_desc}}</p></div>
@@ -177,7 +190,11 @@
                       <!-- vertical News Description -->
                       <div class="news-description">
                           <div class="news-time">
-                              <i class="fa fa-clock-o"></i> {{$s1->created_date}}
+                              <i class="fa fa-clock-o"></i>
+                              <?php
+                                $date = strtotime($s1->created_date);
+                                echo date("l , d-m-Y", $date);
+                              ?>
                           </div>
                           <div class="news-title"><a href="javascript:void(0);"> {{$s1->news_title}} </a></div>
                           <div class="news-content"><p>{{$s1->news_desc}}</p></div>
@@ -201,7 +218,11 @@
                       <!-- vertical News Description -->
                       <div class="news-description">
                           <div class="news-time">
-                              <i class="fa fa-clock-o"></i> {{$s2->created_date}}
+                              <i class="fa fa-clock-o"></i>
+                              <?php
+                                $date = strtotime($s2->created_date);
+                                echo date("l , d-m-Y", $date);
+                              ?>
                           </div>
                           <div class="news-title"><a href="javascript:void(0);"> {{$s2->news_title}} </a></div>
                           <div class="news-content"><p>{{$s2->news_desc}}</p></div>
@@ -246,7 +267,11 @@
                           <!-- Horizontal News Description -->
                           <div class="news-description">
                             <div class="news-time">
-                                <i class="fa fa-clock-o"></i> {{$p1->created_date}}
+                                <i class="fa fa-clock-o"></i>
+                                <?php
+                                  $date = strtotime($p1->created_date);
+                                  echo date("l , d-m-Y", $date);
+                                ?>
                             </div>
                             <div class="news-title"><a href="javascript:void(0);"> {{$p1->news_title}} </a></div>
                             <div class="news-content"><p>{{$p1->news_desc}}</p></div>
@@ -267,7 +292,11 @@
                       <!-- Horizontal News Description -->
                       <div class="news-description">
                           <div class="news-time">
-                              <i class="fa fa-clock-o"></i> {{$p2->created_date}}
+                              <i class="fa fa-clock-o"></i>
+                              <?php
+                                $date = strtotime($p2->created_date);
+                                echo date("l , d-m-Y", $date);
+                              ?>
                           </div>
                           <div class="news-title"><a href="javascript:void(0);"> {{$p2->news_title}} </a></div>
                           <div class="news-content"><p>{{$p2->news_desc}}</p></div>
@@ -292,7 +321,11 @@
                       <!-- Horizontal News Description -->
                       <div class="news-description">
                           <div class="news-time">
-                              <i class="fa fa-clock-o"></i> {{$p3->created_date}}
+                              <i class="fa fa-clock-o"></i>
+                              <?php
+                                $date = strtotime($p3->created_date);
+                                echo date("l , d-m-Y", $date);
+                              ?>
                           </div>
                           <div class="news-title"><a href="javascript:void(0);"> {{$p3->news_title}} </a></div>
                           <div class="news-content"><p>{{$p3->news_desc}}</p></div>
@@ -314,7 +347,11 @@
                           <!-- Horizontal News Description -->
                           <div class="news-description">
                             <div class="news-time">
-                                <i class="fa fa-clock-o"></i> {{$p4->created_date}}
+                                <i class="fa fa-clock-o"></i>
+                                <?php
+                                  $date = strtotime($p4->created_date);
+                                  echo date("l , d-m-Y", $date);
+                                ?>
                             </div>
                             <div class="news-title"><a href="javascript:void(0);"> {{$p4->news_title}} </a></div>
                             <div class="news-content"><p>{{$p4->news_desc}}</p></div>
