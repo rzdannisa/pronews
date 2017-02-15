@@ -72,7 +72,7 @@
                 <li><a href="{{ url('manage_post/post_news') }}"><i class="fa fa-newspaper-o"></i> Post News</a></li>
                 <li><a href="{{ url('manage_post/all_post') }}"><i class="fa fa-columns"></i> All Post</a></li>
                 <li><a href="{{ url('manage_post/my_post') }}"><i class="fa fa-list"></i> My Post</a></li>
-                <li><a href="{{ url('manage_post/handling_comment') }}"><i class="fa fa-list"></i> Handling Comment</a></li>
+                <li><a href="{{ url('manage_post/handling_comment') }}"><i class="fa fa-commenting-o"></i> Handling Comment</a></li>
               </ul>
             </li>
 
@@ -103,12 +103,12 @@
 
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-buysellads"></i>
+                <i class="fa fa-recycle"></i>
                 <span>Manage Recycle Data</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ url('manage_recycle_data/data_recycle_post') }}"><i class="fa fa-list-ol"></i> Data Recycle Post</a></li>
+                <li><a href="{{ url('manage_recycle_data/data_recycle_post') }}"><i class="fa  fa-list-alt"></i> Data Recycle Post</a></li>
               </ul>
             </li>
 

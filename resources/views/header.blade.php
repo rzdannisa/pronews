@@ -134,15 +134,15 @@
           <li class="dropdown-menu">
               <ul class="collapsible" data-collapsible="expandable">
                   <li class="">
-                      <div class="collapsible-header waves-effect waves active"><i class="fa fa-file"></i><a href="{{url('/')}}"> Home </a></div>
+                      <div class="collapsible-header waves-effect waves active"><i class="fa fa-home"></i><a href="{{url('/')}}"> Home </a></div>
                   </li>
                   @foreach($menu as $menuu)
                   <li class="">
-                      <div class="collapsible-header waves-effect waves"><i class="fa fa-file-text"></i> {{$menuu->name}}<i class="fa fa-angle-right"></i></div>
+                      <div class="collapsible-header waves-effect waves"><i class="fa fa-newspaper-o"></i> {{$menuu->name}}<i class="fa fa-angle-right"></i></div>
                       <div style="display: none;" class="collapsible-body">
                           <ul>
                               @foreach($menuu->subtypeee as $sub)
-                              <li class="waves-effect"><a href="news-single1.html"><i class="fa fa-angle-right"></i> {{$sub->name}}</a></li>
+                              <li class="waves-effect"><a href="news-single1.html"> {{$sub->name}}</a></li>
                               @endforeach
                           </ul>
                       </div>
@@ -150,6 +150,6 @@
                   @endforeach
               </ul>
           </li>
-          <li class="waves-effect"><a href="{{url('about')}}"><i class="fa fa-tag"></i>About</a></li>
-          <li class="waves-effect"><a href="{{url('contact')}}"><i class="fa fa-briefcase"></i>Contact</a></li>
+          <li class="waves-effect"><a href="{{url('about')}}"><i class="fa fa-quote-left"></i>About</a></li>
+          <li class="waves-effect"><a href="{{url('contact')}}"><i class="fa fa-phone-square"></i>Contact</a></li>
       </ul>
