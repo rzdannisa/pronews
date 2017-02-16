@@ -18,18 +18,18 @@ class Controller extends BaseController
     {
             $viewtypenews = \App\type_news::where('status', 'A')->get();
             $menu = \App\master_subtype::with('subtypeee')->get();
-            $viewnews = \App\news::where('status', 'A')->orderBy('created_date', 'desc')->limit(5)->get();
+            $viewnews = \App\news::where('status', 'A')->where('is_suspend',0)->where('is_draft',0)->orderBy('created_date', 'desc')->limit(5)->get();
 
             $culture1 = \App\news::where('status', 'A')->where('type_news_id',1)->where('is_suspend',0)->where('is_draft',0)->orderBy('created_date', 'desc')->limit(4)->get();
-            $culture2 = \App\news::where('status', 'A')->where('type_news_id',1)->where('created_date', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 7 DAY)'))->inRandomOrder()->limit(4)->get();
+            $culture2 = \App\news::where('status', 'A')->where('is_suspend',0)->where('is_draft',0)->where('type_news_id',1)->where('created_date', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 7 DAY)'))->inRandomOrder()->limit(4)->get();
 
             $ls1 = \App\news::where('status', 'A')->where('type_news_id',2)->where('is_suspend',0)->where('is_draft',0)->orderBy('created_date', 'desc')->limit(4)->get();
-            $ls2 = \App\news::where('status', 'A')->where('type_news_id',2)->where('created_date', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 7 DAY)'))->inRandomOrder()->limit(4)->get();
+            $ls2 = \App\news::where('status', 'A')->where('type_news_id',2)->where('is_suspend',0)->where('is_draft',0)->where('created_date', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 7 DAY)'))->inRandomOrder()->limit(4)->get();
 
             $sp1 = \App\news::where('status', 'A')->where('type_news_id',3)->where('is_suspend',0)->where('is_draft',0)->orderBy('created_date', 'desc')->limit(2)->get();
-            $sp2 = \App\news::where('status', 'A')->where('type_news_id',3)->where('created_date', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 2 DAY)'))->inRandomOrder()->limit(2)->get();
-            $sp3 = \App\news::where('status', 'A')->where('type_news_id',3)->where('created_date', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 7 DAY)'))->inRandomOrder()->limit(2)->get();
-            $sp4 = \App\news::where('status', 'A')->where('type_news_id',3)->where('created_date', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 10 DAY)'))->inRandomOrder()->limit(2)->get();
+            $sp2 = \App\news::where('status', 'A')->where('is_suspend',0)->where('is_draft',0)->where('type_news_id',3)->where('created_date', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 2 DAY)'))->inRandomOrder()->limit(2)->get();
+            $sp3 = \App\news::where('status', 'A')->where('is_suspend',0)->where('is_draft',0)->where('type_news_id',3)->where('created_date', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 7 DAY)'))->inRandomOrder()->limit(2)->get();
+            $sp4 = \App\news::where('status', 'A')->where('is_suspend',0)->where('is_draft',0)->where('type_news_id',3)->where('created_date', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 10 DAY)'))->inRandomOrder()->limit(2)->get();
 
             return view('home')->with('viewnews',$viewnews)->with('viewtypenews',$viewtypenews)->with('menu',$menu)->with('culture1',$culture1)->with('culture2',$culture2)->with('ls1',$ls1)->with('ls2',$ls2)->with('sp1',$sp1)->with('sp2',$sp2)->with('sp3',$sp3)->with('sp4',$sp4);
     }
@@ -66,7 +66,7 @@ class Controller extends BaseController
         return view('result', compact('hasil', 'query'))->with('menu',$menu);
     }
 
-    public function list(Request $request,$type,$subname)
+    public function category(Request $request,$type,$subname)
     {
         $menu = \App\master_subtype::with('subtypeee')->get();
 

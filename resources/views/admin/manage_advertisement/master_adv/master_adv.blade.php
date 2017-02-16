@@ -45,6 +45,7 @@
                 <div class="box-body">
 
                 <form method="POST"  action="{{ url('manage_advertisement/master_adv/save') }}" enctype="multipart/form-data">
+
                   <div style="margin-bottom: 10px;" class="row">
                     <label for="exampleInputPassword1" class="col-sm-2 control-label">Select Type Advertisement</label>
                     <div class="col-xs-10">
@@ -57,13 +58,37 @@
                     </div>
                   </div>
 
-                  <div style="margin-bottom: 10px;" class="row">
+                  <div style="margin-bottom: 10px;" id="fdc1" class="row">
                     <label for="exampleInputPassword1" class="col-sm-2 control-label">Select User</label>
                     <div class="col-xs-10">
                       <select name="ms_id_user_adv" class="form-control not-res">
                         <option value="">Choose Type</option>
-                        @foreach($useradv as $usr)
-                        <option value="{{$usr->id}}">{{$usr->nama}}</option>
+                        @foreach($fdc1 as $usr1)
+                        <option value="{{$usr1->id}}">{{$usr1->nama}}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                  </div>
+
+                  <div style="margin-bottom: 10px;" id="fdc2" class="row">
+                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Select User</label>
+                    <div class="col-xs-10">
+                      <select name="ms_id_user_adv" class="form-control not-res">
+                        <option value="">Choose Type</option>
+                        @foreach($fdc2 as $usr2)
+                        <option value="{{$usr2->id}}">{{$usr2->nama}}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                  </div>
+
+                  <div style="margin-bottom: 10px;" id="fdc3" class="row">
+                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Select User</label>
+                    <div class="col-xs-10">
+                      <select name="ms_id_user_adv" class="form-control not-res">
+                        <option value="">Choose Type</option>
+                        @foreach($fdc3 as $usr3)
+                        <option value="{{$usr3->id}}">{{$usr3->nama}}</option>
                         @endforeach
                       </select>
                     </div>

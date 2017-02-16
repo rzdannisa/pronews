@@ -32,13 +32,13 @@
       {{ session('status') }}
         </div>
       @endif
-        <div class="box box-default collapsed-box box-solid">
+        <!-- <div class="box box-default collapsed-box box-solid">
           <div class="box-header with-border">
             <h3 class="box-title">Master Type News</h3>
             <div class="box-tools pull-right">
               <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
-            </div><!-- /.box-tools -->
-          </div><!-- /.box-header -->
+            </div>
+          </div>
           <div class="box-body">
             <form method="POST"  action="{{ url('manage_type_news/add_type_news') }}" enctype="multipart/form-data">
               <div class="row">
@@ -54,7 +54,7 @@
                 <button style="width:90px;" type="submit" class="btn btn-primary">Save</button>
             </form>
           </div>
-        </div>
+        </div> -->
         <div class="row">
           <div class="col-xs-12">
             <div class="box">
@@ -68,7 +68,7 @@
                       <th>Name</th>
                       <th>Modify Date</th>
                       <th>Action</th>
-                      <th>Action</th>
+                      <!-- <th>Action</th> -->
                     </tr>
                   </thead>
                   <tbody>
@@ -92,13 +92,13 @@
                         <td>
                           <a href="{{ url('manage_type_news/edit_type_news/'.$typee->id)}}"><button style="width:90px;" type="button" class="btn btn-info">Edit</button></a>
                         </td>
-                        <td>
+                        <!-- <td>
                           <form style="display: inline-table;" method="POST" action="{{ url('manage_type_news/delete_type_news') }}">
                             <input type="hidden" name="id" value="{{$typee->id}}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <button style="width:90px;" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this Type ?')" type="submit">Delete</button>
                           </form>
-                        </td>
+                        </td> -->
                       </tr>
                     @endforeach
                    </tbody>
@@ -109,7 +109,7 @@
                       <th>Name</th>
                       <th>Modify Date</th>
                       <th>Action</th>
-                      <th>Action</th>
+                      <!-- <th>Action</th> -->
                     </tr>
                   </tfoot>
                 </table>

@@ -33,13 +33,13 @@
         </div>
       @endif
 
-        <div class="box box-default collapsed-box box-solid">
+<!--         <div class="box box-default collapsed-box box-solid">
           <div class="box-header with-border">
             <h3 class="box-title">Master Feature Advertisement</h3>
             <div class="box-tools pull-right">
               <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
-            </div><!-- /.box-tools -->
-          </div><!-- /.box-header -->
+            </div>
+          </div>
           <div class="box-body">
             <form method="POST"  action="{{ url('manage_advertisement/feature_adv/save') }}" enctype="multipart/form-data">
               <div class="row">
@@ -85,7 +85,7 @@
               <br>
             </form>
           </div>
-        </div>
+        </div> -->
 
         <div class="row">
           <div class="col-xs-12">
@@ -101,7 +101,7 @@
                       <th>Price</th>
                       <th>Modify Date</th>
                       <th>Action</th>
-                      <th>Action</th>
+                      <!-- <th>Action</th> -->
                     </tr>
                   </thead>
                   <tbody>
@@ -131,13 +131,13 @@
                         <td>
                           <a href="{{ url('manage_advertisement/feature_adv/edit/'.$adv->id)}}"><button style="width:90px;" type="button" class="btn btn-info">Edit</button></a>
                         </td>
-                        <td>
+                        <!-- <td>
                           <form style="display: inline-table;" method="POST" action="{{ url('manage_advertisement/feature_adv/delete') }}">
                             <input type="hidden" name="id" value="{{$adv->id}}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <button style="width:90px;" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this feature advertisement?')" type="submit">Delete</button>
                           </form>
-                        </td>
+                        </td> -->
                       </tr>
                     @endforeach
                    </tbody>
@@ -149,7 +149,7 @@
                       <th>Price</th>
                       <th>Modify Date</th>
                       <th>Action</th>
-                      <th>Action</th>
+                      <!-- <th>Action</th> -->
                     </tr>
                   </tfoot>
                 </table>

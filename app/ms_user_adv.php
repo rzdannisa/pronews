@@ -10,7 +10,7 @@ class ms_user_adv extends Model
 
     public function adve()
     {
-    	return $this->hasMany('\App\lt_adv','id','lt_id_adv')->where('status','A');
+    	return $this->hasMany('\App\lt_adv','id','lt_id_adv');
     }
 
 }

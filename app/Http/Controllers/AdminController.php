@@ -827,7 +827,7 @@ class AdminController extends Controller
         if(!empty(session('type')))
         {
             $auth = \App\ms_user::where('id',session('iduser'))->get();
-            $fdc  = \App\ms_user_adv::with('adve')->get();
+            $fdc  = \App\ms_user_adv::where('status','A')->with('adve')->get();
             $adv = \App\lt_adv::where('status','A')->get();
             return view('admin.manage_advertisement.data_customer.data_customer')->with('fdc', $fdc)->with('auth',$auth)->with('adv',$adv);
         }else{
@@ -914,10 +914,13 @@ class AdminController extends Controller
         if(!empty(session('type')))
         {
             $auth = \App\ms_user::where('id',session('iduser'))->get(); 
+            $useradv  = \App\ms_user_adv::where('status','A')->with('adve')->get();
             $idadv = \App\lt_adv::where('status', 'A')->get();
             $fmadv  = \App\tr_adv::where('status', 'A')->get();
-            $useradv = \App\ms_user_adv::where('status','A')->get();
-            return view('admin.manage_advertisement.master_adv.master_adv')->with('fmadv', $fmadv)->with('auth',$auth)->with('idadv',$idadv)->with('useradv',$useradv);
+            $fdc1  = \App\ms_user_adv::where('status','A')->where('lt_id_adv',1)->with('adve')->get();
+            $fdc2  = \App\ms_user_adv::where('status','A')->where('lt_id_adv',2)->with('adve')->get();
+            $fdc3  = \App\ms_user_adv::where('status','A')->where('lt_id_adv',3)->with('adve')->get();
+            return view('admin.manage_advertisement.master_adv.master_adv')->with('fmadv', $fmadv)->with('auth',$auth)->with('idadv',$idadv)->with('useradv',$useradv)->with('fdc1', $fdc1)->with('fdc2', $fdc2)->with('fdc3', $fdc3);
         }else{
             return redirect('login');
         }
