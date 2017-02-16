@@ -30,7 +30,7 @@
                           <div class="col l4 col m4 col s12 no-padding">
                               <!-- Horizontal News Image -->
                               <div class="news-image">
-                                  <img class="responsive-img" src="assets/images/hor-news1.jpg" alt="news Image">
+                                  <img class="responsive-img" src="{{url('assets/images/hor-news1.jpg')}}" alt="news Image">
                               </div>
                           </div>
                           <div class="col l8 col m8 col s12 no-padding">
@@ -57,7 +57,7 @@
                         <div class="col l4 col m4 col s12 no-padding">
                             <!-- Horizontal News Image -->
                             <div class="news-image">
-                                <img class="responsive-img" src="assets/images/hor-news2.jpg" alt="news Image">
+                                <img class="responsive-img" src="{{url('assets/images/hor-news2.jpg')}}" alt="news Image">
                             </div>
                         </div>
                       </div>
@@ -66,7 +66,7 @@
               </div>
               <!-- Footer Logo -->
               <div class="logo">
-                  <a href="index.html"><img src="assets/images/material-logo.png" alt="Logo"></a>
+                  <a href="{{url('/')}}"><img src="{{url('assets/images/material-logo.png')}}" alt="Logo"></a>
               </div>
           </div>
           <!-- Footer Bottom -->

@@ -109,6 +109,8 @@ Route::group(['prefix'=>'manage_recycle_data'], function(){
     Route::post('restore_post', 'AdminController@restore_post');
 });
 
+Route::get('home/{type}/{subname}','Controller@list');
+
 Route::get('search', 'Controller@search');
 
 Route::post('uploadimagedrag', ['as'=>'drag','uses'=>'ImageController@uploadDragAndDropCKEDITOR']);

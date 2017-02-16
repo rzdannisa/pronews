@@ -22,7 +22,7 @@
                     <div class="col l4 col m3 col s12">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="assets/images/material-logo.png" alt="Logo"></a>
+                            <a href="{{url('/')}}"><img src="{{url('assets/images/material-logo.png')}}" alt="Logo"></a>
                         </div>
                     </div>
                     <div class="col l4 col m4 col s12 pull-right">
@@ -67,11 +67,11 @@
                         </div>
                         <div class="col l4 col m4 col s2">
                         <!-- Search Button -->
-                            <form class="searchbox">
-                                <input type="text" placeholder="Type and Press Enter" name="search" class="searchbox-input" required>
-                                <input type="submit" class="searchbox-submit">
-                                <span class="searchbox-icon"><i class="mdi-action-search"></i></span>
-                            </form>
+                            <form method="GET" action="{{url('search')}}" class="searchbox">
+                            <input name="q" type="text" placeholder="Type and Press Enter" name="search" class="searchbox-input" required>
+                            <input type="submit" class="searchbox-submit">
+                            <span class="searchbox-icon"><i class="mdi-action-search"></i></span>
+                        </form>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                         <div class="col l4 col m4 col s12">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="index.html"><img src="assets/images/material-logo.png" alt="Logo"></a>
+                                <a href="{{url('/')}}"><img src="{{url('assets/images/material-logo.png')}}" alt="Logo"></a>
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,11 @@
                   <li><a href="javascript:void(0);">{{$menuu->name}}<i class="fa fa-angle-down"></i></a>
                     <ul>
                     @foreach($menuu->subtypeee as $sub)
-                      <li><a href="news-single1.html">{{$sub->name}}</a></li>
+                    <?php
+                      $subname = strtolower($sub->name);
+                      $type = strtolower($menuu->name);
+                    ?>
+                      <li><a href="{{url('home/'.$type.'/'.$subname)}}">{{$sub->name}}</a></li>
                     @endforeach
                     </ul>
                   </li>
@@ -142,7 +146,12 @@
                       <div style="display: none;" class="collapsible-body">
                           <ul>
                               @foreach($menuu->subtypeee as $sub)
-                              <li class="waves-effect"><a href="news-single1.html"> {{$sub->name}}</a></li>
+                              <?php
+                                $subname = strtolower($sub->name);
+                                $type = strtolower($menuu->name);
+                              ?>
+
+                              <li class="waves-effect"><a href="{{url('home/'.$type.'/'.$subname)}}"> {{$sub->name}}</a></li>
                               @endforeach
                           </ul>
                       </div>
