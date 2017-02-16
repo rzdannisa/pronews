@@ -82,5 +82,41 @@ class Controller extends BaseController
         return view('list')->with('cat',$cat)->with('menu',$menu);
     }
 
+    public function detail(Request $request,$slug)
+    {
+        $news = \App\news::where('slug',$slug)->with('typenews')->with('subtypenews')->limit(1)->get();
+        $menu = \App\master_subtype::with('subtypeee')->get();
+
+        $idnews = \App\news::where('slug',$slug)->get()->toArray();
+        $idn = array_column($idnews, 'id');
+
+        $recent = \App\news::where('status', 'A')->where('is_suspend',0)->where('is_draft',0)->where('created_date', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 14 DAY)'))->inRandomOrder()->limit(6)->get();
+
+        $comm = \App\comment::where('status','A')->where('id_news',$idn)->get();
+
+        $jml = \App\comment::where('status','A')->where('id_news',$idn)->count();
+
+        $request->session()->put('jml', $jml);
+        return view('detail')->with('news',$news)->with('menu',$menu)->with('comm',$comm)->with('recent',$recent);
+    }
+
+    public function save_comment()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = new \App\comment;
+            $post->email = Input::get("email");
+            $post->nama = Input::get('nama');
+            $post->id_news = Input::get("id_news");
+            $post->comment = Input::get('comment');
+            $post->status = 'A';
+            $post->created_date = date('Y-m-d');
+            $post->last_modify_date = date('Y-m-d H:i:s');
+            $post->save();
+
+            return redirect()->back()->with('status', 'Successfull add comment !');
+        }
+    }
 
 }

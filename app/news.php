@@ -27,4 +27,9 @@ class news extends Model
     {
     	return $this->hasMany('\App\sub_type','id','type_sub_news_id');
     }
+
+    public function author()
+    {
+        return $this->hasMany('\App\ms_user','id','modify_user_id');
+    }
 }

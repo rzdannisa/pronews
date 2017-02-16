@@ -58,10 +58,12 @@
                     </div>
                   </div>
 
+                  <input id="usertp" type="hidden" name="usertp" value="dc1">
+
                   <div style="margin-bottom: 10px;" id="fdc1" class="row">
                     <label for="exampleInputPassword1" class="col-sm-2 control-label">Select User</label>
                     <div class="col-xs-10">
-                      <select name="ms_id_user_adv" class="form-control not-res">
+                      <select name="ms_id_user_adv_dc1" class="form-control not-res">
                         <option value="">Choose Type</option>
                         @foreach($fdc1 as $usr1)
                         <option value="{{$usr1->id}}">{{$usr1->nama}}</option>
@@ -73,7 +75,7 @@
                   <div style="margin-bottom: 10px;" id="fdc2" class="row">
                     <label for="exampleInputPassword1" class="col-sm-2 control-label">Select User</label>
                     <div class="col-xs-10">
-                      <select name="ms_id_user_adv" class="form-control not-res">
+                      <select name="ms_id_user_adv_dc2" class="form-control not-res">
                         <option value="">Choose Type</option>
                         @foreach($fdc2 as $usr2)
                         <option value="{{$usr2->id}}">{{$usr2->nama}}</option>
@@ -85,7 +87,7 @@
                   <div style="margin-bottom: 10px;" id="fdc3" class="row">
                     <label for="exampleInputPassword1" class="col-sm-2 control-label">Select User</label>
                     <div class="col-xs-10">
-                      <select name="ms_id_user_adv" class="form-control not-res">
+                      <select name="ms_id_user_adv_dc3" class="form-control not-res">
                         <option value="">Choose Type</option>
                         @foreach($fdc3 as $usr3)
                         <option value="{{$usr3->id}}">{{$usr3->nama}}</option>
@@ -181,6 +183,8 @@
                   <tbody>
                     <?php $i=1; ?>
                     @foreach($fmadv as $adv)
+                      @foreach($adv->typeadv as $type)
+                        @foreach($adv->userid as $user)
                       <tr>
                         <td>{{$i++}}</td>
                         <td>
@@ -189,8 +193,8 @@
                             echo date("d-m-Y", $date);
                           ?>
                         </td>
-                        <td>{{$adv->lt_id_adv}}</td>
-                        <td>{{$adv->ms_id_user_adv}}</td>
+                        <td>{{$type->name}}</td>
+                        <td>{{$user->nama}}</td>
                         <td>{{$adv->expiry}}</td>
                         <td>{{$adv->for_text}}</td>
                         <td>
@@ -211,6 +215,8 @@
                           </form>
                         </td>
                       </tr>
+                    @endforeach
+                    @endforeach
                     @endforeach
                    </tbody>
                    <tfoot>
@@ -240,22 +246,22 @@
 <script type="text/javascript">
         $('#selecttype').change(function(){
         if($(this).val() == "1"){
-          $('#img').css("display","block");
-          $('#exp').css("display","block");
-          $('#desc').css("display","block");
-          $('#detail').css("display","block");
+          $('#fdc1').css("display","block");
+          $('#fdc2').hide();
+          $('#fdc3').hide();
+          $("#usertp").val("dc1");
         }
         else if($(this).val() == "2"){
-          $('#img').css("display","block");
-          $('#exp').css("display","block");
-          $('#desc').hide();
-          $('#detail').css("display","block");
+          $('#fdc1').hide();
+          $('#fdc2').css("display","block");
+          $('#fdc3').hide();
+          $("#usertp").val("dc2");
         }
         else{
-          $('#img').hide();
-          $('#exp').css("display","block");
-          $('#desc').css("display","block");
-          $('#detail').css("display","block");
+          $('#fdc1').hide();
+          $('#fdc2').hide();
+          $('#fdc3').css("display","block");
+          $("#usertp").val("dc3");
 
         }
 

@@ -916,7 +916,7 @@ class AdminController extends Controller
             $auth = \App\ms_user::where('id',session('iduser'))->get(); 
             $useradv  = \App\ms_user_adv::where('status','A')->with('adve')->get();
             $idadv = \App\lt_adv::where('status', 'A')->get();
-            $fmadv  = \App\tr_adv::where('status', 'A')->get();
+            $fmadv  = \App\tr_adv::where('status', 'A')->with('typeadv')->with('userid')->get();
             $fdc1  = \App\ms_user_adv::where('status','A')->where('lt_id_adv',1)->with('adve')->get();
             $fdc2  = \App\ms_user_adv::where('status','A')->where('lt_id_adv',2)->with('adve')->get();
             $fdc3  = \App\ms_user_adv::where('status','A')->where('lt_id_adv',3)->with('adve')->get();
@@ -934,7 +934,7 @@ class AdminController extends Controller
         {
             $post = new \App\tr_adv;
             $post->lt_id_adv = Input::get('lt_id_adv');
-            $post->ms_id_user_adv = Input::get('ms_id_user_adv');
+            $post->ms_id_user_adv = Input::get('ms_id_user_adv_'.Input::get("usertp"));
             $post->title = Input::get('title');
             $post->for_text = Input::get('for_text');
             $post->for_detail_text = Input::get('for_detail_text');

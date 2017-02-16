@@ -112,6 +112,8 @@ Route::group(['prefix'=>'manage_recycle_data'], function(){
 Route::get('home/{type}/{subname}','Controller@category');
 
 Route::get('search', 'Controller@search');
+Route::get('detail/{slug}', 'Controller@detail');
+Route::post('comment/save', 'Controller@save_comment');
 
 Route::post('uploadimagedrag', ['as'=>'drag','uses'=>'ImageController@uploadDragAndDropCKEDITOR']);
 Route::post('uploadimagefilebrowser', ['as'=>'upload','uses'=>'ImageController@uploadFileBrowserCKEDITOR']);

@@ -9,15 +9,18 @@
                       </div> -->
                   </div>
 
-
                   <div class="col l6 col m12 col s12" style="padding-top : 30px;">
                       <!-- Footer Column 1 -->
                       @foreach($menu as $menuu)
                       <ul class="col l4 col m4 col s4">
                           <li class="footer-title">{{$menuu->name}}</li>
                           @foreach($menuu->subtypeee as $sub)
+                          <?php
+                                $subname = strtolower($sub->name);
+                                $type = strtolower($menuu->name);
+                              ?>
                           <li>
-                              <a href="javascript:void(0);">{{$sub->name}}</a>
+                              <a href="{{url('home/'.$type.'/'.$subname)}}">{{$sub->name}}</a>
                           </li>
                           @endforeach
                       </ul>

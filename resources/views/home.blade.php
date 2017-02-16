@@ -70,7 +70,7 @@
                                   echo date("l , d-m-Y", $date);
                                 ?>
                             </div>
-                            <div class="news-title"><a href="javascript:void(0);"> {{$c1->news_title}} </a></div>
+                            <div class="news-title"><a href="{{url('detail/'.$c1->slug)}}"> {{$c1->news_title}} </a></div>
                             <div class="news-content"><p>{{$c1->news_desc}}</p></div>
                           </div>
                       </div>
@@ -99,7 +99,7 @@
                                   echo date("l , d-m-Y", $date);
                                 ?>
                             </div>
-                            <div class="news-title"><a href="javascript:void(0);"> {{$c2->news_title}} </a></div>
+                            <div class="news-title"><a href="{{url('detail/'.$c2->slug)}}"> {{$c2->news_title}} </a></div>
                             <div class="news-content"><p>{{$c2->news_desc}}</p></div>
                           </div>
                       </div>
@@ -196,7 +196,7 @@
                                 echo date("l , d-m-Y", $date);
                               ?>
                           </div>
-                          <div class="news-title"><a href="javascript:void(0);"> {{$s1->news_title}} </a></div>
+                          <div class="news-title"><a href="{{url('detail/'.$s1->slug)}}"> {{$s1->news_title}} </a></div>
                           <div class="news-content"><p>{{$s1->news_desc}}</p></div>
                       </div>
                   </div>
@@ -224,7 +224,7 @@
                                 echo date("l , d-m-Y", $date);
                               ?>
                           </div>
-                          <div class="news-title"><a href="javascript:void(0);"> {{$s2->news_title}} </a></div>
+                          <div class="news-title"><a href="{{url('detail/'.$s2->slug)}}"> {{$s2->news_title}} </a></div>
                           <div class="news-content"><p>{{$s2->news_desc}}</p></div>
                       </div>
                   </div>
@@ -260,7 +260,7 @@
                       <div class="col l4 col m4 col s12 no-padding">
                           <!-- Horizontal News Image -->
                           <div class="news-image">
-                              <img class="responsive-img" src="{{('headline_news/'.$p1->headline_news)}}" alt="news Image">
+                              <img class="responsive-img" src="{{url('headline_news/'.$p1->headline_news)}}" alt="news Image">
                           </div>
                       </div>
                       <div class="col l8 col m8 col s12 no-padding">
@@ -273,7 +273,7 @@
                                   echo date("l , d-m-Y", $date);
                                 ?>
                             </div>
-                            <div class="news-title"><a href="javascript:void(0);"> {{$p1->news_title}} </a></div>
+                            <div class="news-title"><a href="{{url('detail/'.$p1->slug)}}"> {{$p1->news_title}} </a></div>
                             <div class="news-content"><p>{{$p1->news_desc}}</p></div>
                           </div>
                       </div>
@@ -287,7 +287,7 @@
                   <div class="news vertical z-depth-1">
                       <!-- Horizontal News Image -->
                       <div class="news-image">
-                          <img class="responsive-img" src="{{('headline_news/'.$p2->headline_news)}}" alt="news Image">
+                          <img class="responsive-img" src="{{url('headline_news/'.$p2->headline_news)}}" alt="news Image">
                       </div>
                       <!-- Horizontal News Description -->
                       <div class="news-description">
@@ -298,7 +298,7 @@
                                 echo date("l , d-m-Y", $date);
                               ?>
                           </div>
-                          <div class="news-title"><a href="javascript:void(0);"> {{$p2->news_title}} </a></div>
+                          <div class="news-title"><a href="{{url('detail/'.$p2->slug)}}"> {{$p2->news_title}} </a></div>
                           <div class="news-content"><p>{{$p2->news_desc}}</p></div>
                       </div>
                   </div>
@@ -316,7 +316,7 @@
                   <div class="news vertical z-depth-1">
                       <!-- Horizontal News Image -->
                       <div class="news-image">
-                          <img class="responsive-img" src="{{('headline_news/'.$p3->headline_news)}}" alt="news Image">
+                          <img class="responsive-img" src="{{url('headline_news/'.$p3->headline_news)}}" alt="news Image">
                       </div>
                       <!-- Horizontal News Description -->
                       <div class="news-description">
@@ -327,7 +327,7 @@
                                 echo date("l , d-m-Y", $date);
                               ?>
                           </div>
-                          <div class="news-title"><a href="javascript:void(0);"> {{$p3->news_title}} </a></div>
+                          <div class="news-title"><a href="{{url('detail/'.$p3->slug)}}"> {{$p3->news_title}} </a></div>
                           <div class="news-content"><p>{{$p3->news_desc}}</p></div>
                       </div>
                   </div>
@@ -340,7 +340,7 @@
                       <div class="col l4 col m4 col s12 no-padding">
                           <!-- Horizontal News Image -->
                           <div class="news-image">
-                              <img class="responsive-img" src="{{('headline_news/'.$p4->headline_news)}}" alt="news Image">
+                              <img class="responsive-img" src="{{url('headline_news/'.$p4->headline_news)}}" alt="news Image">
                           </div>
                       </div>
                       <div class="col l8 col m8 col s12 no-padding">
@@ -353,7 +353,7 @@
                                   echo date("l , d-m-Y", $date);
                                 ?>
                             </div>
-                            <div class="news-title"><a href="javascript:void(0);"> {{$p4->news_title}} </a></div>
+                            <div class="news-title"><a href="{{url('detail/'.$p4->slug)}}"> {{$p4->news_title}} </a></div>
                             <div class="news-content"><p>{{$p4->news_desc}}</p></div>
                           </div>
                       </div>
