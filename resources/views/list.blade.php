@@ -38,7 +38,11 @@
                           <!-- Horizontal News Description -->
                           <div class="news-description">
                             <div class="news-time">
-                              <i class="fa fa-clock-o"></i> {{$cate->created_date}}
+                              <i class="fa fa-clock-o"></i>
+                              <?php
+                                $date = strtotime($cate->created_date);
+                                echo date("l , d-m-Y", $date);
+                              ?>
                             </div>
                             <div class="news-title"><a href="{{url('detail/'.$cate->slug)}}"> {{$cate->news_title}} </a></div>
                             <div class="news-content"><p>{{$cate->news_desc}}</p></div>
