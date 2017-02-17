@@ -44,7 +44,7 @@
                                 echo date("l , d-m-Y", $date);
                               ?>
                             </div>
-                            <div class="news-title"><a href="javascript:void(0);"> {{$data->news_title}} </a></div>
+                            <div class="news-title"><a href="{{url('detail/'.$data->slug)}}"> {{$data->news_title}} </a></div>
                             <div class="news-content"><p>{{$data->news_desc}}</p></div>
                           </div>
                         </div>

@@ -40,7 +40,7 @@
                             <div class="news-time">
                               <i class="fa fa-clock-o"></i> {{$cate->created_date}}
                             </div>
-                            <div class="news-title"><a href="javascript:void(0);"> {{$cate->news_title}} </a></div>
+                            <div class="news-title"><a href="{{url('detail/'.$cate->slug)}}"> {{$cate->news_title}} </a></div>
                             <div class="news-content"><p>{{$cate->news_desc}}</p></div>
                           </div>
                         </div>
