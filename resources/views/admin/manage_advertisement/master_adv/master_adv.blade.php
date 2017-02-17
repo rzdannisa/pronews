@@ -35,215 +35,215 @@
         </div>
       @endif
 
-              <div style="width:95%;margin:auto;" class="box box-default collapsed-box box-solid">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Master Advertisement</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
-                  </div><!-- /.box-tools -->
-                </div><!-- /.box-header -->
-                <div class="box-body">
+      <div class="box box-default collapsed-box box-solid">
+        <div class="box-header with-border">
+          <h3 class="box-title">Master Advertisement</h3>
+          <div class="box-tools pull-right">
+            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+          </div><!-- /.box-tools -->
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          <form method="POST"  action="{{ url('manage_advertisement/master_adv/save') }}" enctype="multipart/form-data">
 
-                <form method="POST"  action="{{ url('manage_advertisement/master_adv/save') }}" enctype="multipart/form-data">
+            <div style="margin-bottom: 10px;" class="row">
+              <label for="exampleInputPassword1" class="col-sm-2 control-label">Select Type Advertisement</label>
+              <div class="col-xs-10">
+                <select id="selecttype" name="lt_id_adv" class="form-control not-res">
+                  <option value="">Choose Type</option>
+                  @foreach($idadv as $adv)
+                  <option value="{{$adv->id}}">{{$adv->name}}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
 
-                  <div style="margin-bottom: 10px;" class="row">
-                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Select Type Advertisement</label>
-                    <div class="col-xs-10">
-                      <select id="selecttype" name="lt_id_adv" class="form-control not-res">
-                        <option value="">Choose Type</option>
-                        @foreach($idadv as $adv)
-                        <option value="{{$adv->id}}">{{$adv->name}}</option>
-                        @endforeach
-                      </select>
-                    </div>
+            <input id="usertp" type="hidden" name="usertp" value="dc1">
+
+            <div style="margin-bottom: 10px;" id="fdc1" class="row">
+              <label for="exampleInputPassword1" class="col-sm-2 control-label">Select User</label>
+              <div class="col-xs-10">
+                <select name="ms_id_user_adv_dc1" class="form-control not-res">
+                  <option value="">Choose Type</option>
+                  @foreach($fdc1 as $usr1)
+                  <option value="{{$usr1->id}}">{{$usr1->nama}}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 10px;" id="fdc2" class="row">
+              <label for="exampleInputPassword1" class="col-sm-2 control-label">Select User</label>
+              <div class="col-xs-10">
+                <select name="ms_id_user_adv_dc2" class="form-control not-res">
+                  <option value="">Choose Type</option>
+                  @foreach($fdc2 as $usr2)
+                  <option value="{{$usr2->id}}">{{$usr2->nama}}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 10px;" id="fdc3" class="row">
+              <label for="exampleInputPassword1" class="col-sm-2 control-label">Select User</label>
+              <div class="col-xs-10">
+                <select name="ms_id_user_adv_dc3" class="form-control not-res">
+                  <option value="">Choose Type</option>
+                  @foreach($fdc3 as $usr3)
+                  <option value="{{$usr3->id}}">{{$usr3->nama}}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 10px;" class="row">
+            <label for="exampleInputPassword1" class="col-sm-2 control-label">Title</label>
+            <div class="col-xs-10">
+                <input class="form-control not-res" type="text" name="title" placeholder="Title" id="address" />
+              </div>
+            </div>
+
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+            <div style="margin-bottom: 10px;" id="img" class="row">
+              <label for="exampleInputPassword1" class="col-sm-2 control-label">Image Advertisement</label>
+              <div class="col-xs-10">
+                <input class="form-control not-res" type="file" name="for_image" placeholder="Title" id="img" />
+              </div>
+            </div>
+
+            <div style="margin-bottom: 10px;" class="row">
+                <label for="exampleInputPassword1" class="col-sm-2 control-label">Posting Date</label>
+                <div class="col-xs-10">
+                  <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' name="created_date" class="form-control _date" required/>
+                      <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
                   </div>
+                </div>
+              </div>
 
-                  <input id="usertp" type="hidden" name="usertp" value="dc1">
-
-                  <div style="margin-bottom: 10px;" id="fdc1" class="row">
-                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Select User</label>
-                    <div class="col-xs-10">
-                      <select name="ms_id_user_adv_dc1" class="form-control not-res">
-                        <option value="">Choose Type</option>
-                        @foreach($fdc1 as $usr1)
-                        <option value="{{$usr1->id}}">{{$usr1->nama}}</option>
-                        @endforeach
-                      </select>
-                    </div>
+              <div id="exp" style="margin-bottom: 10px;" class="row">
+                <label for="exampleInputPassword1" class="col-sm-2 control-label">Expiry Date</label>
+                <div class="col-xs-10">
+                  <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' name="expiry_date" class="form-control exp" required/>
+                      <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
                   </div>
+                </div>
+              </div>
 
-                  <div style="margin-bottom: 10px;" id="fdc2" class="row">
-                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Select User</label>
-                    <div class="col-xs-10">
-                      <select name="ms_id_user_adv_dc2" class="form-control not-res">
-                        <option value="">Choose Type</option>
-                        @foreach($fdc2 as $usr2)
-                        <option value="{{$usr2->id}}">{{$usr2->nama}}</option>
-                        @endforeach
-                      </select>
-                    </div>
-                  </div>
+            <div style="margin-bottom: 10px;" id="desc" class="row">
+            <label for="exampleInputPassword1" class="col-sm-2 control-label">Description</label>
+            <div class="col-xs-10">
+                <input class="form-control not-res" type="text" name="for_text" placeholder="Description" id="address" />
+              </div>
+            </div>
 
-                  <div style="margin-bottom: 10px;" id="fdc3" class="row">
-                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Select User</label>
-                    <div class="col-xs-10">
-                      <select name="ms_id_user_adv_dc3" class="form-control not-res">
-                        <option value="">Choose Type</option>
-                        @foreach($fdc3 as $usr3)
-                        <option value="{{$usr3->id}}">{{$usr3->nama}}</option>
-                        @endforeach
-                      </select>
-                    </div>
-                  </div>
+            <div class="row">
+                <label for="exampleInputPassword1" class="col-sm-2 control-label">Detail</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control ckeditor" id="editor1" name="for_detail_text" placeholder="Content" class="materialize-textarea" rows="6" required/></textarea>
+                </div>
+              </div>
 
-                  <div style="margin-bottom: 10px;" class="row">
-                  <label for="exampleInputPassword1" class="col-sm-2 control-label">Title</label>
-                  <div class="col-xs-10">
-                      <input class="form-control not-res" type="text" name="title" placeholder="Title" id="address" />
-                    </div>
-                  </div>
+            <br>
+              <div style="padding:20px 15px 0 0;" class="pull-right">
+                <button style="width:150px;" type="submit" name="choose" value="suspend" class="btn btn-danger">Save as Suspend</button>
+                <button style="width:150px;" type="submit" name="choose" value="hold" class="btn btn-warning">Save as Hold</button>
+                <button style="width:150px;" type="submit" name="choose" value="publish" class="btn btn-primary">Save and Publish</button>
+              </div>
+        </form>
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
 
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                  <div style="margin-bottom: 10px;" id="img" class="row">
-                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Image Advertisement</label>
-                    <div class="col-xs-10">
-                      <input class="form-control not-res" type="file" name="for_image" placeholder="Title" id="img" />
-                    </div>
-                  </div>
-
-                  <div style="margin-bottom: 10px;" class="row">
-                      <label for="exampleInputPassword1" class="col-sm-2 control-label">Posting Date</label>
-                      <div class="col-xs-10">
-                        <div class='input-group date' id='datetimepicker1'>
-                          <input type='text' name="created_date" class="form-control _date" required/>
-                            <span class="input-group-addon">
-                              <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div id="exp" style="margin-bottom: 10px;" class="row">
-                      <label for="exampleInputPassword1" class="col-sm-2 control-label">Expiry Date</label>
-                      <div class="col-xs-10">
-                        <div class='input-group date' id='datetimepicker1'>
-                          <input type='text' name="expiry_date" class="form-control exp" required/>
-                            <span class="input-group-addon">
-                              <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
-                      </div>
-                    </div>
-
-                  <div style="margin-bottom: 10px;" id="desc" class="row">
-                  <label for="exampleInputPassword1" class="col-sm-2 control-label">Description</label>
-                  <div class="col-xs-10">
-                      <input class="form-control not-res" type="text" name="for_text" placeholder="Description" id="address" />
-                    </div>
-                  </div>
-
-                  <div class="row">
-                      <label for="exampleInputPassword1" class="col-sm-2 control-label">Detail</label>
-                      <div class="col-sm-10">
-                        <textarea class="form-control ckeditor" id="editor1" name="for_detail_text" placeholder="Content" class="materialize-textarea" rows="6" required/></textarea>
-                      </div>
-                    </div>
-
-                  <br><br>
-                    <div style="padding:20px 15px 0 0;" class="pull-right">
-                      <button style="width:150px;" type="submit" name="choose" value="suspend" class="btn btn-danger">Save as Suspend</button>
-                      <button style="width:150px;" type="submit" name="choose" value="hold" class="btn btn-warning">Save as Hold</button>
-                      <button style="width:150px;" type="submit" name="choose" value="publish" class="btn btn-primary">Save and Publish</button>
-                    </div>
-                </form>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-
-              <br><br>
-          <div class="row">
-          <div class="col-xs-12">
-            <div class="box">
-              <div class="box-header"><h4>Data Advertisement</h4></div>
-              <div class="box-body table-responsive">
-                <table id="master-user" class="table table-bordered table-hover">
-                  <thead>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header"><h4>Data Advertisement</h4></div>
+            <div class="box-body table-responsive">
+              <table id="master-user" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>Created Date</th>
+                    <th>Type Advertisement</th>
+                    <th>User</th>
+                    <th>Expiry Date</th>
+                    <th>Description</th>
+                    <th>Modify Date</th>
+                    <th>Action</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $i=1; ?>
+                  @foreach($fmadv as $adv)
+                    @foreach($adv->typeadv as $type)
+                      @foreach($adv->userid as $user)
                     <tr>
-                      <th>No.</th>
-                      <th>Created Date</th>
-                      <th>Type Advertisement</th>
-                      <th>User</th>
-                      <th>Expiry Date</th>
-                      <th>Description</th>
-                      <th>Modify Date</th>
-                      <th>Action</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php $i=1; ?>
-                    @foreach($fmadv as $adv)
-                      @foreach($adv->typeadv as $type)
-                        @foreach($adv->userid as $user)
-                      <tr>
-                        <td>{{$i++}}</td>
-                        <td>
-                          <?php
-                            $date = strtotime($adv->created_date);
-                            echo date("d-m-Y", $date);
-                          ?>
-                        </td>
-                        <td>{{$type->name}}</td>
-                        <td>{{$user->nama}}</td>
-                        <td>{{$adv->expiry}}</td>
-                        <td>{{$adv->for_text}}</td>
-                        <td>
-                          <?php
-                            $date = strtotime($adv->updated_at);
-                            echo date("d-m-Y H:i", $date);
-                          ?>
-                        </td>
+                      <td>{{$i++}}</td>
+                      <td>
+                        <?php
+                          $date = strtotime($adv->created_date);
+                          echo date("d-m-Y", $date);
+                        ?>
+                      </td>
+                      <td>{{$type->name}}</td>
+                      <td>{{$user->nama}}</td>
+                      <td>{{$adv->expiry}}</td>
+                      <td>{{$adv->for_text}}</td>
+                      <td>
+                        <?php
+                          $date = strtotime($adv->updated_at);
+                          echo date("d-m-Y H:i", $date);
+                        ?>
+                      </td>
 
-                        <td>
-                          <a href="{{ url('manage_advertisement/master_adv/edit/'.$adv->id)}}"><button style="width:90px;" type="button" class="btn btn-info">Edit</button></a>
-                        </td>
-                        <td>
-                          <form style="display: inline-table;" method="POST" action="{{ url('manage_advertisement/master_adv/delete') }}">
-                            <input type="hidden" name="id" value="{{$adv->id}}">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <button style="width:90px;" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this advertisement?')" type="submit">Delete</button>
-                          </form>
-                        </td>
-                      </tr>
-                    @endforeach
-                    @endforeach
-                    @endforeach
-                   </tbody>
-                   <tfoot>
-                    <tr>
-                       <th>No.</th>
-                      <th>Created Date</th>
-                      <th>Type Advertisement</th>
-                      <th>User</th>
-                      <th>Expiry Date</th>
-                      <th>Description</th>
-                      <th>Modify Date</th>
-                      <th>Action</th>
-                      <th>Action</th>
+                      <td>
+                        <a href="{{ url('manage_advertisement/master_adv/edit/'.$adv->id)}}"><button style="width:90px;" type="button" class="btn btn-info">Edit</button></a>
+                      </td>
+                      <td>
+                        <form style="display: inline-table;" method="POST" action="{{ url('manage_advertisement/master_adv/delete') }}">
+                          <input type="hidden" name="id" value="{{$adv->id}}">
+                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                          <button style="width:90px;" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this advertisement?')" type="submit">Delete</button>
+                        </form>
+                      </td>
                     </tr>
-                  </tfoot>
-                </table>
-              </div><!-- /.box-body -->
-            </div><!-- /.box -->
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div>
-        </section>
+                  @endforeach
+                  @endforeach
+                  @endforeach
+                 </tbody>
+                 <tfoot>
+                  <tr>
+                     <th>No.</th>
+                    <th>Created Date</th>
+                    <th>Type Advertisement</th>
+                    <th>User</th>
+                    <th>Expiry Date</th>
+                    <th>Description</th>
+                    <th>Modify Date</th>
+                    <th>Action</th>
+                    <th>Action</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div><!-- /.box-body -->
+          </div><!-- /.box -->
+        </div><!-- /.col -->
+      </div><!-- /.row -->
     </div>
-
-</div>
+      </section>
+  </div>
 </body>
 <script type="text/javascript">
+        $('#fdc1').hide();
+        $('#fdc2').hide();
+        $('#fdc3').hide();
+
         $('#selecttype').change(function(){
         if($(this).val() == "1"){
           $('#fdc1').css("display","block");
