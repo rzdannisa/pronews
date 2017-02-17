@@ -109,7 +109,7 @@
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Posting Date</label>
                       <div class="col-sm-10">
                         <div class='input-group date' id='datetimepicker1'>
-                          <input style="margin-bottom: 10px;" type='text' name="created_date" class="form-control _date" required/>
+                          <input type='text' name="created_date" class="form-control _date" required/>
                             <span class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar"></span>
                             </span>
