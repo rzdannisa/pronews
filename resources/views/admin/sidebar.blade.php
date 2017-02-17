@@ -97,7 +97,7 @@
               <ul class="treeview-menu">
                 <li><a href="{{ url('manage_advertisement/feature_adv') }}"><i class="fa fa-list-ol"></i> Feature Advertisement</a></li>
                 <li><a href="{{ url('manage_advertisement/data_customer') }}"><i class="fa fa-users"></i> Data Customer</a></li>
-                <li><a href="{{ url('manage_advertisement/master_adv') }}"><i class="fa fa-diamond"></i> Master Advertisement</a></li>
+                <li><a href="{{ url('manage_advertisement/master_adv') }}"><i class="fa fa-bookmark-o"></i> Master Advertisement</a></li>
               </ul>
             </li>
 

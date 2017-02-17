@@ -141,7 +141,7 @@
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">News Description</label>
                       <div class="col-sm-10">
-                        <input type="text" name="news_desc" class="form-control not-res" maxlength="100" placeholder="News Description" onkeyup="this.value = minmaxname(this.value, 0, 100)" value="{{$posts->news_desc}}" required/>
+                        <input type="text" name="news_desc" class="form-control not-res" maxlength="100" placeholder="News Description (Max 100 Character)" onkeyup="this.value = minmaxname(this.value, 0, 100)" value="{{$posts->news_desc}}" required/>
                       </div>
                     </div>
 
