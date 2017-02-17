@@ -11,10 +11,10 @@
                       <!-- Breadcrumb -->
                       <div class="breadcrumb">
                       <?php
-                      $type = ucwords(session('type'));
+                      $typenews = ucwords(session('typenews'));
                       $subname = ucwords(session('subname'));
                       ?>
-                          <a href="#">Home</a> <i class="fa fa-angle-right"></i> {{$type}}
+                          <a href="#">Home</a> <i class="fa fa-angle-right"></i> {{$typenews}}
                           <div class="page-title"> {{$subname}} </div>
                       </div>
                   </div>

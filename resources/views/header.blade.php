@@ -107,9 +107,9 @@
                     @foreach($menuu->subtypeee as $sub)
                     <?php
                       $subname = strtolower($sub->name);
-                      $type = strtolower($menuu->name);
+                      $typenews = strtolower($menuu->name);
                     ?>
-                      <li><a href="{{url('home/'.$type.'/'.$subname)}}">{{$sub->name}}</a></li>
+                      <li><a href="{{url('home/'.$typenews.'/'.$subname)}}">{{$sub->name}}</a></li>
                     @endforeach
                     </ul>
                   </li>
@@ -151,7 +151,7 @@
                                 $type = strtolower($menuu->name);
                               ?>
 
-                              <li class="waves-effect"><a href="{{url('home/'.$type.'/'.$subname)}}"> {{$sub->name}}</a></li>
+                              <li class="waves-effect"><a href="{{url('home/'.$typenews.'/'.$subname)}}"> {{$sub->name}}</a></li>
                               @endforeach
                           </ul>
                       </div>

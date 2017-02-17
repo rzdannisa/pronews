@@ -109,7 +109,7 @@ Route::group(['prefix'=>'manage_recycle_data'], function(){
     Route::post('restore_post', 'AdminController@restore_post');
 });
 
-Route::get('home/{type}/{subname}','Controller@category');
+Route::get('home/{typenews}/{subname}','Controller@category');
 
 Route::get('search', 'Controller@search');
 Route::get('detail/{slug}', 'Controller@detail');

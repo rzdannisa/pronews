@@ -66,17 +66,17 @@ class Controller extends BaseController
         return view('result', compact('hasil', 'query'))->with('menu',$menu);
     }
 
-    public function category(Request $request,$type,$subname)
+    public function category(Request $request,$typenews,$subname)
     {
         $menu = \App\master_subtype::with('subtypeee')->get();
 
-        $typenews = \App\type_news::where('name',$type)->get()->toArray();
-        $typee = array_column($typenews, 'id');
+        $typ = \App\type_news::where('name',$typenews)->get()->toArray();
+        $typee = array_column($typ, 'id');
 
         $subtype = \App\sub_type::where('name',$subname)->get()->toArray();
         $sub = array_column($subtype, 'id');
 
-        $request->session()->put('type', $type);
+        $request->session()->put('typenews', $typenews);
         $request->session()->put('subname', $subname);
         $cat = \App\news::where('type_news_id',$typee)->where('type_sub_news_id',$sub)->where('status','A')->paginate(6);
         return view('list')->with('cat',$cat)->with('menu',$menu);
