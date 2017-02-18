@@ -7,6 +7,10 @@
       <div class="wrapper">
           <div class="container">
               <div class="row">
+<<<<<<< HEAD
+=======
+
+>>>>>>> ae58418c08baeaaa446e05130610497258384c25
                 <div class="col l9 col m12">
                     <!-- News Single Style 3 -->
                     <div class="news-single style-3 z-depth-1">
@@ -35,19 +39,23 @@
                             </div>
                             <!-- News Detail -->
                             <div class="news-detail">
-                                <span class="news-by"><a href="javascript:void(0);">{{$usr->name}}</a></span>
-                                <span class="news-month"><a href="javascript:void(0);"><i class="fa fa-clock-o"></i> 
+                                <span class="news-by"><a>{{$usr->name}}</a></span>
+                                <span class="news-month"><a><i class="fa fa-clock-o"></i>
                                 <?php
                                   $date = strtotime($posts->created_date);
-                                  echo date("d-m-Y", $date);
+                                  echo date("l , d-m-Y", $date);
                                 ?></a></span>
-                                <span class="news-comment"><a href="javascript:void(0);"><i class="mdi-communication-messenger"></i> {{session('jml')}}</a></span>
+                                <span class="news-comment"><a><i class="mdi-communication-messenger"></i> {{session('jml')}}</a></span>
                                 <!-- <span class="news-view"><a href="javascript:void(0);"><i class="fa fa-eye"></i> </a></span> -->
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> ae58418c08baeaaa446e05130610497258384c25
                 <div class="col l3 col m12">
 
                     <!-- New single Style 3 Advertise Box -->
@@ -69,7 +77,7 @@
                                             <a href="javascript:void(0);">
                                             <?php
                                           $date = strtotime($few->created_date);
-                                          echo date("d-m-Y", $date);
+                                          echo date("l , d-m-Y", $date);
                                         ?> </a>
                                         </div>
                                         <div class="news-title">

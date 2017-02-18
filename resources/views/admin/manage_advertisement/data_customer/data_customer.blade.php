@@ -70,7 +70,7 @@
                     <br>
 
                     <div class="form-group">
-                      <label for="exampleInputPassword1" class="col-sm-2 control-label">Posting Date</label>
+                      <label for="exampleInputPassword1" class="col-sm-2 control-label">Join Date</label>
                       <div class="col-sm-10">
                         <div class='input-group date' id='datetimepicker1'>
                           <input type='text' name="created_date" class="form-control _date" required/>
@@ -133,7 +133,7 @@
                     <tr>
                       <th>No.</th>
                       <th>ID Cust</th>
-                      <th>Created Date</th>
+                      <th>Join Date</th>
                       <th>Name</th>
                       <th>Email</th>
                       <th>Contact</th>
@@ -187,7 +187,7 @@
                     <tr>
                       <th>No.</th>
                       <th>ID Cust</th>
-                      <th>Created Date</th>
+                      <th>Join Date</th>
                       <th>Name</th>
                       <th>Email</th>
                       <th>Contact</th>

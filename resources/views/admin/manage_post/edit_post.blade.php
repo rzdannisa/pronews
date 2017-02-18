@@ -80,14 +80,21 @@
                       </div>
                     </div>
 
+                    <br>
+                    <br>
+
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Title</label>
                       <div class="col-sm-10">
-                        <input style="margin-bottom: 10px;" type="text" name="news_title" class="form-control" id="exampleInputEmail1" value="{{$posts->news_title}}" placeholder="Title" required/>
+                        <input type="text" name="news_title" class="form-control" id="exampleInputEmail1" value="{{$posts->news_title}}" placeholder="Title" required/>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="id" value="{{ $posts->id }}">
                       </div>
                     </div>
+
+                    <br>
+                    <br>
+
                     @if(!empty($posts->headline_news))
                     <div class="form-group">
                       <img style="padding: 0 0 10px 200px; max-height: 350px;" src="{{ url('headline_news/'.$posts->headline_news) }}">
@@ -98,21 +105,27 @@
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Headline News</label>
                       <div class="col-sm-10">
-                        <input style="margin-bottom: 10px;" type="file" name="headline_news" class="form-control" id="exampleInputEmail1" value="{{$posts->headline_news}}" placeholder="Photo"/>
+                        <input type="file" name="headline_news" class="form-control" id="exampleInputEmail1" value="{{$posts->headline_news}}" placeholder="Photo"/>
                       </div>
                     </div>
+
+                    <br>
+                    <br>
 
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Posting Date</label>
                       <div class="col-sm-10">
                         <div class='input-group date' id='datetimepicker1'>
-                          <input style="margin-bottom: 10px;" type='text' name="created_date" class="form-control _date" value="{{$posts->created_date}}" required/>
+                          <input type='text' name="created_date" class="form-control _date" value="{{$posts->created_date}}" required/>
                             <span class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar"></span>
                             </span>
                         </div>
                       </div>
                     </div>
+
+                    <br>
+                    <br>
 
                     <script type="text/javascript">
                       function minmaxname(value, min, max)
@@ -128,17 +141,20 @@
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">News Description</label>
                       <div class="col-sm-10">
-                        <input style="margin-bottom: 10px;" type="text" name="news_desc" class="form-control not-res" maxlength="100" placeholder="News Description" onkeyup="this.value = minmaxname(this.value, 0, 100)" value="{{$posts->news_desc}}" required/>
+                        <input type="text" name="news_desc" class="form-control not-res" maxlength="100" placeholder="News Description (Max 100 Character)" onkeyup="this.value = minmaxname(this.value, 0, 100)" value="{{$posts->news_desc}}" required/>
                       </div>
                     </div>
+
+                    <br>
+                    <br>
 
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Content</label>
                       <div class="col-sm-10">
-                        <textarea style="margin-bottom: 10px;" class="form-control ckeditor" id="editor1" name="content" placeholder="Content" class="materialize-textarea" rows="6" required/>{{$posts->content}}</textarea>
+                        <textarea class="form-control ckeditor" id="editor1" name="content" placeholder="Content" class="materialize-textarea" rows="6" required/>{{$posts->content}}</textarea>
                       </div>
                     </div>
-                    <br>
+
                     <br>
 
                     <div style="padding:20px 15px 0 0;" class="pull-right">
