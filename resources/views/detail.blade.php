@@ -7,10 +7,7 @@
       <div class="wrapper">
           <div class="container">
               <div class="row">
-<<<<<<< HEAD
-=======
 
->>>>>>> ae58418c08baeaaa446e05130610497258384c25
                 <div class="col l9 col m12">
                     <!-- News Single Style 3 -->
                     <div class="news-single style-3 z-depth-1">
@@ -52,10 +49,7 @@
 
                     </div>
                 </div>
-<<<<<<< HEAD
-=======
 
->>>>>>> ae58418c08baeaaa446e05130610497258384c25
                 <div class="col l3 col m12">
 
                     <!-- New single Style 3 Advertise Box -->
