@@ -56,14 +56,38 @@
                       </select>
                     </div>
                   </div>
-
-                  <div style="margin-bottom: 10px;" class="row">
+                  <input id="usertp" type="hidden" name="usertp" value="dc1">
+                  <div style="margin-bottom: 10px;" id="fdc1" class="row">
                     <label for="exampleInputPassword1" class="col-sm-2 control-label">Select User</label>
                     <div class="col-xs-10">
-                      <select name="ms_id_user_adv" class="form-control not-res">
+                      <select name="ms_id_user_adv_dc1" id="u1" class="form-control not-res">
                         <option value="">Choose Type</option>
-                        @foreach($useradv as $usr)
-                        <option value="{{$usr->id}}">{{$usr->nama}}</option>
+                        @foreach($fdc1 as $usr1)
+                        <option value="{{$usr1->id}}">{{$usr1->nama}}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                  </div>
+
+                  <div style="margin-bottom: 10px;" id="fdc2" class="row">
+                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Select User</label>
+                    <div class="col-xs-10">
+                      <select name="ms_id_user_adv_dc2" class="form-control not-res">
+                        <option value="">Choose Type</option>
+                        @foreach($fdc2 as $usr2)
+                        <option value="{{$usr2->id}}">{{$usr2->nama}}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                  </div>
+
+                  <div style="margin-bottom: 10px;" id="fdc3" class="row">
+                    <label for="exampleInputPassword1" class="col-sm-2 control-label">Select User</label>
+                    <div class="col-xs-10">
+                      <select name="ms_id_user_adv_dc3" class="form-control not-res">
+                        <option value="">Choose Type</option>
+                        @foreach($fdc3 as $usr3)
+                        <option value="{{$usr3->id}}">{{$usr3->nama}}</option>
                         @endforeach
                       </select>
                     </div>
@@ -75,7 +99,7 @@
                       <input class="form-control not-res" value="{{$edit->title}}" type="text" name="title" placeholder="Title" id="address" />
                     </div>
                   </div>
-
+                  
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <input type="hidden" name="id" value="{{ $edit->id }}">
                   @if(!empty($edit->for_image))
@@ -235,6 +259,34 @@
           $('#exp').css("display","block");
           $('#desc').css("display","block");
           $('#detail').css("display","block");
+
+        }
+
+      });
+$('._date').datetimepicker({ format: 'YYYY-MM-DD' });
+
+$('.exp').datetimepicker({ format: 'YYYY-MM-DD HH:mm:ss' });
+</script>
+
+<script type="text/javascript">
+        $('#selecttype').change(function(){
+        if($(this).val() == "1"){
+          $('#fdc1').css("display","block");
+          $('#fdc2').hide();
+          $('#fdc3').hide();
+          $("#usertp").val("dc1");
+        }
+        else if($(this).val() == "2"){
+          $('#fdc1').hide();
+          $('#fdc2').css("display","block");
+          $('#fdc3').hide();
+          $("#usertp").val("dc2");
+        }
+        else{
+          $('#fdc1').hide();
+          $('#fdc2').hide();
+          $('#fdc3').css("display","block");
+          $("#usertp").val("dc3");
 
         }
 

@@ -31,7 +31,7 @@
                         <div class="col l4 col m4 col s12 no-padding">
                           <!-- Horizontal News Image -->
                           <div class="news-image">
-                            <img class="responsive-img" src="{{url('headline_news/'.$data->headline_news)}}" alt="news Image">
+                            <img class="responsive-img" onclick="location.href='{{url('detail/'.$data->slug)}}'" src="{{url('headline_news/'.$data->headline_news)}}" alt="news Image">
                           </div>
                         </div>
                         <div class="col l8 col m8 col s12 no-padding">

@@ -14,7 +14,7 @@
                     @foreach($viewnews as $news)
                     <div>
                         <!-- Tab Slider Image -->
-                        <img src="{{url('headline_news/'.$news->headline_news)}}" alt="">
+                        <img onclick="location.href='{{url('detail/'.$news->slug)}}'" src="{{url('headline_news/'.$news->headline_news)}}" alt="">
                         <!-- Tab Slider Tab -->
                         <div class="slider-tab">
                             <div class="news-time">
@@ -23,7 +23,7 @@
                                 echo date("l , d-m-Y", $date);
                               ?>
                             </div>
-                            <div class="news-title">
+                            <div onclick="location.href='{{url('detail/'.$news->slug)}}'" style="color: #444;display: block;font-size: 18px;" class="news-title">
                                <?php
                                     $string = strip_tags($news->news_title);
 
@@ -53,6 +53,7 @@
                 <div class="z-depth-1">
                   <!-- Horizontal News Box -->
                   @foreach($culture1 as $c1)
+                  <a href="{{url('detail/'.$c1->slug)}}">
                   <div class="news horizontal">
                       <div class="col l4 col m4 col s12 no-padding">
                           <!-- Horizontal News Image -->
@@ -70,11 +71,12 @@
                                   echo date("l , d-m-Y", $date);
                                 ?>
                             </div>
-                            <div class="news-title"><a href="{{url('detail/'.$c1->slug)}}"> {{$c1->news_title}} </a></div>
+                            <div style="color: #444;display: block;font-size: 18px;" class="news-title"> {{$c1->news_title}} </div>
                             <div class="news-content"><p>{{$c1->news_desc}}</p></div>
                           </div>
                       </div>
                   </div>
+                  </a>
                   @endforeach
                 </div>
               </div>
@@ -82,6 +84,7 @@
                 <div class="z-depth-1">
                   <!-- Horizontal News Box -->
                   @foreach($culture2 as $c2)
+                  <a href="{{url('detail/'.$c2->slug)}}">
                   <div class="news horizontal">
                       <div class="col l4 col m4 col s12 no-padding">
                           <!-- Horizontal News Image -->
@@ -99,11 +102,12 @@
                                   echo date("l , d-m-Y", $date);
                                 ?>
                             </div>
-                            <div class="news-title"><a href="{{url('detail/'.$c2->slug)}}"> {{$c2->news_title}} </a></div>
+                            <div style="color: #444;display: block;font-size: 18px;" class="news-title"> {{$c2->news_title}} </div>
                             <div class="news-content"><p>{{$c2->news_desc}}</p></div>
                           </div>
                       </div>
                   </div>
+                  </a>
                   @endforeach
                 </div>
               </div>
@@ -180,6 +184,7 @@
           <section class="section">
             <div class="row">
             @foreach($ls1 as $s1)
+            <a href="{{url('detail/'.$s1->slug)}}">
               <div class="col l3 col m6 col s12">
                   <!-- vertical News Box -->
                   <div class="news vertical z-depth-1">
@@ -196,11 +201,12 @@
                                 echo date("l , d-m-Y", $date);
                               ?>
                           </div>
-                          <div class="news-title"><a href="{{url('detail/'.$s1->slug)}}"> {{$s1->news_title}} </a></div>
+                          <div style="color: #444;display: block;font-size: 18px;" class="news-title"> {{$s1->news_title}} </div>
                           <div class="news-content"><p>{{$s1->news_desc}}</p></div>
                       </div>
                   </div>
               </div>
+              </a>
               @endforeach
             </div>
           </section>
@@ -208,6 +214,7 @@
           <!-- looping 4 article -->
             <div class="row">
             @foreach($ls2 as $s2)
+            <a href="{{url('detail/'.$s2->slug)}}">
               <div class="col l3 col m6 col s12">
                   <!-- vertical News Box -->
                   <div class="news vertical z-depth-1">
@@ -224,11 +231,12 @@
                                 echo date("l , d-m-Y", $date);
                               ?>
                           </div>
-                          <div class="news-title"><a href="{{url('detail/'.$s2->slug)}}"> {{$s2->news_title}} </a></div>
+                          <div style="color: #444;display: block;font-size: 18px;" class="news-title"> {{$s2->news_title}} </div>
                           <div class="news-content"><p>{{$s2->news_desc}}</p></div>
                       </div>
                   </div>
               </div>
+              </a>
               @endforeach
           </div>
 
@@ -256,6 +264,7 @@
               <div class="col l6 col m12 col s12">
                 <div class="z-depth-1">
                 @foreach($sp1 as $p1)
+                <a href="{{url('detail/'.$p1->slug)}}">
                   <div class="news horizontal">
                       <div class="col l4 col m4 col s12 no-padding">
                           <!-- Horizontal News Image -->
@@ -273,15 +282,17 @@
                                   echo date("l , d-m-Y", $date);
                                 ?>
                             </div>
-                            <div class="news-title"><a href="{{url('detail/'.$p1->slug)}}"> {{$p1->news_title}} </a></div>
+                            <div style="color: #444;display: block;font-size: 18px;" class="news-title"> {{$p1->news_title}} </div>
                             <div class="news-content"><p>{{$p1->news_desc}}</p></div>
                           </div>
                       </div>
                   </div>
+                  </a>
                   @endforeach
                 </div>
               </div>
               @foreach($sp2 as $p2)
+              <a href="{{url('detail/'.$p2->slug)}}">
               <div class="col l3 col m6 col s12">
                   <!-- Horizontal News Box -->
                   <div class="news vertical z-depth-1">
@@ -298,11 +309,12 @@
                                 echo date("l , d-m-Y", $date);
                               ?>
                           </div>
-                          <div class="news-title"><a href="{{url('detail/'.$p2->slug)}}"> {{$p2->news_title}} </a></div>
+                          <div style="color: #444;display: block;font-size: 18px;" class="news-title"> {{$p2->news_title}} </div>
                           <div class="news-content"><p>{{$p2->news_desc}}</p></div>
                       </div>
                   </div>
               </div>
+              </a>
               @endforeach
             </div>
           </section>
@@ -311,6 +323,7 @@
           <section class="section">
             <div class="row">
             @foreach($sp3 as $p3)
+            <a href="{{url('detail/'.$p3->slug)}}">
               <div class="col l3 col m6 col s12">
                   <!-- Horizontal News Box -->
                   <div class="news vertical z-depth-1">
@@ -327,15 +340,17 @@
                                 echo date("l , d-m-Y", $date);
                               ?>
                           </div>
-                          <div class="news-title"><a href="{{url('detail/'.$p3->slug)}}"> {{$p3->news_title}} </a></div>
+                          <div style="color: #444;display: block;font-size: 18px;" class="news-title"> {{$p3->news_title}} </div>
                           <div class="news-content"><p>{{$p3->news_desc}}</p></div>
                       </div>
                   </div>
               </div>
+              </a>
             @endforeach
               <div class="col l6 col m12 col s12">
                 <div class="z-depth-1">
                 @foreach($sp4 as $p4)
+                <a href="{{url('detail/'.$p4->slug)}}">
                   <div class="news horizontal">
                       <div class="col l4 col m4 col s12 no-padding">
                           <!-- Horizontal News Image -->
@@ -353,11 +368,12 @@
                                   echo date("l , d-m-Y", $date);
                                 ?>
                             </div>
-                            <div class="news-title"><a href="{{url('detail/'.$p4->slug)}}"> {{$p4->news_title}} </a></div>
+                            <div style="color: #444;display: block;font-size: 18px;" class="news-title"> {{$p4->news_title}} </div>
                             <div class="news-content"><p>{{$p4->news_desc}}</p></div>
                           </div>
                       </div>
                   </div>
+                  </a>
                   @endforeach
                 </div>
               </div>

@@ -270,7 +270,25 @@ $('._date').datetimepicker({ format: 'YYYY-MM-DD' });
 
 $('.exp').datetimepicker({ format: 'YYYY-MM-DD HH:mm:ss' });
 </script>
-
+<script type="text/javascript">
+        $('#selecttype').change(function(){
+        if($(this).val() == "1"){
+          $("#img").css("display","block");
+          $("#desc").css("display","block");
+          $("#exp").css("display","block");
+        }
+        else if($(this).val() == "2"){
+          $("#img").css("display","block");
+          $("#desc").hide();
+          $("#exp").css("display","block");
+        }
+        else{
+          $("#img").hide();
+          $("#desc").css("display","block");
+          $("#exp").css("display","block");
+        }
+      });
+</script>
   <script>
       $(function () {
         /*********************** AO ***********************/

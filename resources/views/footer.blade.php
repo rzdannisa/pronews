@@ -96,13 +96,13 @@
                       <div class="footer-menu">
                           <ul>
                               <li>
-                                  <a href="javascript:void(0);">Privacy</a>
+                                  <a href="{{url('/')}}">Home</a>
                               </li>
                               <li>
-                                  <a href="javascript:void(0);">Advertisement</a>
+                                  <a href="{{url('about')}}">About</a>
                               </li>
                               <li>
-                                  <a href="javascript:void(0);">Contact us</a>
+                                  <a href="{{url('contact')}}">Contact us</a>
                               </li>
                           </ul>
                       </div>
