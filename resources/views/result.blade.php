@@ -55,7 +55,7 @@
 
                   </div>
               </div>
-              {!! $hasil->render() !!}
+              <div style="height: 30px;margin: auto;width: 50%;"> {!! $hasil->render() !!} </div>
           </div>
       </div>
 
