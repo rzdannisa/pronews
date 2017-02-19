@@ -33,16 +33,13 @@
                           <div class="col l4 col m4 col s12 no-padding">
                               <!-- Horizontal News Image -->
                               <div class="news-image">
-                                  <img class="responsive-img" src="{{url('assets/images/hor-news1.jpg')}}" alt="news Image">
+                                  <img class="responsive-img" src="{{url('assets/images/medium-ads.png')}}" alt="news Image">
                               </div>
                           </div>
                           <div class="col l8 col m8 col s12 no-padding">
                               <!-- Horizontal News Description -->
-                              <div class="news-description">
-                                <div class="news-time">
-                                    <i class="fa fa-clock-o"></i> 9 min ago
-                                </div>
-                                <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna. </a></div>
+                              <div style="padding-top : 50px;" class="news-description">
+                                <div class="news-title"><a> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna. </a></div>
                               </div>
                           </div>
                       </div>
@@ -50,17 +47,14 @@
                       <div class="news horizontal">
                         <div class="col l8 col m8 col s12 no-padding">
                           <!-- Horizontal News Description -->
-                          <div class="news-description">
-                              <div class="news-time">
-                                  <i class="fa fa-clock-o"></i> 9 min ago
-                              </div>
-                              <div class="news-title"><a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna.</a></div>
+                          <div style="padding-top : 50px;" class="news-description">
+                              <div class="news-title"><a> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna.</a></div>
                           </div>
                         </div>
                         <div class="col l4 col m4 col s12 no-padding">
                             <!-- Horizontal News Image -->
                             <div class="news-image">
-                                <img class="responsive-img" src="{{url('assets/images/hor-news2.jpg')}}" alt="news Image">
+                                <img class="responsive-img" src="{{url('assets/images/medium-ads.png')}}" alt="news Image">
                             </div>
                         </div>
                       </div>

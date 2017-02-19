@@ -86,75 +86,75 @@
                                 <div class="news-box">
                                     <!-- News Sidebar Image -->
                                     <div class="image">
-                                        <img alt="news Image" src="{{url('assets/images/hor-news1.jpg')}}">
+                                        <img alt="news Image" src="{{url('assets/images/medium-ads.png')}}">
                                     </div>
                                     <!-- News Sidebar Detail -->
                                     <div class="news-detail">
                                         <div class="news-category">
-                                            <a href="javascript:void(0);">World | 21 min ago </a>
+                                            <a>Title Ads | 21 min ago </a>
                                         </div>
                                         <div class="news-title">
-                                            <a href="javascript:void(0);"> 5 things you need to know wenesday</a>
+                                            <a> Content Ads</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="news-box">
                                     <!-- News Sidebar Image -->
                                     <div class="image">
-                                        <img alt="news Image" src="{{url('assets/images/hor-news2.jpg')}}">
+                                        <img alt="news Image" src="{{url('assets/images/medium-ads.png')}}">
                                     </div>
                                     <!-- News Sidebar Detail -->
                                     <div class="news-detail">
                                         <div class="news-category">
-                                            <a href="javascript:void(0);">World | 21 min ago </a>
+                                            <a>Title Ads | 21 min ago </a>
                                         </div>
                                         <div class="news-title">
-                                            <a href="javascript:void(0);"> No end in Signt for California Drought</a>
+                                            <a> Content Ads</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="news-box">
                                     <!-- News Sidebar Image -->
                                     <div class="image">
-                                        <img alt="news Image" src="{{url('assets/images/hor-news3.jpg')}}">
+                                        <img alt="news Image" src="{{url('assets/images/medium-ads.png')}}">
                                     </div>
                                     <!-- News Sidebar Detail -->
                                     <div class="news-detail">
                                         <div class="news-category">
-                                            <a href="javascript:void(0);">World | 21 min ago </a>
+                                            <a>Title Ads | 21 min ago </a>
                                         </div>
                                         <div class="news-title">
-                                            <a href="javascript:void(0);">  Flying Cars: The near Future, From SXSW</a>
+                                            <a> Content Ads</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="news-box">
                                     <!-- News Sidebar Image -->
                                     <div class="image">
-                                        <img alt="news Image" src="{{url('assets/images/hor-news3.jpg')}}">
+                                        <img alt="news Image" src="{{url('assets/images/medium-ads.png')}}">
                                     </div>
                                     <!-- News Sidebar Detail -->
                                     <div class="news-detail">
                                         <div class="news-category">
-                                            <a href="javascript:void(0);">World | 21 min ago </a>
+                                            <a>Title Ads | 21 min ago </a>
                                         </div>
                                         <div class="news-title">
-                                            <a href="javascript:void(0);">  Flying Cars: The near Future, From SXSW</a>
+                                            <a> Content Ads</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="news-box">
                                     <!-- News Sidebar Image -->
                                     <div class="image">
-                                        <img alt="news Image" src="{{url('assets/images/hor-news3.jpg')}}">
+                                        <img alt="news Image" src="{{url('assets/images/medium-ads.png')}}">
                                     </div>
                                     <!-- News Sidebar Detail -->
                                     <div class="news-detail">
                                         <div class="news-category">
-                                            <a href="javascript:void(0);">World | 21 min ago </a>
+                                            <a>Title Ads | 21 min ago </a>
                                         </div>
                                         <div class="news-title">
-                                            <a href="javascript:void(0);">  Flying Cars: The near Future, From SXSW</a>
+                                            <a> Content Ads</a>
                                         </div>
                                     </div>
                                 </div>
@@ -163,6 +163,46 @@
                     <!-- </div> -->
                 </div>
               </div>
+
+              <div class="row">
+                <div class="col l6 col m6 col s12">
+                    <!-- News Blog Box -->
+                    <div class="news-blog z-depth-1">
+                        <!-- News Blog Image -->
+                        <div class="image">
+                            <img class="responsive-img" src="{{url('assets/images/big-ads.png')}}" alt="news Image">
+                        </div>
+                        <!-- News Blog Category -->
+                        <div class="news-category">
+                            <span class="green">Advertisement</span>
+                        </div>
+                        <!-- News Blog Description -->
+                        <div class="news-description">
+                            <div class="news-title"> <a>Party Sweepsto Israel <br> election Victory</a></div>
+                            <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus <br> ac tellus non rutrum. Integer.</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l6 col m6 col s12">
+                    <!-- News Blog Box -->
+                    <div class="news-blog z-depth-1">
+                        <!-- News Blog Image -->
+                        <div class="image">
+                            <img class="responsive-img" src="{{url('assets/images/big-ads.png')}}" alt="news Image">
+                        </div>
+                        <!-- News Blog Category -->
+                        <div class="news-category">
+                            <span class="green">Advertisement</span>
+                        </div>
+                        <!-- News Blog Description -->
+                        <div class="news-description">
+                            <div class="news-title"> <a>Party Sweepsto Israel <br> election Victory</a></div>
+                            <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus <br> ac tellus non rutrum. Integer.</p></div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
               <div class="row">
                 <div class="col l12">
                   <!-- Comment Box -->

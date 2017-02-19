@@ -279,11 +279,11 @@ $('.exp').datetimepicker({ format: 'YYYY-MM-DD HH:mm:ss' });
         }
         else if($(this).val() == "2"){
           $("#img").css("display","block");
-          $("#desc").hide();
+          $("#desc").css("display","block");
           $("#exp").css("display","block");
         }
         else{
-          $("#img").hide();
+          $("#img").css("display","block");
           $("#desc").css("display","block");
           $("#exp").css("display","block");
         }

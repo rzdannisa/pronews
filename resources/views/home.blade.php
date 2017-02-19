@@ -120,26 +120,20 @@
 
           <div class="row">
             <div class="col l6 col m6 col s12">
-                <!-- News Blog Solid Box -->
-                <div class="news-blog solid z-depth-1">
+                <!-- News Blog Box -->
+                <div class="news-blog z-depth-1">
+                    <!-- News Blog Image -->
+                    <div class="image">
+                        <img class="responsive-img" src="assets/images/big-ads.png" alt="news Image">
+                    </div>
                     <!-- News Blog Category -->
                     <div class="news-category">
-                        <span class="pink">More</span>
-                        <!-- Dropdown -->
-                        <div class="news-dropdown">
-                            <a class="dropdown-button" href="javascript:void(0);" data-activates="dropdown1"><i class="fa fa-ellipsis-v"></i></a>
-                            <ul id="dropdown1" class="dropdown-content">
-                                <li><a href="javascript:void(0);">Option 1</a></li>
-                                <li><a href="javascript:void(0);">Option 1</a></li>
-                                <li><a href="javascript:void(0);">Option 1</a></li>
-                            </ul>
-                        </div>
+                        <span class="green">Advertisement</span>
                     </div>
                     <!-- News Blog Description -->
-                    <div class="news-description center-align">
-                        <div class="quote"><i class="fa fa-quote-left"></i></div>
-                        <div class="news-title"> <a href="javascript:void(0);"> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna et bibendum leo metus vel magna.  </a></div>
-                        <div class="news-content"><p>President of ThemeLeague <br> Dark Waider</p></div>
+                    <div class="news-description">
+                        <div class="news-title"> <a>Party Sweepsto Israel <br> election Victory</a></div>
+                        <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus <br> ac tellus non rutrum. Integer.</p></div>
                     </div>
                 </div>
             </div>
@@ -148,27 +142,15 @@
                 <div class="news-blog z-depth-1">
                     <!-- News Blog Image -->
                     <div class="image">
-                        <img class="responsive-img" src="assets/images/big-news7.jpg" alt="news Image">
+                        <img class="responsive-img" src="assets/images/big-ads.png" alt="news Image">
                     </div>
                     <!-- News Blog Category -->
                     <div class="news-category">
-                        <span class="green">Money</span>
-                        <!-- Dropdown -->
-                        <div class="news-dropdown">
-                            <a class="dropdown-button" href="javascript:void(0);" data-activates="dropdown2"><i class="fa fa-ellipsis-v"></i></a>
-                            <ul id="dropdown2" class="dropdown-content">
-                                <li><a href="javascript:void(0);">Option 1</a></li>
-                                <li><a href="javascript:void(0);">Option 1</a></li>
-                                <li><a href="javascript:void(0);">Option 1</a></li>
-                            </ul>
-                        </div>
+                        <span class="green">Advertisement</span>
                     </div>
                     <!-- News Blog Description -->
                     <div class="news-description">
-                        <div class="news-time">
-                            21 min ago
-                        </div>
-                        <div class="news-title"> <a href="javascript:void(0);">Party Sweepsto Israel <br> election Victory</a></div>
+                        <div class="news-title"> <a>Party Sweepsto Israel <br> election Victory</a></div>
                         <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus <br> ac tellus non rutrum. Integer.</p></div>
                     </div>
                 </div>
@@ -247,7 +229,7 @@
           <section class="section">
             <div class="row">
               <div class="col l12 col m12 col s12">
-                <img alt="news Image" src="assets/images/sport-big-5.jpg" class="responsive-img z-depth-1">
+                <img alt="news Image" src="assets/images/big-ads.png" class="responsive-img z-depth-1">
               </div>
             </div>
           </section>
