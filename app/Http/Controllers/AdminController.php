@@ -341,9 +341,9 @@ class AdminController extends Controller
         {
             $auth = \App\ms_user::where('id',session('iduser'))->get();
             $type  = \App\type_news::where('status', 'A')->get();
-            $subC  = \App\sub_type::where('status', 'A')->where('type_news_id','1')->get();
-            $subL  = \App\sub_type::where('status', 'A')->where('type_news_id','2')->get();
-            $subS  = \App\sub_type::where('status', 'A')->where('type_news_id','3')->get();
+            $subC  = \App\sub_type::where('status', 'A')->where('type_news_id',1)->get();
+            $subL  = \App\sub_type::where('status', 'A')->where('type_news_id',2)->get();
+            $subS  = \App\sub_type::where('status', 'A')->where('type_news_id',3)->get();
 
             return view('admin.manage_post.post_news')->with('type', $type)->with('auth',$auth)->with('subC',$subC)->with('subL',$subL)->with('subS',$subS);
         }else{
@@ -374,7 +374,7 @@ class AdminController extends Controller
             $post->content = Input::get('content');
             $post->news_desc = Input::get('news_desc');
             $post->slug = Input::get('news_title');
-            $post->type_sub_news_id = Input::get('tr_sub_news_id');
+            $post->type_sub_news_id = Input::get('tr_sub_news_id_'.Input::get("subtp"));
             $post->is_suspend = 0;
             $post->type_news_id = Input::get('type_news_id');
             $post->status = 'A';
@@ -412,9 +412,9 @@ class AdminController extends Controller
         {
             $auth = \App\ms_user::where('id',session('iduser'))->get();
             $type  = \App\type_news::where('status', 'A')->get();
-            $subC  = \App\sub_type::where('status', 'A')->where('type_news_id','1')->get();
-            $subL  = \App\sub_type::where('status', 'A')->where('type_news_id','2')->get();
-            $subS  = \App\sub_type::where('status', 'A')->where('type_news_id','3')->get();
+            $subC  = \App\sub_type::where('status', 'A')->where('type_news_id',1)->get();
+            $subL  = \App\sub_type::where('status', 'A')->where('type_news_id',2)->get();
+            $subS  = \App\sub_type::where('status', 'A')->where('type_news_id',3)->get();
             $posts = \App\news::find($id);
             return view('admin.manage_post.edit_post')->with('type', $type)->with('posts', $posts)->with('status', 'Successfully update news !')->with('auth',$auth)->with('subC',$subC)->with('subL',$subL)->with('subS',$subS);
         }else{
@@ -432,7 +432,7 @@ class AdminController extends Controller
             $post->content = Input::get('content');
             $post->news_desc = Input::get('news_desc');
             $post->slug = Input::get('news_title');
-            $post->type_sub_news_id = Input::get('tr_sub_news_id');
+            $post->type_sub_news_id = Input::get('tr_sub_news_id_'.Input::get("subtp"));
             $post->type_news_id = Input::get('type_news_id');
             $post->status = 'A';
             $post->modify_user_id = session('iduser');

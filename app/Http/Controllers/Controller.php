@@ -61,7 +61,7 @@ class Controller extends BaseController
     {
         $menu = \App\master_subtype::with('subtypeee')->get();
         $query = $request->get('q');
-        $hasil = \App\news::where('status', 'A')->where('is_suspend',0)->where('is_draft',0)->where('news_title', 'LIKE', '%' . $query . '%')->orwhere('news_desc', 'LIKE', '%' . $query . '%')->orwhere('created_date', 'LIKE', '%' . $query . '%')->paginate(6);
+        $hasil = \App\news::where('status', 'A')->where('is_suspend',0)->where('is_draft',0)->where('news_title', 'LIKE', '%' . $query . '%')->paginate(6);
         
         return view('result', compact('hasil', 'query'))->with('menu',$menu);
     }

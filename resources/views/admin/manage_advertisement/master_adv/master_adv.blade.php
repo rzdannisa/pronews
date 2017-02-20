@@ -145,7 +145,7 @@
             <div class="row">
                 <label for="exampleInputPassword1" class="col-sm-2 control-label">Detail</label>
                 <div class="col-sm-10">
-                  <textarea class="form-control ckeditor" id="editor1" name="for_detail_text" placeholder="Content" class="materialize-textarea" rows="6" required/></textarea>
+                  <textarea class="form-control" name="for_detail_text" placeholder="Content" class="materialize-textarea" rows="6" required/></textarea>
                 </div>
               </div>
 

@@ -47,10 +47,11 @@
                       </div>
                     </div>
 
+                    <input id="subtp" type="hidden" name="subtp" value="c">
                     <div id="C" class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Sub Type</label>
                       <div class="col-sm-10">
-                        <select style="margin-bottom: 10px;" name="tr_sub_news_id" class="form-control">
+                        <select style="margin-bottom: 10px;" name="tr_sub_news_id_c" class="form-control">
                           @foreach($subC as $C)
                           <option value="{{ $C->id }}">{{ $C->name }}</option>
                           @endforeach
@@ -61,7 +62,7 @@
                     <div id="L" class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Sub Type</label>
                       <div class="col-sm-10">
-                        <select style="margin-bottom: 10px;" name="tr_sub_news_id" class="form-control">
+                        <select style="margin-bottom: 10px;" name="tr_sub_news_id_l" class="form-control">
                           @foreach($subL as $L)
                           <option value="{{ $L->id }}">{{ $L->name }}</option>
                           @endforeach
@@ -72,7 +73,7 @@
                     <div id="S" class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Sub Type</label>
                       <div class="col-sm-10">
-                        <select style="margin-bottom: 10px;" name="tr_sub_news_id" class="form-control">
+                        <select style="margin-bottom: 10px;" name="tr_sub_news_id_s" class="form-control">
                           @foreach($subS as $S)
                           <option value="{{ $S->id }}">{{ $S->name }}</option>
                           @endforeach
@@ -220,16 +221,19 @@
           $("#C").css("display","block");
           $('#L').hide();
           $('#S').hide();
+          $("#subtp").val("c");
         }
         else if($(this).val() == "2"){
           $("#C").hide();
           $('#L').css("display","block");
           $('#S').hide();
+          $("#subtp").val("l");
         }
         else{
           $("#C").hide();
           $('#L').hide();
           $('#S').css("display","block");
+          $("#subtp").val("s");
         }
       });
 </script>

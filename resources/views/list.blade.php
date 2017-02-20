@@ -55,7 +55,7 @@
 
                   </div>
               </div>
-              <div style="height: 30px;margin: auto;width: 50%;"> {!! $cat->render() !!} </div>
+               {!! $cat->render() !!}
           </div>
       </div>
 
