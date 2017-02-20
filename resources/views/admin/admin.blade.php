@@ -11,7 +11,7 @@
 
         </span>
         <span class="logo-lg">
-          <b>Culture</b> News
+          <b>CPLUS</b> News
 
         </span>
       </a>

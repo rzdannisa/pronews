@@ -218,8 +218,8 @@
                     </div>
                     <!-- News Blog Description -->
                     <div class="news-description">
-                        <div class="news-title"> <a>Party Sweepsto Israel <br> election Victory</a></div>
-                        <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus <br> ac tellus non rutrum. Integer.</p></div>
+                        <!-- <div class="news-title"> <a>Party Sweepsto Israel <br> election Victory</a></div> -->
+                        <div class="news-content"><p>Place your Ads here <br> Contact us.</p></div>
                     </div>
                 </div>
             </div>
@@ -236,8 +236,8 @@
                     </div>
                     <!-- News Blog Description -->
                     <div class="news-description">
-                        <div class="news-title"> <a>Party Sweepsto Israel <br> election Victory</a></div>
-                        <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus <br> ac tellus non rutrum. Integer.</p></div>
+                        <!-- <div class="news-title"> <a>Party Sweepsto Israel <br> election Victory</a></div> -->
+                        <div class="news-content"><p>Place your Ads here <br> Contact us.</p></div>
                     </div>
                 </div>
             </div>

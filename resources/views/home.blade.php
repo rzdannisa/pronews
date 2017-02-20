@@ -119,7 +119,7 @@
           <!-- Ads section _____________________________________________________________________ -->
 
           <div class="row">
-          
+
           @forelse($bigads1 as $ba1)
             <div class="col l6 col m6 col s12">
                 <!-- News Blog Box -->
@@ -134,7 +134,7 @@
                     </div>
                     <!-- News Blog Description -->
                     <div class="news-description">
-                        <div class="news-title" style="font-size: 25px"> {{$ba1->title}}</div>
+                        <div class="news-title" style="font-size: 25px"> <a>{{$ba1->title}}</a></div>
                         <div class="news-content"><p>{{$ba1->for_text}}</p></div>
                     </div>
                 </div>
@@ -153,8 +153,8 @@
                     </div>
                     <!-- News Blog Description -->
                     <div class="news-description">
-                        <div class="news-title"> <a>Party Sweepsto Israel <br> election Victory</a></div>
-                        <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus <br> ac tellus non rutrum. Integer.</p></div>
+                        <!-- <div class="news-title"> <a>Party Sweepsto Israel <br> election Victory</a></div> -->
+                        <div class="news-content"><p>Place your Ads here <br> Contact us.</p></div>
                     </div>
                 </div>
             </div>
@@ -171,8 +171,8 @@
                     </div>
                     <!-- News Blog Description -->
                     <div class="news-description">
-                        <div class="news-title"> <a>Party Sweepsto Israel <br> election Victory</a></div>
-                        <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus <br> ac tellus non rutrum. Integer.</p></div>
+                        <!-- <div class="news-title"> <a>Party Sweepsto Israel <br> election Victory</a></div> -->
+                        <div class="news-content"><p>Place your Ads here <br> Contact us.</p></div>
                     </div>
                 </div>
             </div>
@@ -247,7 +247,7 @@
           <!-- End Lifestyle section _____________________________________________________________________ -->
 
           <!-- Ads Big section _____________________________________________________________________ -->
-          
+
           @forelse($bigads2 as $ba2)
           <section class="section">
             <div class="row">

@@ -22,7 +22,7 @@
                     <div class="col l4 col m3 col s12">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="{{url('/')}}"><img src="{{url('assets/images/material-logo.png')}}" alt="Logo"></a>
+                            <a href="{{url('/')}}"><img style="border-radius:5px;" src="{{url('assets/images/material-logo.png')}}" alt="Logo"></a>
                         </div>
                     </div>
                     <div class="col l4 col m4 col s12 pull-right">
@@ -133,7 +133,7 @@
 
       <!-- Sidebar Navigation -->
       <ul id="slide-out" class="side-nav full">
-          <li class="logo-title"><a href="javascript:void(0);">Culture News</a></li>
+          <li class="logo-title"><a href="javascript:void(0);">CPLUSNEWS</a></li>
           <!-- Dropdown Menu -->
           <li class="dropdown-menu">
               <ul class="collapsible" data-collapsible="expandable">

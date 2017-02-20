@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Culture News | Log in</title>
+    <title>CPLUS News | Log in</title>
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -24,7 +24,7 @@
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="{{url('/')}}"><b>Culture</b>News</a>
+        <a href="{{url('/')}}"><b>CPLUS</b>News</a>
       </div><!-- /.login-logo -->
 
       <div class="login-box-body">

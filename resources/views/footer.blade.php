@@ -27,7 +27,7 @@
                       @endforeach
                   </div>
                   <div class="col l6 col m12 col s12" style="padding-top : 30px;">
-                 
+
                     @forelse($medads1 as $ma1)
                     <div class="z-depth-1">
                       <!-- Horizontal News Box -->
@@ -46,7 +46,7 @@
                           </div>
                       </div>
                     </div>
-                    
+
                     @empty
                     <div class="z-depth-1">
                       <!-- Horizontal News Box -->
@@ -60,7 +60,7 @@
                           <div class="col l8 col m8 col s12 no-padding">
                               <!-- Horizontal News Description -->
                               <div style="padding-top : 50px;" class="news-description">
-                                <div class="news-title"><a> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna. </a></div>
+                                <div class="news-title"><a> Place your Ads here.. </a></div>
                               </div>
                           </div>
                       </div>
@@ -69,7 +69,7 @@
                         <div class="col l8 col m8 col s12 no-padding">
                           <!-- Horizontal News Description -->
                           <div style="padding-top : 50px;" class="news-description">
-                              <div class="news-title"><a> Nam erat nulla, auctor a eros vitae, hendrerit efficitur magna.</a></div>
+                              <div class="news-title"><a> Place your Ads here.. </a></div>
                           </div>
                         </div>
                         <div class="col l4 col m4 col s12 no-padding">
@@ -85,7 +85,7 @@
               </div>
               <!-- Footer Logo -->
               <div class="logo">
-                  <a href="{{url('/')}}"><img src="{{url('assets/images/material-logo.png')}}" alt="Logo"></a>
+                  <a href="{{url('/')}}"><img style="border-radius:5px;" src="{{url('assets/images/material-logo.png')}}" alt="Logo"></a>
               </div>
           </div>
           <!-- Footer Bottom -->
@@ -94,7 +94,7 @@
                   <div class="row">
                   <!-- Copyright Text -->
                   <div class="col l4 col m12 col s12">
-                      &copy; Copyright 2017 Culture News by JICOS & Devcolin
+                      &copy; Copyright 2017 CPLUSNEWS by JICOS & Devcolin
                   </div>
                   <div class="col l4 col m12 col s12">
                       <!-- Social Icon -->
