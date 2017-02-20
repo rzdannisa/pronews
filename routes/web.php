@@ -113,7 +113,8 @@ Route::get('home/{typenews}/{subname}','Controller@category');
 
 Route::get('search', 'Controller@search');
 Route::get('detail/{slug}', 'Controller@detail');
-Route::post('comment/save', 'Controller@save_comment');
+
+Route::post('comment/save', 'AdminController@save_comment');
 
 Route::post('uploadimagedrag', ['as'=>'drag','uses'=>'ImageController@uploadDragAndDropCKEDITOR']);
 Route::post('uploadimagefilebrowser', ['as'=>'upload','uses'=>'ImageController@uploadFileBrowserCKEDITOR']);

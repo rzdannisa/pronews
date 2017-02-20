@@ -31,7 +31,17 @@ class Controller extends BaseController
             $sp3 = \App\news::where('status', 'A')->where('is_suspend',0)->where('is_draft',0)->where('type_news_id',3)->where('created_date', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 7 DAY)'))->inRandomOrder()->limit(2)->get();
             $sp4 = \App\news::where('status', 'A')->where('is_suspend',0)->where('is_draft',0)->where('type_news_id',3)->where('created_date', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 10 DAY)'))->inRandomOrder()->limit(2)->get();
 
-            return view('home')->with('viewnews',$viewnews)->with('viewtypenews',$viewtypenews)->with('menu',$menu)->with('culture1',$culture1)->with('culture2',$culture2)->with('ls1',$ls1)->with('ls2',$ls2)->with('sp1',$sp1)->with('sp2',$sp2)->with('sp3',$sp3)->with('sp4',$sp4);
+            $date = strtotime('updated_at');
+            $tgl = date("d-m-Y", $date);
+
+            $bigads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',1)->whereDate('created_at', '>', date('Y-m-d'))->inRandomOrder()->limit(2)->get();
+
+            $bigads2 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',1)->whereDate('created_at', '>', date('Y-m-d'))->inRandomOrder()->limit(1)->get();
+
+            $medads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',2)->whereDate('created_at', '>', date('Y-m-d'))->inRandomOrder()->limit(2)->get();
+
+
+            return view('home')->with('viewnews',$viewnews)->with('viewtypenews',$viewtypenews)->with('menu',$menu)->with('culture1',$culture1)->with('culture2',$culture2)->with('ls1',$ls1)->with('ls2',$ls2)->with('sp1',$sp1)->with('sp2',$sp2)->with('sp3',$sp3)->with('sp4',$sp4)->with('bigads1',$bigads1)->with('bigads2',$bigads2)->with('medads1',$medads1);
     }
 
     public function contact()
@@ -96,27 +106,14 @@ class Controller extends BaseController
 
         $jml = \App\comment::where('status','A')->where('id_news',$idn)->count();
 
+        $bigads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',1)->whereDate('created_at', '>', date('Y-m-d'))->inRandomOrder()->limit(2)->get();
+        
+        $medads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',2)->whereDate('created_at', '>', date('Y-m-d'))->inRandomOrder()->limit(2)->get();
+
+        $simads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',3)->whereDate('created_at', '>', date('Y-m-d'))->inRandomOrder()->limit(5)->get();
+
         $request->session()->put('jml', $jml);
-        return view('detail')->with('news',$news)->with('menu',$menu)->with('comm',$comm)->with('recent',$recent);
-    }
-
-    public function save_comment()
-    {
-        session_start();
-        if(!empty(session('type')))
-        {
-            $post = new \App\comment;
-            $post->email = Input::get("email");
-            $post->nama = Input::get('nama');
-            $post->id_news = Input::get("id_news");
-            $post->comment = Input::get('comment');
-            $post->status = 'A';
-            $post->created_date = date('Y-m-d');
-            $post->last_modify_date = date('Y-m-d H:i:s');
-            $post->save();
-
-            return redirect()->back()->with('status', 'Successfull add comment !');
-        }
+        return view('detail')->with('news',$news)->with('menu',$menu)->with('comm',$comm)->with('recent',$recent)->with('simads1',$simads1)->with('bigads1',$bigads1)->with('medads1',$medads1);
     }
 
 }

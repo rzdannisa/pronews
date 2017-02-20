@@ -82,6 +82,27 @@
                               @endforeach
                             </div>
                             <div class="sidebar-title">News Ads</div>
+                            @if(!empty($simads1))
+                            @foreach($simads1 as $sa1)
+                            <div class="news-sidebar">
+                                <div class="news-box">
+                                    <!-- News Sidebar Image -->
+                                    <div class="image">
+                                        <img alt="news Image" src="{{url('for_image/'.$sa1->for_image)}}">
+                                    </div>
+                                    <!-- News Sidebar Detail -->
+                                    <div class="news-detail">
+                                        <div class="news-category">
+                                            <a>{{$sa1->title}} </a>
+                                        </div>
+                                        <div class="news-title" style="text-align: justify;">
+                                            <a>{{$sa1->for_text}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                            @elseif(empty($simads1))
                             <div class="news-sidebar">
                                 <div class="news-box">
                                     <!-- News Sidebar Image -->
@@ -159,49 +180,74 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
+
                         </div>
                     <!-- </div> -->
                 </div>
               </div>
 
               <div class="row">
-                <div class="col l6 col m6 col s12">
-                    <!-- News Blog Box -->
-                    <div class="news-blog z-depth-1">
-                        <!-- News Blog Image -->
-                        <div class="image">
-                            <img class="responsive-img" src="{{url('assets/images/big-ads.png')}}" alt="news Image">
-                        </div>
-                        <!-- News Blog Category -->
-                        <div class="news-category">
-                            <span class="green">Advertisement</span>
-                        </div>
-                        <!-- News Blog Description -->
-                        <div class="news-description">
-                            <div class="news-title"> <a>Party Sweepsto Israel <br> election Victory</a></div>
-                            <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus <br> ac tellus non rutrum. Integer.</p></div>
-                        </div>
+          @if(!empty($bigads1))
+          @foreach($bigads1 as $ba1)
+            <div class="col l6 col m6 col s12">
+                <!-- News Blog Box -->
+                <div class="news-blog z-depth-1">
+                    <!-- News Blog Image -->
+                    <div class="image">
+                        <img class="responsive-img" src="{{url('for_image/'.$ba1->for_image)}}" alt="news Image">
+                    </div>
+                    <!-- News Blog Category -->
+                    <div class="news-category">
+                        <span class="green">Advertisement</span>
+                    </div>
+                    <!-- News Blog Description -->
+                    <div class="news-description">
+                        <div class="news-title" style="font-size: 25px"> {{$ba1->title}}</div>
+                        <div class="news-content"><p>{{$ba1->for_text}}</p></div>
                     </div>
                 </div>
-                <div class="col l6 col m6 col s12">
-                    <!-- News Blog Box -->
-                    <div class="news-blog z-depth-1">
-                        <!-- News Blog Image -->
-                        <div class="image">
-                            <img class="responsive-img" src="{{url('assets/images/big-ads.png')}}" alt="news Image">
-                        </div>
-                        <!-- News Blog Category -->
-                        <div class="news-category">
-                            <span class="green">Advertisement</span>
-                        </div>
-                        <!-- News Blog Description -->
-                        <div class="news-description">
-                            <div class="news-title"> <a>Party Sweepsto Israel <br> election Victory</a></div>
-                            <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus <br> ac tellus non rutrum. Integer.</p></div>
-                        </div>
+            </div>
+            @endforeach
+              @else
+            <div class="col l6 col m6 col s12">
+                <!-- News Blog Box -->
+                <div class="news-blog z-depth-1">
+                    <!-- News Blog Image -->
+                    <div class="image">
+                        <img class="responsive-img" src="{{url('assets/images/big-ads.png')}}" alt="news Image">
+                    </div>
+                    <!-- News Blog Category -->
+                    <div class="news-category">
+                        <span class="green">Advertisement</span>
+                    </div>
+                    <!-- News Blog Description -->
+                    <div class="news-description">
+                        <div class="news-title"> <a>Party Sweepsto Israel <br> election Victory</a></div>
+                        <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus <br> ac tellus non rutrum. Integer.</p></div>
                     </div>
                 </div>
-              </div>
+            </div>
+            <div class="col l6 col m6 col s12">
+                <!-- News Blog Box -->
+                <div class="news-blog z-depth-1">
+                    <!-- News Blog Image -->
+                    <div class="image">
+                        <img class="responsive-img" src="{{url('assets/images/big-ads.png')}}" alt="news Image">
+                    </div>
+                    <!-- News Blog Category -->
+                    <div class="news-category">
+                        <span class="green">Advertisement</span>
+                    </div>
+                    <!-- News Blog Description -->
+                    <div class="news-description">
+                        <div class="news-title"> <a>Party Sweepsto Israel <br> election Victory</a></div>
+                        <div class="news-content"><p>et bibendum leo metus vel magna. In dapibus <br> ac tellus non rutrum. Integer.</p></div>
+                    </div>
+                </div>
+            </div>
+            @endif
+          </div>
 
               <div class="row">
                 <div class="col l12">
@@ -222,7 +268,7 @@
                             <li class="comment-box">
                                 <!-- Comment Image -->
                                 <div class="comment-image">
-                                    <img class="responsive-img" src="{{url('assets/images/client1.jpg')}}" alt="news Image">
+                                    <img class="responsive-img" src="{{url('assets/images/client1.png')}}" alt="news Image">
                                 </div>
                                 <!-- Comment Content -->
                                 <div class="comment-content">

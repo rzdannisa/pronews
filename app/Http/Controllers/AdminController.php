@@ -1051,5 +1051,23 @@ class AdminController extends Controller
         }
     }
 
+    public function save_comment()
+    {
+        session_start();
+        if(!empty(session('type')))
+        {
+            $post = new \App\comment;
+            $post->email = Input::get("email");
+            $post->nama = Input::get('nama');
+            $post->id_news = Input::get("id_news");
+            $post->comment = Input::get('comment');
+            $post->status = 'A';
+            $post->created_date = date('Y-m-d');
+            $post->last_modify_date = date('Y-m-d H:i:s');
+            $post->save();
+            return redirect()->back()->with('status', 'Successfull add comment !');
+        }
+    }
+
 
 }

@@ -119,12 +119,34 @@
           <!-- Ads section _____________________________________________________________________ -->
 
           <div class="row">
+          @if(!empty($bigads1))
+          @foreach($bigads1 as $ba1)
             <div class="col l6 col m6 col s12">
                 <!-- News Blog Box -->
                 <div class="news-blog z-depth-1">
                     <!-- News Blog Image -->
                     <div class="image">
-                        <img class="responsive-img" src="assets/images/big-ads.png" alt="news Image">
+                        <img class="responsive-img" src="{{url('for_image/'.$ba1->for_image)}}" alt="news Image">
+                    </div>
+                    <!-- News Blog Category -->
+                    <div class="news-category">
+                        <span class="green">Advertisement</span>
+                    </div>
+                    <!-- News Blog Description -->
+                    <div class="news-description">
+                        <div class="news-title" style="font-size: 25px"> {{$ba1->title}}</div>
+                        <div class="news-content"><p>{{$ba1->for_text}}</p></div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+              @else
+            <div class="col l6 col m6 col s12">
+                <!-- News Blog Box -->
+                <div class="news-blog z-depth-1">
+                    <!-- News Blog Image -->
+                    <div class="image">
+                        <img class="responsive-img" src="{{url('assets/images/big-ads.png')}}" alt="news Image">
                     </div>
                     <!-- News Blog Category -->
                     <div class="news-category">
@@ -142,7 +164,7 @@
                 <div class="news-blog z-depth-1">
                     <!-- News Blog Image -->
                     <div class="image">
-                        <img class="responsive-img" src="assets/images/big-ads.png" alt="news Image">
+                        <img class="responsive-img" src="{{url('assets/images/big-ads.png')}}" alt="news Image">
                     </div>
                     <!-- News Blog Category -->
                     <div class="news-category">
@@ -155,6 +177,7 @@
                     </div>
                 </div>
             </div>
+            @endif
           </div>
 
           <!-- end Ads section _____________________________________________________________________ -->
@@ -225,15 +248,25 @@
           <!-- End Lifestyle section _____________________________________________________________________ -->
 
           <!-- Ads Big section _____________________________________________________________________ -->
-
+          @if(!empty($bigads2))
+          @foreach($bigads2 as $ba2)
           <section class="section">
             <div class="row">
               <div class="col l12 col m12 col s12">
-                <img alt="news Image" src="assets/images/big-ads.png" class="responsive-img z-depth-1">
+                <img alt="news Image" src="{{url('for_image/'.$ba2->for_image)}}" class="responsive-img z-depth-1">
               </div>
             </div>
           </section>
-
+          @endforeach
+          @else
+          <section class="section">
+            <div class="row">
+              <div class="col l12 col m12 col s12">
+                <img alt="news Image" src="{{url('assets/images/big-ads.png')}}" class="responsive-img z-depth-1">
+              </div>
+            </div>
+          </section>
+          @endif
           <!-- End Ads Big section _____________________________________________________________________ -->
 
           <!-- sport section _______________________________________________________________________ -->

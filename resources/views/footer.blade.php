@@ -27,6 +27,27 @@
                       @endforeach
                   </div>
                   <div class="col l6 col m12 col s12" style="padding-top : 30px;">
+                  @if(!empty($medads1))
+                    @foreach($medads1 as $ma1)
+                    <div class="z-depth-1">
+                      <!-- Horizontal News Box -->
+                      <div class="news horizontal">
+                          <div class="col l4 col m4 col s12 no-padding">
+                              <!-- Horizontal News Image -->
+                              <div class="news-image">
+                                  <img class="responsive-img" src="{{url('for_image/'.$ma1->for_image)}}" alt="news Image">
+                              </div>
+                          </div>
+                          <div class="col l8 col m8 col s12 no-padding">
+                              <!-- Horizontal News Description -->
+                              <div style="padding-top : 50px;" class="news-description">
+                                <div class="news-title"><a> {{$ma1->title}} </a></div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                    @endforeach
+                    @else
                     <div class="z-depth-1">
                       <!-- Horizontal News Box -->
                       <div class="news horizontal">
@@ -59,6 +80,7 @@
                         </div>
                       </div>
                     </div>
+                    @endif
                   </div>
               </div>
               <!-- Footer Logo -->
