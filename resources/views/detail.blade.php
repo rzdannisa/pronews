@@ -273,6 +273,8 @@
                                     </div>
                                     <!-- Comment Detail -->
                                     <div class="comment-detail">
+                                        <p style="font-weight: 300;margin-bottom: 10px;">
+                                        {{$comment->email}}</p>
                                         <p>{{$comment->comment}}</p>
                                     </div>
                                     <!-- Comment Time -->

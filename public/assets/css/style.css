@@ -906,7 +906,7 @@ ul.pgwSlider > li span, .pgwSlider > .ps-list > li span
 .comment-content{ float: left; margin: 5px 0 0 15px; }
 .comment-name {font-size: 14px; text-transform: uppercase; }
 .comment-detail > p { color: #686868; font-weight: 500; margin: 0; }
-.comment-time { font-size: 14px; margin-top: 20px; color: #737373; }
+.comment-time { font-size: 14px; margin-top: 10px; color: #737373; }
 .comment-name .fa { padding: 0 8px; cursor: default; }
 .comment form { clear: both; margin-top: 40px; }
 .comment form .comment-title { margin-bottom: 20px;}
