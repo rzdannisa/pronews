@@ -1054,8 +1054,6 @@ class AdminController extends Controller
     public function save_comment()
     {
         session_start();
-        if(!empty(session('type')))
-        {
             $post = new \App\comment;
             $post->email = Input::get("email");
             $post->nama = Input::get('nama');
@@ -1066,7 +1064,6 @@ class AdminController extends Controller
             $post->last_modify_date = date('Y-m-d H:i:s');
             $post->save();
             return redirect()->back()->with('status', 'Successfull add comment !');
-        }
     }
 
 

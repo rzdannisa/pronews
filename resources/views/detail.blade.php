@@ -82,8 +82,8 @@
                               @endforeach
                             </div>
                             <div class="sidebar-title">News Ads</div>
-                            @if(!empty($simads1))
                             @foreach($simads1 as $sa1)
+                            @if(!empty($sa1->for_image))
                             <div class="news-sidebar">
                                 <div class="news-box">
                                     <!-- News Sidebar Image -->
@@ -101,8 +101,8 @@
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
-                            @elseif(empty($simads1))
+                            @else
+                            
                             <div class="news-sidebar">
                                 <div class="news-box">
                                     <!-- News Sidebar Image -->
@@ -181,7 +181,7 @@
                                 </div>
                             </div>
                             @endif
-
+                            @endforeach
                         </div>
                     <!-- </div> -->
                 </div>
