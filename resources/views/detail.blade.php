@@ -82,8 +82,7 @@
                               @endforeach
                             </div>
                             <div class="sidebar-title">News Ads</div>
-                            @foreach($simads1 as $sa1)
-                            @if(!empty($sa1->for_image))
+                            @forelse($simads1 as $sa1)
                             <div class="news-sidebar">
                                 <div class="news-box">
                                     <!-- News Sidebar Image -->
@@ -101,8 +100,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @else
-                            
+                            @empty
                             <div class="news-sidebar">
                                 <div class="news-box">
                                     <!-- News Sidebar Image -->
@@ -180,16 +178,14 @@
                                     </div>
                                 </div>
                             </div>
-                            @endif
-                            @endforeach
+                            @endforelse
                         </div>
                     <!-- </div> -->
                 </div>
               </div>
 
               <div class="row">
-          @if(!empty($bigads1))
-          @foreach($bigads1 as $ba1)
+          @forelse($bigads1 as $ba1)
             <div class="col l6 col m6 col s12">
                 <!-- News Blog Box -->
                 <div class="news-blog z-depth-1">
@@ -208,8 +204,7 @@
                     </div>
                 </div>
             </div>
-            @endforeach
-              @else
+            @empty
             <div class="col l6 col m6 col s12">
                 <!-- News Blog Box -->
                 <div class="news-blog z-depth-1">
@@ -246,7 +241,7 @@
                     </div>
                 </div>
             </div>
-            @endif
+            @endforelse
           </div>
 
               <div class="row">

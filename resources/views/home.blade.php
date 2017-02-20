@@ -119,8 +119,8 @@
           <!-- Ads section _____________________________________________________________________ -->
 
           <div class="row">
-          @if(!empty($bigads1))
-          @foreach($bigads1 as $ba1)
+          
+          @forelse($bigads1 as $ba1)
             <div class="col l6 col m6 col s12">
                 <!-- News Blog Box -->
                 <div class="news-blog z-depth-1">
@@ -139,8 +139,7 @@
                     </div>
                 </div>
             </div>
-            @endforeach
-              @else
+              @empty
             <div class="col l6 col m6 col s12">
                 <!-- News Blog Box -->
                 <div class="news-blog z-depth-1">
@@ -177,7 +176,7 @@
                     </div>
                 </div>
             </div>
-            @endif
+            @endforelse
           </div>
 
           <!-- end Ads section _____________________________________________________________________ -->
@@ -248,8 +247,8 @@
           <!-- End Lifestyle section _____________________________________________________________________ -->
 
           <!-- Ads Big section _____________________________________________________________________ -->
-          @if(!empty($bigads2))
-          @foreach($bigads2 as $ba2)
+          
+          @forelse($bigads2 as $ba2)
           <section class="section">
             <div class="row">
               <div class="col l12 col m12 col s12">
@@ -257,8 +256,7 @@
               </div>
             </div>
           </section>
-          @endforeach
-          @else
+          @empty
           <section class="section">
             <div class="row">
               <div class="col l12 col m12 col s12">
@@ -266,7 +264,7 @@
               </div>
             </div>
           </section>
-          @endif
+          @endforelse
           <!-- End Ads Big section _____________________________________________________________________ -->
 
           <!-- sport section _______________________________________________________________________ -->

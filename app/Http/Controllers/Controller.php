@@ -34,11 +34,11 @@ class Controller extends BaseController
             $date = strtotime('updated_at');
             $tgl = date("d-m-Y", $date);
 
-            $bigads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',1)->whereDate('created_at', '>', date('Y-m-d'))->inRandomOrder()->limit(2)->get();
+            $bigads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',1)->whereDate('expiry', '>', date('Y-m-d'))->inRandomOrder()->limit(2)->get();
 
-            $bigads2 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',1)->whereDate('created_at', '>', date('Y-m-d'))->inRandomOrder()->limit(1)->get();
+            $bigads2 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',1)->whereDate('expiry', '>', date('Y-m-d'))->inRandomOrder()->limit(1)->get();
 
-            $medads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',2)->whereDate('created_at', '>', date('Y-m-d'))->inRandomOrder()->limit(2)->get();
+            $medads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',2)->where('expiry', '>', date('Y-m-d'))->inRandomOrder()->limit(2)->get();
 
 
             return view('home')->with('viewnews',$viewnews)->with('viewtypenews',$viewtypenews)->with('menu',$menu)->with('culture1',$culture1)->with('culture2',$culture2)->with('ls1',$ls1)->with('ls2',$ls2)->with('sp1',$sp1)->with('sp2',$sp2)->with('sp3',$sp3)->with('sp4',$sp4)->with('bigads1',$bigads1)->with('bigads2',$bigads2)->with('medads1',$medads1);
@@ -51,20 +51,18 @@ class Controller extends BaseController
             $contact = \App\ms_contact::where('id_type', 2)->where('status','A')->orderBy('id','desc')->limit(1)->get();
             $cloc = \App\ms_contact::where('id_type', 3)->where('status','A')->orderBy('id','desc')->limit(1)->get();
             $career = \App\ms_contact::where('id_type', 4)->where('status','A')->orderBy('id','desc')->limit(1)->get();
-            return view('contact')->with('menu',$menu)->with('cabout',$cabout)->with('cloc',$cloc)->with('contact',$contact)->with('career',$career);
+
+            $medads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',2)->where('expiry', '>', date('Y-m-d'))->inRandomOrder()->limit(2)->get();
+
+            return view('contact')->with('menu',$menu)->with('cabout',$cabout)->with('cloc',$cloc)->with('contact',$contact)->with('career',$career)->with('medads1',$medads1);
     }
 
     public function about()
     {
             $menu = \App\master_subtype::with('subtypeee')->get();
             $about = \App\tr_about::where('status', 'A')->get();
-            return view('about')->with('menu',$menu)->with('about',$about);
-    }
-
-    public function detail_news()
-    {
-            
-            return view('detail_news');
+            $medads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',2)->where('expiry', '>', date('Y-m-d'))->inRandomOrder()->limit(2)->get();
+            return view('about')->with('menu',$menu)->with('about',$about)->with('medads1',$medads1);
     }
 
     public function search(Request $request)
@@ -72,8 +70,9 @@ class Controller extends BaseController
         $menu = \App\master_subtype::with('subtypeee')->get();
         $query = $request->get('q');
         $hasil = \App\news::where('status', 'A')->where('is_suspend',0)->where('is_draft',0)->where('news_title', 'LIKE', '%' . $query . '%')->paginate(6);
+        $medads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',2)->where('expiry', '>', date('Y-m-d'))->inRandomOrder()->limit(2)->get();
         
-        return view('result', compact('hasil', 'query'))->with('menu',$menu);
+        return view('result', compact('hasil', 'query'))->with('menu',$menu)->with('medads1',$medads1);
     }
 
     public function category(Request $request,$typenews,$subname)
@@ -89,7 +88,8 @@ class Controller extends BaseController
         $request->session()->put('typenews', $typenews);
         $request->session()->put('subname', $subname);
         $cat = \App\news::where('type_news_id',$typee)->where('type_sub_news_id',$sub)->where('status','A')->paginate(6);
-        return view('list')->with('cat',$cat)->with('menu',$menu);
+        $medads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',2)->where('expiry', '>', date('Y-m-d'))->inRandomOrder()->limit(2)->get();
+        return view('list')->with('cat',$cat)->with('menu',$menu)->with('medads1',$medads1);
     }
 
     public function detail(Request $request,$slug)
@@ -106,11 +106,12 @@ class Controller extends BaseController
 
         $jml = \App\comment::where('status','A')->where('id_news',$idn)->count();
 
-        $bigads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',1)->whereDate('created_at', '>', date('Y-m-d'))->inRandomOrder()->limit(2)->get();
+        $bigads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',1)->where('expiry', '>', date('Y-m-d'))->inRandomOrder()->limit(2)->get();
         
-        $medads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',2)->whereDate('created_at', '>', date('Y-m-d'))->inRandomOrder()->limit(2)->get();
+        $medads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',2)->where('expiry', '>', date('Y-m-d'))->inRandomOrder()->limit(2)->get();
 
-        $simads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',3)->whereDate('created_at', '>', date('Y-m-d'))->inRandomOrder()->limit(5)->get();
+        $simads1 = \App\tr_adv::where('status', 'A')->where('is_suspend',0)->where('is_hold',0)->where('lt_id_adv',3)->where('expiry', '>', date('Y-m-d'))->inRandomOrder()->limit(5)->get();
+        
 
         $request->session()->put('jml', $jml);
         return view('detail')->with('news',$news)->with('menu',$menu)->with('comm',$comm)->with('recent',$recent)->with('simads1',$simads1)->with('bigads1',$bigads1)->with('medads1',$medads1);

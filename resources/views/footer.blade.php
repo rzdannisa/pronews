@@ -27,8 +27,8 @@
                       @endforeach
                   </div>
                   <div class="col l6 col m12 col s12" style="padding-top : 30px;">
-                  @if(!empty($medads1))
-                    @foreach($medads1 as $ma1)
+                 
+                    @forelse($medads1 as $ma1)
                     <div class="z-depth-1">
                       <!-- Horizontal News Box -->
                       <div class="news horizontal">
@@ -46,8 +46,8 @@
                           </div>
                       </div>
                     </div>
-                    @endforeach
-                    @else
+                    
+                    @empty
                     <div class="z-depth-1">
                       <!-- Horizontal News Box -->
                       <div class="news horizontal">
@@ -80,7 +80,7 @@
                         </div>
                       </div>
                     </div>
-                    @endif
+                    @endforelse
                   </div>
               </div>
               <!-- Footer Logo -->
