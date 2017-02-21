@@ -98,7 +98,7 @@
             <div style="margin-bottom: 10px;" class="row">
             <label for="exampleInputPassword1" class="col-sm-2 control-label">Title</label>
             <div class="col-xs-10">
-                <input class="form-control not-res" type="text" name="title" placeholder="Title" id="address" />
+                <input class="form-control not-res" maxlength="200" type="text" name="title" placeholder="Title" id="address" />
               </div>
             </div>
 

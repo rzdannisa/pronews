@@ -87,7 +87,7 @@
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Title</label>
                       <div class="col-sm-10">
-                        <input type="text" name="news_title" class="form-control" id="exampleInputEmail1" value="{{$posts->news_title}}" placeholder="Title" required/>
+                        <input type="text" name="news_title" maxlength="200" class="form-control" id="exampleInputEmail1" value="{{$posts->news_title}}" placeholder="Title" required/>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="id" value="{{ $posts->id }}">
                       </div>

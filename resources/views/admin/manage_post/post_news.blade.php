@@ -88,7 +88,7 @@
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="col-sm-2 control-label">Title</label>
                       <div class="col-sm-10">
-                        <input style="margin-bottom: 10px;" type="text" name="news_title" class="form-control" id="exampleInputEmail1" placeholder="Title" required/>
+                        <input style="margin-bottom: 10px;" type="text" name="news_title" maxlength="200" class="form-control" id="exampleInputEmail1" placeholder="Title" required/>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       </div>
                     </div>
