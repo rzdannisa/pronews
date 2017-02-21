@@ -75,7 +75,16 @@
                                         ?> </a>
                                         </div>
                                         <div class="news-title">
-                                            <a href="{{url('detail/'.$few->slug)}}"> {{$few->news_title}}</a>
+                                            <a href="{{url('detail/'.$few->slug)}}">
+                                        <?php
+                                                $string = strip_tags($few->news_title);
+                                                if (strlen($string) > 35) {
+                                                    $stringCut = substr($string, 0, 35);
+                                                    $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
+                                                }
+                                                    echo $string;
+                                          ?>
+                                          </a>
                                         </div>
                                     </div>
                                 </div>

@@ -27,9 +27,9 @@
                                <?php
                                     $string = strip_tags($news->news_title);
 
-                                    if (strlen($string) > 25) {
+                                    if (strlen($string) > 50) {
 
-                                        $stringCut = substr($string, 0, 25);
+                                        $stringCut = substr($string, 0, 50);
                                         $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
                                     }
                                         echo $string;
