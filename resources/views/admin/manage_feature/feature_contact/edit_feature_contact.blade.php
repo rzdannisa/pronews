@@ -162,6 +162,7 @@
                 <tbody>
                   <?php $i=1; ?>
                   @foreach($fcontact as $contact)
+                  @foreach($contact->fitur as $idfitur)
                     <tr>
                       <td>{{$i++}}</td>
                       <td>
@@ -170,7 +171,7 @@
                           echo date("d-m-Y", $date);
                         ?>
                       </td>
-                      <td>{{$contact->id_type}}</td>
+                      <td>{{$idfitur->name}}</td>
                       <td>{{$contact->title}}</td>
                       <td>
                         <?php
@@ -201,6 +202,7 @@
                         </form>
                       </td>
                     </tr>
+                  @endforeach
                   @endforeach
                  </tbody>
                  <tfoot>

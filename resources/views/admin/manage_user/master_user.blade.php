@@ -112,6 +112,7 @@
                       <tbody>
                         <?php $i=1; ?>
                         @foreach($alluser as $users)
+                        @foreach($users->typeuser as $type)
                           <tr>
                             <td>{{$i++}}</td>
                             <td>
@@ -120,7 +121,7 @@
                                 echo date("d-m-Y", $date);
                               ?>
                             </td>
-                            <td>{{ $users->user_type_id}}</td>
+                            <td>{{ $type->name}}</td>
                             <td>{{ $users->name}}</td>
                             <td>{{ $users->email}}</td>
                             <td>
@@ -130,6 +131,7 @@
                               ?>
                             </td>
                           </tr>
+                        @endforeach
                         @endforeach
                       </tbody>
                       <tfoot>

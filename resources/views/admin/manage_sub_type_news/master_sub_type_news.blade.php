@@ -83,6 +83,7 @@
                     <tbody>
                       <?php $i=1; ?>
                       @foreach($sub_type_newss as $subtype)
+                      @foreach($subtype->newstype as $type)
                         <tr>
                           <td>{{$i++}}</td>
                           <td>
@@ -91,7 +92,7 @@
                               echo date("d-m-Y", $date);
                             ?>
                           </td>
-                          <td>{{$subtype->type_news_id}}</td>
+                          <td>{{$type->name}}</td>
                           <td>{{$subtype->name}}</td>
                           <td>
                             <?php
@@ -110,6 +111,7 @@
                             </form>
                           </td>
                         </tr>
+                      @endforeach
                       @endforeach
                     </tbody>
                     <tfoot>

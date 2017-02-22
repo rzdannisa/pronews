@@ -26,7 +26,7 @@ class AdminController extends Controller
     	if(!empty(session('type')))
     	{
             $auth = \App\ms_user::where('id',session('iduser'))->get();
-    		$alluser = \App\ms_user::where('status', 'A')->get();
+    		$alluser = \App\ms_user::where('status', 'A')->with('typeuser')->get();
     		$user_type = \App\user_type::where('status', 'A')->get();
     		return view('admin.manage_user.master_user')->with('alluser', $alluser)->with('user_type', $user_type)->with('auth',$auth);
     	}else{
@@ -74,7 +74,7 @@ class AdminController extends Controller
     	if(!empty(session('type')))
     	{
             $auth = \App\ms_user::where('id',session('iduser'))->get();
-    		$alluser = \App\ms_user::where('status', 'A')->where('user_type_id', '2')->get();
+    		$alluser = \App\ms_user::where('status', 'A')->where('user_type_id', '2')->with('typeuser')->get();
     		return view('admin.manage_user.page_edit_user')->with('alluser', $alluser)->with('auth',$auth);
     	}else{
     		return redirect('login');
@@ -212,7 +212,7 @@ class AdminController extends Controller
             $menu = \App\master_subtype::with('subtypeee')->get();
             $auth = \App\ms_user::where('id',session('iduser'))->get();
             $type_newss  = \App\type_news::where('status', 'A')->get();
-            $sub_type_newss = \App\sub_type::where('status', 'A')->get();
+            $sub_type_newss = \App\sub_type::where('status', 'A')->with('newstype')->get();
             return view('admin.manage_sub_type_news.master_sub_type_news')->with('sub_type_newss', $sub_type_newss)->with('type_newss',$type_newss)->with('auth',$auth)->with('menu',$menu);
         }else{
             return redirect('login');
@@ -245,7 +245,7 @@ class AdminController extends Controller
             $auth = \App\ms_user::where('id',session('iduser'))->get();
             $type_newss  = \App\type_news::where('status', 'A')->get();
             $sub_typee_news = \App\sub_type::find($id);
-            $sub_type_newss = \App\sub_type::where('status', 'A')->get();
+            $sub_type_newss = \App\sub_type::where('status', 'A')->with('newstype')->get();
             return view('admin.manage_sub_type_news.edit_sub_type_news')->with('sub_typee_news', $sub_typee_news)->with('sub_type_newss', $sub_type_newss)->with('type_newss',$type_newss)->with('auth',$auth);
         }else{
             return redirect('login');
@@ -656,7 +656,7 @@ class AdminController extends Controller
         {
             $auth = \App\ms_user::where('id',session('iduser'))->get(); 
             $fitur = \App\lt_contact_fitur::where('status', 'A')->get();
-            $fcontact  = \App\ms_contact::where('status', 'A')->get();
+            $fcontact  = \App\ms_contact::where('status', 'A')->with('fitur')->get();
             $aa  = \App\ms_contact::where('status', 'A')->count();
             return view('admin.manage_feature.feature_contact.feature_contact')->with('fcontact', $fcontact)->with('auth',$auth)->with('aa',$aa)->with('fitur',$fitur);
         }else{
@@ -697,7 +697,7 @@ class AdminController extends Controller
         {
             $auth = \App\ms_user::where('id',session('iduser'))->get();
             $fitur = \App\lt_contact_fitur::where('status', 'A')->get();
-            $fcontact  = \App\ms_contact::where('status', 'A')->get();
+            $fcontact  = \App\ms_contact::where('status', 'A')->with('fitur')->get();
             $edit = \App\ms_contact::find($id);
             return view('admin.manage_feature.feature_contact.edit_feature_contact')->with('fcontact', $fcontact)->with('auth',$auth)->with('edit',$edit)->with('fitur',$fitur);
         }else{
